@@ -98,7 +98,7 @@ public class ClassDAOImpl implements ClassDAO{
     List <Class> listOfClasses = null;
     try (Session session = HibernateUtils.getSessionFactory().openSession()) {
         transaction = session.beginTransaction();
-        listOfClasses = session.createQuery("from User").getResultList();
+        listOfClasses = session.createQuery("from Class").getResultList();
         transaction.commit();
     } catch (Exception e) {
         if (transaction != null) {
