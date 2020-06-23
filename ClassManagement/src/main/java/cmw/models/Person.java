@@ -17,7 +17,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "PERSON")
 public class Person {
-  @Id
+  @Id 
   private String account;
   @Column
   private String name;
@@ -38,10 +38,10 @@ public class Person {
   @Column
   private boolean status;
   @ManyToOne
-  @JoinColumn(name = "positionId", nullable = false) // check when run
+  @JoinColumn(name = "positionId", insertable =false , updatable=false) // check when run
   private Position position;
   @ManyToOne
-  @JoinColumn(name = "classCode", nullable = false) // check when run
+  @JoinColumn(name = "classCode", insertable =false , updatable=false) // check when run
   private Class clazz;
   @OneToMany(mappedBy = "person_account")
   private Set<Point> points;
@@ -86,6 +86,8 @@ public class Person {
   public Person() {
     super();
   }
+
+ 
 
   @Override
   public String toString() {
