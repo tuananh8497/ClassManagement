@@ -138,13 +138,13 @@ public class Class {
     this.class_mentor = class_mentor;
   }
 
-  @Override
-  public String toString() {
-    return "Class [classCode=" + classCode + ", adminAccount=" + adminAccount + ", course=" + course
-        + ", expectedStartDate=" + expectedStartDate + ", expectedEndDate=" + expectedEndDate
-        + ", actualStartDate=" + actualStartDate + ", actualEndDate=" + actualEndDate
-        + ", status=" + status + ", class_mentor=" + class_mentor + "]";
-  }
+@Override
+public String toString() {
+	return "Class [classCode=" + classCode + ", adminAccount=" + adminAccount + ", actualStartDate=" + actualStartDate
+			+ ", actualEndDate=" + actualEndDate + ", status=" + status + "]";
+}
+
+
 
   
 }
