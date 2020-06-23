@@ -2,6 +2,8 @@ package cmw.dao;
 
 import java.util.List;
 
+import cmw.models.Class;
+
 public interface ClassDAO {
   public void saveClass(Class classes);
   public void updateClass(Class classes);

@@ -2,6 +2,8 @@ package cmw.dao;
 
 import java.util.List;
 import org.hibernate.*;
+
+import cmw.models.Class;
 import cmw.utils.HibernateUtils;
 
 public class ClassDAOImpl implements ClassDAO{
@@ -95,7 +97,7 @@ public class ClassDAOImpl implements ClassDAO{
   @Override
   public List<Class> getAllClass() {
     Transaction transaction = null;
-    List <Class> listOfClasses = null;
+    List<Class> listOfClasses = null;
     try (Session session = HibernateUtils.getSessionFactory().openSession()) {
         transaction = session.beginTransaction();
         listOfClasses = session.createQuery("from Class").getResultList();
