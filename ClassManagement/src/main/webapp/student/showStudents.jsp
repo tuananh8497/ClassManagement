@@ -64,27 +64,10 @@
                             <td>Otto</td>
                             <td>@mdo</td>
                             <td>
-                                <a href="/student/profile.html"><img src="/icon/alien.svg" width="40px" height="40px"></a>
+                                <a href="<%= request.getContextPath()%>/profileStudent"><img src="/ClassManagement/icon/alien.svg" width="40px" height="40px"></a>
                             </td>
                             </tr>
-                            <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                            <td>
-                                <a href="/student/profile.html"><img src="/icon/alien.svg" width="40px" height="40px"></a>
-                            </td>
-                            </tr>
-                            <tr>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                            <td>
-                                <a href="/student/profile.html"><img src="/icon/alien.svg" width="40px" height="40px"></a>
-                            </td>
-                            </tr>
+                            
                         </tbody>
                         </table>
                     </div>
