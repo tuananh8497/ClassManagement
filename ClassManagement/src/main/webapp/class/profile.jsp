@@ -108,7 +108,7 @@
                                                 <td>HN_CPL_Java03</td>
                                                 <td>8.1</td>
                                                 <td>
-                                                  <a href="<%= request.getContextPath()%>/profileStudent"><img src="/icon/alien.svg" width="40px" height="40px"></a>
+                                                  <a href="<%= request.getContextPath()%>/profileStudent"><img src="/ClassManagement/icon/alien.svg" width="40px" height="40px"></a>
                                                 </td>
                                             </tr>
                                             </tbody>
