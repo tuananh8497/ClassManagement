@@ -28,26 +28,26 @@ public class Management {
     SessionFactory sessionFactory = HibernateUtils.getSessionFactory();
     Session session = sessionFactory.openSession();
     session.beginTransaction();
-    
+
 //    List <Position> listPos = pd.getAllPosition();
 //    for(Position a: listPos) {
 //      System.out.println(a.);
 //    }
-//    List <Class> list = classDAO.getAllClass();
-//    for(Class classes: list) {
-//      System.out.println(classes.toString());
-//    }
+    List <Class> list = classDAO.getAllClass();
+    for(Class classes: list) {
+      System.out.println(classes.toString());
+    }
 //    
 //    List <Person> listPerson = personDao.getAllPerson();
 //    for(Person a: listPerson) {
 //      System.out.println(a);
 //    }
-    
+
 //    List <Subject> listSubject = sd.getAllSubject();
 //    for(Subject a: listSubject) {
 //      System.out.println(a);
 //    }
-    
+
     session.getTransaction().commit();
     HibernateUtils.shutdown();
 
