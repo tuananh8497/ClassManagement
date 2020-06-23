@@ -9,4 +9,5 @@ public interface MentorDAO {
   public void deleteMentor(int id);
   public Mentor getMentor(int id);
   public List<Mentor> getAllMentor();
+Mentor getMentor(String account);
 }

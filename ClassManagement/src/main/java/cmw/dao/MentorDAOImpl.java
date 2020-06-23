@@ -73,13 +73,13 @@ public class MentorDAOImpl implements MentorDAO{
    * @return
    */
   @Override
-  public Mentor getMentor(int id) {
+  public Mentor getMentor(String accountMentor) {
 
     Transaction transaction = null;
     Mentor mentor= null;
     try (Session session = HibernateUtils.getSessionFactory().openSession()) {
         transaction = session.beginTransaction();
-        mentor = session.get(Mentor.class, id);
+        mentor = session.get(Mentor.class, accountMentor);
         transaction.commit();
     } catch (Exception e) {
         if (transaction != null) {
@@ -106,4 +106,10 @@ public class MentorDAOImpl implements MentorDAO{
     }
     return listOfMentor;
   }
+
+@Override
+public Mentor getMentor(int id) {
+	// TODO Auto-generated method stub
+	return null;
+}
 }
