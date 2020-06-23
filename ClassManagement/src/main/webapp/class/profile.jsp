@@ -1,21 +1,24 @@
- <!DOCTYPE html>
+<%@ page language="java"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Bootstrap CSS CDN -->
+	<link rel="stylesheet"
+		href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+	<!-- Our Custom CSS -->
+	<link rel="stylesheet" href="/ClassManagement/css/style.css">
+	<!-- Font Awesome JS -->
+	<script defer
+		src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"></script>
+	<script defer
+		src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"></script>
 
     <title>Class management project</title>
 
-    <!-- Bootstrap CSS CDN -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" >   
-    <!-- Our Custom CSS -->
-    <link rel="stylesheet" href="/ClassManagement/css/style.css">
-
-    <!-- Font Awesome JS -->
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" ></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" ></script>
 
     <!-- Simple graph use canvas -->
     <script>
@@ -57,75 +60,9 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-primary fixed-top shadow-sm ">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="/home.html">Navbar</a>
-            <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fas fa-align-justify"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">...</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Log out </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <div class="wrapper">
-        <!-- Sidebar  -->
-        <nav id="sidebar" class="border-right shadow ">
-            <ul class="list-unstyled components bg-light ">
-                <li class="border-bottom">
-                    <a href="/home.html">Home</a>
-                </li>
-                <li class="active">
-                    <a href="#class" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle border-bottom">Classes</a>
-                    <ul class="collapse list-unstyled border-bottom" id="class">
-                        <li>
-                            <a href="/class/showClasses.html">Show classes</a>
-                        </li>
-                        <li>
-                            <a href="/class/addClass.html">Add class</a>
-                        </li>
-                        <li>
-                            <a href="/class/editClass.html">Edit class</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#student" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle border-bottom">Students</a>
-                    <ul class="collapse list-unstyled border-bottom" id="student">
-                        <li>
-                            <a href="/student/showStudents.html">Show students</a>
-                        </li>
-                        <li>
-                            <a href="/student/addStudent.html">Add student</a>
-                        </li>
-                        <li>
-                            <a href="/student/editStudent.html">Edit student</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#mentor" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle border-bottom">Mentors</a>
-                    <ul class="collapse list-unstyled border-bottom" id="mentor">
-                        <li>
-                            <a href="/mentor/showMentor.html">Show mentors</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="/profile.html" class="border-bottom">Own profile</a>
-                </li>
-                <li>
-                    <a href="/contact.html">Contact</a>
-                </li>
-            </ul>
-        </nav>
+     <jsp:include page="../header.jsp"></jsp:include>
+    <div class="wrapper">     
+		<jsp:include page="../Sidebar.jsp"></jsp:include>
 
         <!-- Page Content  -->
         <div id="content">
@@ -147,7 +84,7 @@
                                 <div id="chartContainer" style="height: 370px; width: 100%;" class="graph shadow-sm"></div>
                                     <div>
                                         <h3 class="text-center">List of students</h3>
-                                        <button type="button" class="btn btn-info"><a href="/student/addStudent.html">Add student</a></button>
+                                        <button type="button" class="btn btn-info"><a href="<%= request.getContextPath()%>/addStudent">Add Student</a></button>
                                     </div>
                                     <div class="tbl">
                                         <table class="table table-striped shadow-sm text-center">
@@ -171,29 +108,7 @@
                                                 <td>HN_CPL_Java03</td>
                                                 <td>8.1</td>
                                                 <td>
-                                                    <a href="/student/profile.html"><img src="/icon/alien.svg" width="40px" height="40px"></a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">2</th>
-                                                <td>A2</td>
-                                                <td>a2</td>
-                                                <td>02.02.2020</td>
-                                                <td>HN_CPL_Java03</td>
-                                                <td>8.2</td>
-                                                <td>
-                                                    <a href="/student/profile.html"><img src="/icon/alien.svg" width="40px" height="40px"></a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">3</th>
-                                                <td>A3</td>
-                                                <td>a3</td>
-                                                <td>03.03.2020</td>
-                                                <td>HN_CPL_Java03</td>
-                                                <td>8.3</td>
-                                                <td>
-                                                    <a href="/student/profile.html"><img src="/icon/alien.svg" width="40px" height="40px"></a>
+                                                  <a href="<%= request.getContextPath()%>/profileStudent"><img src="/ClassManagement/icon/alien.svg" width="40px" height="40px"></a>
                                                 </td>
                                             </tr>
                                             </tbody>

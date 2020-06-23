@@ -17,7 +17,7 @@ import cmw.utils.HibernateUtils;
 public class Management {
 
   public static void main(String[] args) {
-    // Position pos = new Position("Supervisor"); // added Manager into DB
+    // Position pos = new Position("Supervisor"); // testing1234
     PositionDAO pd = new PositionDAOImpl();
     SubjectDAO sd = new SubjectDAOImpl();
     PersonDAO personDao = new PersonDAOImpl();

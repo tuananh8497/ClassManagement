@@ -10,14 +10,14 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class showclass
  */
-@WebServlet("/showclass")
-public class showclass extends HttpServlet {
+@WebServlet("/showClass")
+public class showClass extends HttpServlet {
     private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public showclass() {
+    public showClass() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -26,8 +26,7 @@ public class showclass extends HttpServlet {
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // TODO Auto-generated method stub
-        response.getWriter().append("Served at: ").append(request.getContextPath());
+    	response.sendRedirect("/ClassManagement/class/showClasses.jsp");
     }
 
     /**
