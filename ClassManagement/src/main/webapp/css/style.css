@@ -49,9 +49,10 @@ a:focus {
 }
 
 #sidebar {
-    min-width: 250px;
-    max-width: 250px;
-    /* height: 150vh; */
+    position: fixed;
+    min-width: 18%;
+    max-width: 18%;
+    height: 100%;
     color: #747474;
     /* color:#6B8E23; */
 }

@@ -20,8 +20,9 @@
 	<title>menu</title>
 </head>
 <body>
-        <!-- Sidebar  -->
-        <nav id="sidebar" class="border-right shadow ">
+    <!-- Sidebar  -->
+    <div class="col-2">
+        <nav  id="sidebar" class="border-right shadow ">
             <ul class="list-unstyled components bg-light ">
                 <li class="active border-bottom">
                     <a href="<%= request.getContextPath()%>/home">Home</a>
@@ -70,5 +71,6 @@
                 </li>
             </ul>
         </nav>
+    </div>
 </body>
 </html>

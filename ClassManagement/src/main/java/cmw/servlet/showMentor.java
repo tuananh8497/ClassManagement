@@ -1,11 +1,20 @@
 package cmw.servlet;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import cmw.dao.ClassDAO;
+import cmw.dao.ClassDAOImpl;
+import cmw.dao.MentorDAO;
+import cmw.dao.MentorDAOImpl;
+import cmw.models.Class;
+import cmw.models.Mentor;
 
 /**
  * Servlet implementation class showMentor
@@ -26,14 +35,20 @@ public class showMentor extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.sendRedirect("/mentor/showMentor.jsp");
+		MentorDAO mentorDao = new MentorDAOImpl();
+		try {
+
+			List<Mentor> listMentor = mentorDao.getAllMentor();
+			System.out.println(listMentor);
+			request.setAttribute("listMentor", listMentor);
+			request.getRequestDispatcher("/mentor/showMentor.jsp").forward(request, response);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
 		doGet(request, response);
 	}
 

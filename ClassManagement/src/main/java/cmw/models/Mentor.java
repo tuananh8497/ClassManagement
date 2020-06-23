@@ -71,13 +71,9 @@ public class Mentor {
     return "Mentor [mentorAccount=" + mentorAccount + ", name=" + name + ", bankAccount="
         + bankAccount + ", email=" + email + ", phone=" + phone + ", citizenId=" + citizenId
         + ", address=" + address + ", birthDate=" + birthDate + ", education=" + education
-        + ", status=" + status + ", cm=" + cm + "]";
+        + ", status=" + status + "]";
   }
 
-
-  /**
-   * 
-   */
   public Mentor() {
     super();
   }
