@@ -12,7 +12,7 @@ import cmw.utils.HibernateUtils;
 public class Management {
 
   public static void main(String[] args) {
-    // Position pos = new Position("Supervisor"); // testing
+    // Position pos = new Position("Supervisor"); // testing123
     PositionDAO pd = new PositionDAOImpl();
     SessionFactory sessionFactory = HibernateUtils.getSessionFactory();
     Session session = sessionFactory.openSession();
