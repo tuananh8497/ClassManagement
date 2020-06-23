@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class profile
+ * Servlet implementation class profileStudent
  */
-@WebServlet("/profile")
-public class profile extends HttpServlet {
+@WebServlet("/profileStudent")
+public class profileStudent extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public profile() {
+    public profileStudent() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -26,7 +26,7 @@ public class profile extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.sendRedirect("profile.jsp");
+		response.sendRedirect("/ClassManagement/student/profile.jsp");
 	}
 
 	/**
