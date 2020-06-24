@@ -42,7 +42,7 @@
 					culpa qui officia deserunt mollit anim id est laborum.</p>
 			</div>
 			<!-- Form input class information -->
-			<form class="form shadow-sm">
+			<form class="form shadow-sm" action="<%=request.getContextPath()%>/editClass" method="post">
 				<div class="form-group row">
 					<label for="class-code" class="col-sm-2 col-form-label">Class
 						code</label>
@@ -76,14 +76,6 @@
 							<div class="col-sm-10">
 								<input type="text" class="form-control shadow-sm"
 									id="admin-account" value="${class1.adminAccount }">
-							</div>
-						</div>
-						<div class="form-group row">
-							<label for="course-id" class="col-sm-2 col-form-label">Course
-								Id</label>
-							<div class="col-sm-10">
-								<input type="text" class="form-control shadow-sm" id="course"
-									value="${class1.course }">
 							</div>
 						</div>
 						<div class="form-group row">
@@ -122,13 +114,9 @@
 				</div>
 				<!-------------------------------- Testing-------------------------------------- -->
 
-
-
 				<div class="form-group row">
 					<div class="col-sm-4">
-						<button type="submit" class="btn btn-info shadow-sm">
-							<a href="#">Save edit class</a>
-						</button>
+						<button type="submit" class="btn btn-info shadow-sm">Save edit class</button>
 					</div>
 				</div>
 			</form>
