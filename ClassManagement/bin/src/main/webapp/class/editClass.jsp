@@ -45,63 +45,34 @@
 			<form class="form shadow-sm">
 				<div class="form-group row">
 					<label for="class-account" class="col-sm-2 col-form-label">Class
-						Account</label>
+						Code</label>
 					<div class="col-sm-10">
 						<input type="text" class="form-control shadow-sm"
 							id="class-account"
 							placeholder="Input account of class you want to edit . . .">
 					</div>
 				</div>
-				<div>
+				<div class="form-group row">
 					<label for="class-account" class="col-sm-2 col-form-label">Class
 						Code</label>
 					<div class="col-sm-10">
-						<c:forEach items="${listClass }" var="class1">
-							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-								<a class="dropdown-item" href="${class1.classCode }">Action</a>
-								<h4 class="my-0 font-weight-normal">${class1.classCode }</h4>
-							</div>
-						</c:forEach>
-					</div>
-				</div>
-				<div class="row text-center">
-					<c:forEach items="${listClass }" var="class1">
-						<div class="row text-center">
-							<div class="col-md-4">
-								<div class="card mb-4 shadow-sm">
-									<div class="card-header">
-										<h4 class="my-0 font-weight-normal">${class1.classCode }</h4>
+						<input type="text" class="form-control shadow-sm" id="class-code">
+						<div class="dropdown">
+							<button class="btn btn-secondary dropdown-toggle" type="button"
+								id="dropdownMenuButton" data-toggle="dropdown"
+								aria-haspopup="true" aria-expanded="false">Class code</button>
+							<c:forEach items="${listClass }" var="class1">
+								<div class="col-sm-10">
+
+									<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+										<a class="dropdown-item" href="${class1.classCode }"></a>
 									</div>
-									<div class="card-body">
-										<ul class="list-unstyled mt-3 mb-4">
-											<li>${class1.adminAccount }</li>
-											<li>${class1.actualStartDate }</li>
-											<li>${class1.actualEndDate }</li>
-											<li>${class1.status }</li>
-										</ul>
-										<button type="button" class="btn btn-lg btn-block btn-info">
-											<a href="<%=request.getContextPath()%>/profileClass">Class
-												profile</a>
-										</button>
-									</div>
+
 								</div>
-							</div>
+							</c:forEach>
 						</div>
-					</c:forEach>
-				</div>
-				<!------------------------------------------------->
-				<div class="dropdown">
-					<button class="btn btn-secondary dropdown-toggle" type="button"
-						id="dropdownMenuButton" data-toggle="dropdown"
-						aria-haspopup="true" aria-expanded="false">Dropdown
-						button</button>
-					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-						<a class="dropdown-item" href="#">Action</a> <a
-							class="dropdown-item" href="#">Another action</a> <a
-							class="dropdown-item" href="#">Something else here</a>
 					</div>
 				</div>
-				<!-------------------------------------------------->
 				<div class="form-group row">
 					<label for="class-name" class="col-sm-2 col-form-label">Class
 						Name</label>
@@ -113,7 +84,7 @@
 				<div class="form-group row">
 					<div class="col-sm-1">
 						<button type="submit" class="btn btn-info shadow-sm">
-							<a href="#">Save edit class</a>
+							<a href="#">Edit class name</a>
 						</button>
 					</div>
 				</div>

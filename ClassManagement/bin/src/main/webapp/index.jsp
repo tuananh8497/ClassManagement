@@ -1,0 +1,59 @@
+<%@ page language="java"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Bootstrap CSS CDN -->
+	<link rel="stylesheet"
+		href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+	<!-- Our Custom CSS -->
+	<link rel="stylesheet" href="/ClassManagement/css/style.css">
+	<!-- Font Awesome JS -->
+	<script defer
+		src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"></script>
+	<script defer
+		src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"></script>
+		
+    <title>Class management project</title>
+
+
+</head>
+
+<body class="loginForm ">
+    <div class="container " style="padding: 4em 0em;">
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-4"></div>
+        <!-- <div class="form1 col-md-4" style="background-color: #0087e0;"> -->
+        <!-- <h3> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam, perspiciatis.</h3> -->
+        <!-- </div> -->
+        <div class="col-md-2"></div>
+        <div class="col-md-4 text-center">
+          <form class="form-signin form1 shadow rounded-lg">
+              <img src="icon/user.svg" class="rounded" width="75px" height="75px">
+              
+              <h1 class="h3 mb-3 font-weight-normal" style="color: #0087e0;">Sign in</h1>
+              <label for="inputEmail" class="sr-only">Email address</label>
+              <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+              <label for="inputPassword" class="sr-only">Password</label>
+              <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+              <div class="checkbox my-2">
+                <label>
+                  <input type="checkbox" value="remember-me"> Remember me
+                </label>
+              </div>
+              <button class="btn btn-lg btn-block btn-info" type="submit"><a href="home.html">Sign in</a></button> 
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>
