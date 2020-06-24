@@ -45,9 +45,9 @@
                         </h4>
                         <div class="mb-1 text-muted">${mentor.mentorAccount }</div>
                         <p class="card-text mb-auto">Contact: + ${mentor.email }</p>
-                        <a href="<%= request.getContextPath()%>/profile.html" class="btn btn-info mt-1">Go to profile</a>
+                        <a href="<%= request.getContextPath()%>/profile-mentor?account=<c:out value='${mentor.mentorAccount }' />" class="btn btn-info mt-1">Go to profile</a>
                       </div>
-                      <img src="<%= request.getContextPath()%>/user.svg" width="100px" class="mr-3">
+                      <img src="/ClassManagement/icon/user.svg" width="100px" class="mr-3">
                     </div>
                 </div>
                 </c:forEach>  
