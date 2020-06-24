@@ -44,74 +44,59 @@
 			<!-- Form input class information -->
 			<form class="form shadow-sm">
 				<div class="form-group row">
-					<label for="class-account" class="col-sm-2 col-form-label">Class
-						Account</label>
+					<label for="class-code" class="col-sm-2 col-form-label">Class
+						code</label>
 					<div class="col-sm-10">
 						<input type="text" class="form-control shadow-sm"
-							id="class-account"
-							placeholder="Input account of class you want to edit . . .">
-					</div>
-				</div>
-				<div>
-					<label for="class-account" class="col-sm-2 col-form-label">Class
-						Code</label>
-					<div class="col-sm-10">
-						<c:forEach items="${listClass }" var="class1">
-							<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-								<a class="dropdown-item" href="${class1.classCode }">Action</a>
-								<h4 class="my-0 font-weight-normal">${class1.classCode }</h4>
-							</div>
-						</c:forEach>
-					</div>
-				</div>
-				<div class="row text-center">
-					<c:forEach items="${listClass }" var="class1">
-						<div class="row text-center">
-							<div class="col-md-4">
-								<div class="card mb-4 shadow-sm">
-									<div class="card-header">
-										<h4 class="my-0 font-weight-normal">${class1.classCode }</h4>
-									</div>
-									<div class="card-body">
-										<ul class="list-unstyled mt-3 mb-4">
-											<li>${class1.adminAccount }</li>
-											<li>${class1.actualStartDate }</li>
-											<li>${class1.actualEndDate }</li>
-											<li>${class1.status }</li>
-										</ul>
-										<button type="button" class="btn btn-lg btn-block btn-info">
-											<a href="<%=request.getContextPath()%>/profileClass">Class
-												profile</a>
-										</button>
-									</div>
-								</div>
-							</div>
-						</div>
-					</c:forEach>
-				</div>
-				<!------------------------------------------------->
-				<div class="dropdown">
-					<button class="btn btn-secondary dropdown-toggle" type="button"
-						id="dropdownMenuButton" data-toggle="dropdown"
-						aria-haspopup="true" aria-expanded="false">Dropdown
-						button</button>
-					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-						<a class="dropdown-item" href="#">Action</a> <a
-							class="dropdown-item" href="#">Another action</a> <a
-							class="dropdown-item" href="#">Something else here</a>
+							id="class-code"
+							placeholder="Input class code you want to edit . . .">
 					</div>
 				</div>
 				<!-------------------------------------------------->
 				<div class="form-group row">
-					<label for="class-name" class="col-sm-2 col-form-label">Class
-						Name</label>
+					<label for="admin-account" class="col-sm-2 col-form-label">Admin Account</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control shadow-sm" id="class-name"
-							placeholder="Input name of the class account you want to change . . .">
+						<input type="text" class="form-control shadow-sm" id="admin-account"
+							placeholder="Input Class's Admin Account account you want to change . . .">
 					</div>
 				</div>
 				<div class="form-group row">
-					<div class="col-sm-1">
+					<label for="course-id" class="col-sm-2 col-form-label">Course Id</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control shadow-sm" id="course-id"
+							placeholder="Input course id you want to change . . .">
+					</div>
+				</div>
+				<div class="form-group row">
+					<label for="expected-start-date" class="col-sm-2 col-form-label">Expected Start Date</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control shadow-sm" id="expected-start-date"
+							placeholder="Input expected start date you want to change . . .">
+					</div>
+				</div>
+				<div class="form-group row">
+					<label for="expected-end-date" class="col-sm-2 col-form-label">Expected End Date</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control shadow-sm" id="expected-end-date"
+							placeholder="Input expected end date you want to change . . .">
+					</div>
+				</div>
+				<div class="form-group row">
+					<label for="actual-start-date" class="col-sm-2 col-form-label">Actual Start Date</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control shadow-sm" id="actual-start-date"
+							placeholder="Input actual start date you want to change . . .">
+					</div>
+				</div>
+				<div class="form-group row">
+					<label for="actual-end-date" class="col-sm-2 col-form-label">Actual Start Date</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control shadow-sm" id="actual-end-date"
+							placeholder="Input actual start date you want to change . . .">
+					</div>
+				</div>
+				<div class="form-group row">
+					<div class="col-sm-4">
 						<button type="submit" class="btn btn-info shadow-sm">
 							<a href="#">Save edit class</a>
 						</button>

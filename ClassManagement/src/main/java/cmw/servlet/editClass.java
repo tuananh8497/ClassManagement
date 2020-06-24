@@ -30,7 +30,7 @@ public class editClass extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.sendRedirect("ClassManagement/class/editClass.jsp");
+//		response.sendRedirect("ClassManagement/class/editClass.jsp");
 		ClassDAO classDao = new ClassDAOImpl();
         try {
             // get data from DB
@@ -38,7 +38,7 @@ public class editClass extends HttpServlet {
             // chuyen den view
             System.out.println(listClass);
             request.setAttribute("listClass", listClass);
-            request.getRequestDispatcher("ClassManagement/class/editClass.jsp").forward(request, response);
+            request.getRequestDispatcher("/class/editClass.jsp").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
         }
