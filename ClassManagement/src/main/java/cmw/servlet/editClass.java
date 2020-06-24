@@ -43,7 +43,7 @@ public class editClass extends HttpServlet {
             e.printStackTrace();
         }
 	}
-
+	
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -51,5 +51,4 @@ public class editClass extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
-
 }

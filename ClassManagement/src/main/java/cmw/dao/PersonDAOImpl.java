@@ -90,6 +90,7 @@ public class PersonDAOImpl implements PersonDAO {
     return person;
   }
 
+  @SuppressWarnings("unchecked")
   @Override
   public List<Person> getAllPerson() {
     Transaction transaction = null;

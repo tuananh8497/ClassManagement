@@ -47,54 +47,83 @@
 					<label for="class-code" class="col-sm-2 col-form-label">Class
 						code</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control shadow-sm"
-							id="class-code"
-							placeholder="Input class code you want to edit . . .">
+						<div class="input-group mb-3">
+							<div class="input-group-prepend">
+								<label class="input-group-text" for="inputGroupSelect01">Options</label>
+							</div>
+
+							<select class="custom-select" id="inputGroupSelect01">
+								<option></option>
+								<c:forEach items="${listClass }" var="class1">
+									<option value="${class1.classCode }">${class1.classCode }</option>
+								</c:forEach>
+							</select>
+						</div>
 					</div>
 				</div>
-				<!-------------------------------------------------->
-				<div class="form-group row">
-					<label for="admin-account" class="col-sm-2 col-form-label">Admin Account</label>
-					<div class="col-sm-10">
-						<input type="text" class="form-control shadow-sm" id="admin-account"
-							placeholder="Input Class's Admin Account account you want to change . . .">
+				<p>
+					<button class="btn btn-primary" type="button"
+						data-toggle="collapse" data-target="#collapseExample"
+						aria-expanded="false" aria-controls="collapseExample">
+						Edit this class</button>
+				</p>
+				<!--------------------Testing------------------->
+				<div class="collapse" id="collapseExample">
+					<div class="card card-body">
+						<div class="form-group row">
+							<label for="admin-account" class="col-sm-2 col-form-label">Admin
+								Account</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control shadow-sm"
+									id="admin-account" value="${class1.adminAccount }">
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="course-id" class="col-sm-2 col-form-label">Course
+								Id</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control shadow-sm" id="course"
+									value="${class1.course }">
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="expected-start-date" class="col-sm-2 col-form-label">Expected
+								Start Date</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control shadow-sm"
+									id="expected-start-date" value="${class1.expectedStartDate }">
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="expected-end-date" class="col-sm-2 col-form-label">Expected
+								End Date</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control shadow-sm"
+									id="expected-end-date" value="${class1.expectedEndDate }">
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="actual-start-date" class="col-sm-2 col-form-label">Actual
+								Start Date</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control shadow-sm"
+									id="actual-start-date" value="${class1.actualStartDate }">
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="actual-end-date" class="col-sm-2 col-form-label">Actual
+								Start Date</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control shadow-sm"
+									id="actual-end-date" value="${class1.actualEndDate }">
+							</div>
+						</div>
 					</div>
 				</div>
-				<div class="form-group row">
-					<label for="course-id" class="col-sm-2 col-form-label">Course Id</label>
-					<div class="col-sm-10">
-						<input type="text" class="form-control shadow-sm" id="course-id"
-							placeholder="Input course id you want to change . . .">
-					</div>
-				</div>
-				<div class="form-group row">
-					<label for="expected-start-date" class="col-sm-2 col-form-label">Expected Start Date</label>
-					<div class="col-sm-10">
-						<input type="text" class="form-control shadow-sm" id="expected-start-date"
-							placeholder="Input expected start date you want to change . . .">
-					</div>
-				</div>
-				<div class="form-group row">
-					<label for="expected-end-date" class="col-sm-2 col-form-label">Expected End Date</label>
-					<div class="col-sm-10">
-						<input type="text" class="form-control shadow-sm" id="expected-end-date"
-							placeholder="Input expected end date you want to change . . .">
-					</div>
-				</div>
-				<div class="form-group row">
-					<label for="actual-start-date" class="col-sm-2 col-form-label">Actual Start Date</label>
-					<div class="col-sm-10">
-						<input type="text" class="form-control shadow-sm" id="actual-start-date"
-							placeholder="Input actual start date you want to change . . .">
-					</div>
-				</div>
-				<div class="form-group row">
-					<label for="actual-end-date" class="col-sm-2 col-form-label">Actual Start Date</label>
-					<div class="col-sm-10">
-						<input type="text" class="form-control shadow-sm" id="actual-end-date"
-							placeholder="Input actual start date you want to change . . .">
-					</div>
-				</div>
+				<!-------------------------------- Testing-------------------------------------- -->
+
+
+
 				<div class="form-group row">
 					<div class="col-sm-4">
 						<button type="submit" class="btn btn-info shadow-sm">
@@ -105,7 +134,6 @@
 			</form>
 			<p class="mt-5 mb-3 text-muted text-center">&copy; 14.06.2020</p>
 		</div>
-
 	</div>
 	<footer>
 		<p></p>
