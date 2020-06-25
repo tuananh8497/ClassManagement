@@ -4,6 +4,8 @@ import java.util.Date;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -12,6 +14,9 @@ import javax.persistence.Table;
 @Table(name = "mentor")
 public class Mentor {
   @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private int mentorId;
+  @Column(unique = true)
   private String mentorAccount;
   @Column
   private String name;
@@ -35,7 +40,16 @@ public class Mentor {
   @OneToMany(mappedBy = "mentor")
   private Set<Class_Mentor> cm;
   
+  @Override
+  public String toString() {
+    return "Mentor [mentorId=" + mentorId + ", mentorAccount=" + mentorAccount + ", name=" + name
+        + ", bankAccount=" + bankAccount + ", email=" + email + ", phone=" + phone + ", citizenId="
+        + citizenId + ", address=" + address + ", birthDate=" + birthDate + ", education="
+        + education + ", status=" + status + ", cm=" + cm + "]";
+  }
+
   /**
+   * @param mentorId
    * @param mentorAccount
    * @param name
    * @param bankAccount
@@ -48,10 +62,11 @@ public class Mentor {
    * @param status
    * @param cm
    */
-  public Mentor(String mentorAccount, String name, String bankAccount, String email, String phone,
-      String citizenId, String address, Date birthDate, String education, boolean status,
-      Set<Class_Mentor> cm) {
+  public Mentor(int mentorId, String mentorAccount, String name, String bankAccount, String email,
+      String phone, String citizenId, String address, Date birthDate, String education,
+      boolean status, Set<Class_Mentor> cm) {
     super();
+    this.mentorId = mentorId;
     this.mentorAccount = mentorAccount;
     this.name = name;
     this.bankAccount = bankAccount;
@@ -65,13 +80,12 @@ public class Mentor {
     this.cm = cm;
   }
 
+  public int getMentorId() {
+    return mentorId;
+  }
 
-  @Override
-  public String toString() {
-    return "Mentor [mentorAccount=" + mentorAccount + ", name=" + name + ", bankAccount="
-        + bankAccount + ", email=" + email + ", phone=" + phone + ", citizenId=" + citizenId
-        + ", address=" + address + ", birthDate=" + birthDate + ", education=" + education
-        + ", status=" + status + "]";
+  public void setMentorId(int mentorId) {
+    this.mentorId = mentorId;
   }
 
   public Mentor() {

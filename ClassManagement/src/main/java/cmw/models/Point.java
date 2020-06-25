@@ -16,26 +16,26 @@ import javax.persistence.Table;
 public class Point implements Serializable{
   @Id
   @ManyToOne
-  @JoinColumn(name = "person_account", nullable = false) // check when run
-  private Person person_account;
+  @JoinColumn(name = "personId", nullable = false) // check when run
+  private Person person;
   @Id
-  private String subjectId;
+  private int subjectId;
   @Id
-  private String classCode;
+  private int classId;
   
   private int point;
 
   /**
-   * @param person
+   * @param personId
    * @param subjectId
-   * @param classCode
+   * @param classId
    * @param point
    */
-  public Point(Person person, String subjectId, String classCode, int point) {
+  public Point(Person person, int subjectId, int classId, int point) {
     super();
-    this.person_account = person;
+    this.person = person;
     this.subjectId = subjectId;
-    this.classCode = classCode;
+    this.classId = classId;
     this.point = point;
   }
 
@@ -48,32 +48,32 @@ public class Point implements Serializable{
 
   @Override
   public String toString() {
-    return "Point [person=" + person_account + ", subjectId=" + subjectId + ", classCode=" + classCode
+    return "Point [Person=" + person + ", subjectId=" + subjectId + ", classId=" + classId
         + ", point=" + point + "]";
   }
 
   public Person getPerson() {
-    return person_account;
+    return person;
   }
 
   public void setPerson(Person person) {
-    this.person_account = person;
+    this.person = person;
   }
 
-  public String getSubjectId() {
+  public int getSubjectId() {
     return subjectId;
   }
 
-  public void setSubjectId(String subjectId) {
+  public void setSubjectId(int subjectId) {
     this.subjectId = subjectId;
   }
 
-  public String getClassCode() {
-    return classCode;
+  public int getClassId() {
+    return classId;
   }
 
-  public void setClassCode(String classCode) {
-    this.classCode = classCode;
+  public void setClassId(int classId) {
+    this.classId = classId;
   }
 
   public int getPoint() {

@@ -1,6 +1,6 @@
 package cmw.models;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.Set;
 import javax.persistence.*;
 import cmw.models.Class;
@@ -9,6 +9,9 @@ import cmw.models.Class;
 @Table(name = "CLASS")
 public class Class {
   @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private int classId;
+  @Column(unique = true)
   private String classCode;
   @Column
   private String adminAccount;
@@ -25,13 +28,13 @@ public class Class {
   private Date actualEndDate;
   @Column
   private boolean status;
-  
+
   @OneToMany(mappedBy = "clazz")
   private Set<Class_Mentor> class_mentor;
-  
+
   @OneToMany(mappedBy = "clazz")
   private Set<Person> persons;
-  
+
 
   /**
    * @param classCode
@@ -44,10 +47,34 @@ public class Class {
    * @param status
    * @param cm
    */
-  public Class(String classCode, String adminAccount, Course course, Date expectedStartDate,
-      Date expectedEndDate, Date actualStartDate, Date actualEndDate, boolean status,
-      Set<Class_Mentor> class_mentor) {
+
+  /**
+   * 
+   */
+  public Class() {
     super();
+  }
+
+
+
+  /**
+   * @param id
+   * @param classCode
+   * @param adminAccount
+   * @param course
+   * @param expectedStartDate
+   * @param expectedEndDate
+   * @param actualStartDate
+   * @param actualEndDate
+   * @param status
+   * @param class_mentor
+   * @param persons
+   */
+  public Class(int classId, String classCode, String adminAccount, Course course, Date expectedStartDate,
+      Date expectedEndDate, Date actualStartDate, Date actualEndDate, boolean status,
+      Set<Class_Mentor> class_mentor, Set<Person> persons) {
+    super();
+    this.classId = classId;
     this.classCode = classCode;
     this.adminAccount = adminAccount;
     this.course = course;
@@ -57,21 +84,55 @@ public class Class {
     this.actualEndDate = actualEndDate;
     this.status = status;
     this.class_mentor = class_mentor;
+    this.persons = persons;
   }
 
-  /**
-   * 
-   */
-  public Class() {
-    super();
+  public int getClassId() {
+    return classId;
   }
+
+
+
+  public void setClassId(int classId) {
+    this.classId = classId;
+  }
+
+
 
   public String getClassCode() {
     return classCode;
   }
 
+
+
   public void setClassCode(String classCode) {
     this.classCode = classCode;
+  }
+
+
+
+  public Date getActualEndDate() {
+    return actualEndDate;
+  }
+
+  public void setActualEndDate(Date actualEndDate) {
+    this.actualEndDate = actualEndDate;
+  }
+
+  public Set<Class_Mentor> getClass_mentor() {
+    return class_mentor;
+  }
+
+  public void setClass_mentor(Set<Class_Mentor> class_mentor) {
+    this.class_mentor = class_mentor;
+  }
+
+  public Set<Person> getPersons() {
+    return persons;
+  }
+
+  public void setPersons(Set<Person> persons) {
+    this.persons = persons;
   }
 
   public String getAdminAccount() {
@@ -138,13 +199,15 @@ public class Class {
     this.class_mentor = class_mentor;
   }
 
-@Override
-public String toString() {
-	return "Class [classCode=" + classCode + ", adminAccount=" + adminAccount + ", actualStartDate=" + actualStartDate
-			+ ", actualEndDate=" + actualEndDate + ", status=" + status + "]";
-}
+  @Override
+  public String toString() {
+    return "Class [classId=" + classId + ", classCode=" + classCode + ", adminAccount="
+        + adminAccount + ", course=" + course + ", expectedStartDate=" + expectedStartDate
+        + ", expectedEndDate=" + expectedEndDate + ", actualStartDate=" + actualStartDate
+        + ", actualEndDate=" + actualEndDate + ", status=" + status + ", class_mentor="
+        + class_mentor + ", persons=" + persons + "]";
+  }
 
 
 
-  
 }

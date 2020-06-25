@@ -10,12 +10,12 @@ public class Class_Mentor {
   private PK_Class_Mentor pk;
   
   @ManyToOne
-  @JoinColumn(name = "classCode",insertable =false , updatable=false) // check when run
+  @JoinColumn(name = "classId",insertable =false , updatable=false) // check when run
   private Class clazz;
   
  
   @ManyToOne
-  @JoinColumn(name = "mentorAccount", insertable = false , updatable =false) // check when run
+  @JoinColumn(name = "mentorId", insertable = false , updatable =false) // check when run
   private Mentor mentor;
   /**
    * @param clazz

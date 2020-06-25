@@ -4,22 +4,27 @@ import java.io.Serializable;
 import javax.persistence.Embeddable;
 
 @Embeddable
-public class PK_Class_Mentor implements Serializable{
- private  String classCode;
-  private String mentorAccount;
+public class PK_Class_Mentor implements Serializable{  
   
-  public String getClassCode() {
-    return classCode;
+  private int classId;
+  private int mentorId;
+  
+  public int getClassId() {
+    
+    return classId;
   }
-  public void setClassCode(String classCode) {
-    this.classCode = classCode;
+  public void setClassId(int classId) {
+    this.classId = classId;
   }
-  public String getMentorAccount() {
-    return mentorAccount;
+  public int getMentorId() {
+    return mentorId;
   }
-  public void setMentorAccount(String mentorAccount) {
-    this.mentorAccount = mentorAccount;
+  public void setMentorId(int mentorId) {
+    this.mentorId = mentorId;
   }
+
+  
+  
   
   
 }

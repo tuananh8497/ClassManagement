@@ -17,7 +17,10 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "PERSON")
 public class Person {
-  @Id 
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private int personId;
+  @Column(unique = true)
   private String account;
   @Column
   private String name;
@@ -41,9 +44,9 @@ public class Person {
   @JoinColumn(name = "positionId", insertable =false , updatable=false) // check when run
   private Position position;
   @ManyToOne
-  @JoinColumn(name = "classCode", insertable =false , updatable=false) // check when run
+  @JoinColumn(name = "classId", insertable =false , updatable=false) // check when run
   private Class clazz;
-  @OneToMany(mappedBy = "person_account")
+  @OneToMany(mappedBy = "person")
   private Set<Point> points;
 
   /**
@@ -61,10 +64,34 @@ public class Person {
    * @param clazz
    * @param points
    */
-  public Person(String account, String name, String bankAccount, String email, String phone,
-      String citizenId, String address, Date birthDate, String education, boolean status,
-      Position position, Class clazz, Set<Point> points) {
+  /**
+   * 
+   */
+  public Person() {
     super();
+  }
+
+  /**
+   * @param personId
+   * @param account
+   * @param name
+   * @param bankAccount
+   * @param email
+   * @param phone
+   * @param citizenId
+   * @param address
+   * @param birthDate
+   * @param education
+   * @param status
+   * @param position
+   * @param clazz
+   * @param points
+   */
+  public Person(int personId, String account, String name, String bankAccount, String email,
+      String phone, String citizenId, String address, Date birthDate, String education,
+      boolean status, Position position, Class clazz, Set<Point> points) {
+    super();
+    this.personId = personId;
     this.account = account;
     this.name = name;
     this.bankAccount = bankAccount;
@@ -80,21 +107,22 @@ public class Person {
     this.points = points;
   }
 
-  /**
-   * 
-   */
-  public Person() {
-    super();
-  }
-
- 
 
   @Override
   public String toString() {
-    return "Person [account=" + account + ", name=" + name + ", bankAccount=" + bankAccount
-        + ", email=" + email + ", phone=" + phone + ", citizenId=" + citizenId + ", address="
-        + address + ", birthDate=" + birthDate + ", education=" + education + ", status=" + status
-        + ", position=" + position + ", clazz=" + clazz + ", points=" + points + "]";
+    return "Person [personId=" + personId + ", account=" + account + ", name=" + name
+        + ", bankAccount=" + bankAccount + ", email=" + email + ", phone=" + phone + ", citizenId="
+        + citizenId + ", address=" + address + ", birthDate=" + birthDate + ", education="
+        + education + ", status=" + status + ", position=" + position + ", clazz=" + clazz
+        + ", points=" + points + "]";
+  }
+
+  public int getPersonId() {
+    return personId;
+  }
+
+  public void setPersonId(int personId) {
+    this.personId = personId;
   }
 
   public String getAccount() {

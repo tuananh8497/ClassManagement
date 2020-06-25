@@ -6,73 +6,79 @@ import org.hibernate.*;
 import cmw.models.Class;
 import cmw.utils.HibernateUtils;
 
-public class ClassDAOImpl implements ClassDAO{
+public class ClassDAOImpl implements ClassDAO {
 
   /**
    * Save User
+   * 
    * @param user
    */
   @Override
   public void saveClass(Class classes) {
     Transaction transaction = null;
     try (Session session = HibernateUtils.getSessionFactory().openSession()) {
-        transaction = session.beginTransaction();
-        session.save(classes);
-        transaction.commit();
+      transaction = session.beginTransaction();
+      session.save(classes);
+      transaction.commit();
     } catch (Exception e) {
-        if (transaction != null) {
-            transaction.rollback();
-        }
-        e.printStackTrace();
+      if (transaction != null) {
+        transaction.rollback();
+      }
+      e.printStackTrace();
     }
   }
 
   /**
    * Update User
+   * 
    * @param user
    */
   @Override
   public void updateClass(Class classes) {
     Transaction transaction = null;
-    try (Session session = HibernateUtils.getSessionFactory().openSession()) {
-        transaction = session.beginTransaction();
-        session.update(classes);
-        transaction.commit();
+    try {
+      Session session = HibernateUtils.getSessionFactory().openSession();
+      System.out.println(session);
+      transaction = session.beginTransaction();
+      session.saveOrUpdate(classes);
+      transaction.commit();
     } catch (Exception e) {
-        if (transaction != null) {
-            transaction.rollback();
-        }
-        e.printStackTrace();
+      if (transaction != null) {
+        transaction.rollback();
+      }
+      e.printStackTrace();
     }
   }
 
   /**
    * Delete User
+   * 
    * @param id
    */
   @Override
   public void deleteClass(int id) {
     Transaction transaction = null;
     try (Session session = HibernateUtils.getSessionFactory().openSession()) {
-        // start a transaction
-        transaction = session.beginTransaction();
+      // start a transaction
+      transaction = session.beginTransaction();
 
-        // Delete a user object
-        Class classes = session.get(Class.class, id);
-        if (classes != null) {
-            session.delete(classes);
-        }
-        transaction.commit();
+      // Delete a user object
+      Class classes = session.get(Class.class, id);
+      if (classes != null) {
+        session.delete(classes);
+      }
+      transaction.commit();
     } catch (Exception e) {
-        if (transaction != null) {
-            transaction.rollback();
-        }
-        e.printStackTrace();
+      if (transaction != null) {
+        transaction.rollback();
+      }
+      e.printStackTrace();
     }
   }
 
   /**
    * Get User By ID
+   * 
    * @param id
    * @return
    */
@@ -80,16 +86,16 @@ public class ClassDAOImpl implements ClassDAO{
   public Class getClass(int id) {
 
     Transaction transaction = null;
-    Class classes= null;
+    Class classes = null;
     try (Session session = HibernateUtils.getSessionFactory().openSession()) {
-        transaction = session.beginTransaction();
-        classes = session.get(Class.class, id);
-        transaction.commit();
+      transaction = session.beginTransaction();
+      classes = session.get(Class.class, id);
+      transaction.commit();
     } catch (Exception e) {
-        if (transaction != null) {
-            transaction.rollback();
-        }
-        e.printStackTrace();
+      if (transaction != null) {
+        transaction.rollback();
+      }
+      e.printStackTrace();
     }
     return classes;
   }
@@ -99,14 +105,14 @@ public class ClassDAOImpl implements ClassDAO{
     Transaction transaction = null;
     List<Class> listOfClasses = null;
     try (Session session = HibernateUtils.getSessionFactory().openSession()) {
-        transaction = session.beginTransaction();
-        listOfClasses = session.createQuery("from Class").getResultList();
-        transaction.commit();
+      transaction = session.beginTransaction();
+      listOfClasses = session.createQuery("from Class").getResultList();
+      transaction.commit();
     } catch (Exception e) {
-        if (transaction != null) {
-            transaction.rollback();
-        }
-        e.printStackTrace();
+      if (transaction != null) {
+        transaction.rollback();
+      }
+      e.printStackTrace();
     }
     return listOfClasses;
   }

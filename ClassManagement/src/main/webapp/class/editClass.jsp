@@ -52,12 +52,16 @@
 								<label class="input-group-text" for="inputGroupSelect01">Options</label>
 							</div>
 
-							<select class="custom-select" id="inputGroupSelect01">
+							<%-- <select class="custom-select" id="inputGroupSelect01">
 								<option></option>
 								<c:forEach items="${listClass }" var="class1">
 									<option value="${class1.classCode }">${class1.classCode }</option>
 								</c:forEach>
-							</select>
+							</select> --%>
+							<div class="col-sm-10">
+								<input type="number" class="form-control shadow-sm"
+									id="admin-account" name="adminAccount" value="${class1.adminAccount }">
+							</div>
 						</div>
 					</div>
 				</div>
@@ -82,32 +86,32 @@
 							<label for="expected-start-date" class="col-sm-2 col-form-label">Expected
 								Start Date</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control shadow-sm"
-									id="expected-start-date" value="${class1.expectedStartDate }">
+								<input type="date" class="form-control shadow-sm"
+									id="expected-start-date" name="expectedStartDate" value="${class1.expectedStartDate }">
 							</div>
 						</div>
 						<div class="form-group row">
 							<label for="expected-end-date" class="col-sm-2 col-form-label">Expected
 								End Date</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control shadow-sm"
-									id="expected-end-date" value="${class1.expectedEndDate }">
+								<input type="date" class="form-control shadow-sm"
+									id="expected-end-date" name="expectedEndDate" value="${class1.expectedEndDate }">
 							</div>
 						</div>
 						<div class="form-group row">
 							<label for="actual-start-date" class="col-sm-2 col-form-label">Actual
 								Start Date</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control shadow-sm"
-									id="actual-start-date" value="${class1.actualStartDate }">
+								<input type="date" class="form-control shadow-sm"
+									id="actual-start-date" name="actualStartDate" value="${class1.actualStartDate }">
 							</div>
 						</div>
 						<div class="form-group row">
 							<label for="actual-end-date" class="col-sm-2 col-form-label">Actual
 								Start Date</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control shadow-sm"
-									id="actual-end-date" value="${class1.actualEndDate }">
+								<input type="date" class="form-control shadow-sm"
+									id="actual-end-date" name="actualEndDate" value="${class1.actualEndDate }">
 							</div>
 						</div>
 					</div>
