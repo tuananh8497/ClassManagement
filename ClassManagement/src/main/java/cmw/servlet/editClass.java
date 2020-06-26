@@ -37,12 +37,11 @@ public class editClass extends HttpServlet {
    */
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
-    ClassDAO classDao = new ClassDAOImpl();
     try {
-      List<Class> listClass = classDao.getAllClass();
-      request.setAttribute("listClass", listClass);
-      request.getRequestDispatcher("/class/editClass.jsp").forward(request, response);
-    } catch (Exception e) {
+      getClassInfo(request, response);
+    } catch (IOException e) {
+      e.printStackTrace();
+    } catch (ServletException e) {
       e.printStackTrace();
     }
   }
@@ -61,6 +60,21 @@ public class editClass extends HttpServlet {
     } catch (ParseException e) {
       e.printStackTrace();
     }
+  }
+
+  protected void getClassInfo(HttpServletRequest request, HttpServletResponse response)
+      throws ServletException, IOException {
+    ClassDAO classDao = new ClassDAOImpl();
+    int classId = Integer.parseInt(request.getParameter("classId"));
+    try {
+      Class class1 = classDao.getClass(classId);
+      request.setAttribute("class1", class1);
+      // request.getRequestDispatcher("/class/editClass.jsp").forward(request, response);
+      request.getRequestDispatcher("/class/profile.jsp").forward(request, response);
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+
   }
 
   private void register(HttpServletRequest request, HttpServletResponse response)
