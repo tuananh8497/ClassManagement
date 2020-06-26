@@ -2,7 +2,7 @@ package cmw.models;
 
 import java.util.Date;
 import java.util.Set;
-import javax.persistence.CascadeType;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,7 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -41,7 +40,7 @@ public class Person {
 	@Column
 	private boolean status;
 	@ManyToOne
-	@JoinColumn(name = "positionId", insertable = false, updatable = false) // check when run
+	@JoinColumn(name = "positionId", nullable = false) // check when run
 	private Position position;
 	@ManyToOne
 	@JoinColumn(name = "classId", insertable = false, updatable = false) // check when run
@@ -122,21 +121,6 @@ public class Person {
 		this.education = education;
 		this.status = status;
 		this.position = position;
-	}
-
-	public Person(String account, String name, String bankAccount, String email, String phone, String citizenId,
-			String address, Date birthDate, String education, boolean status) {
-		super();
-		this.account = account;
-		this.name = name;
-		this.bankAccount = bankAccount;
-		this.email = email;
-		this.phone = phone;
-		this.citizenId = citizenId;
-		this.address = address;
-		this.birthDate = birthDate;
-		this.education = education;
-		this.status = status;
 	}
 
 	@Override

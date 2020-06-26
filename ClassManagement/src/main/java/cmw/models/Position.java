@@ -19,7 +19,7 @@ public class Position {
   @Column
   private String positionName;
   
-  @OneToMany(mappedBy = "position", fetch = FetchType.EAGER)
+  @OneToMany(mappedBy = "position")
   private Set<Person> persons;
 
   /**
