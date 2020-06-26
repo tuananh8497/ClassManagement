@@ -1,6 +1,7 @@
 package cmw.models;
 
 import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,10 +21,10 @@ public class Course {
   @Column
   private int duration;
   
-  @OneToMany(mappedBy = "course")
+  @OneToMany(mappedBy = "course",cascade = CascadeType.ALL)
   private Set<Class> classes;
   
-  @OneToMany(mappedBy = "course")
+  @OneToMany(mappedBy = "course",cascade = CascadeType.ALL)
   private Set<Timetable> timetables;
   /**
    * @param courseId

@@ -100,81 +100,75 @@
 								<form class="form shadow-sm"
 									action="<%=request.getContextPath()%>/editClass" method="post">
 									<div class="form-group row">
-										<label for="class-code" class="col-sm-2 col-form-label">Class
-											code</label>
+										<label for="admin-account" class="col-sm-2 col-form-label">Class
+											Code</label>
 										<div class="col-sm-10">
-											<div class="input-group mb-3">
-												<div class="input-group-prepend">
-													<label class="input-group-text" for="inputGroupSelect01">Options</label>
-												</div>
-												<select class="custom-select" id="inputGroupSelect01">
-													<option></option>
-													<%-- <c:forEach items="${listClass }" var="class1">
-														<option value="${class1.classId }">${class1.classId }
-															- ${class1.classCode }</option>
-													</c:forEach> --%>
-												</select>
-
-											</div>
+											<input type="text" class="form-control shadow-sm"
+												value="${class1.getClassCode() }" id="class-code" name="classCode"> 
 										</div>
 									</div>
-									<p>
-										<button class="btn btn-primary" type="button"
-											data-toggle="collapse" data-target="#collapseExample"
-											aria-expanded="false" aria-controls="collapseExample">
-											Edit this class</button>
-									</p>
-									<!--------------------Testing------------------->
-									<div class="collapse" id="collapseExample">
-										<div class="card card-body">
-											<div class="form-group row">
-												<label for="admin-account" class="col-sm-2 col-form-label">Admin
-													Account</label>
-												<div class="col-sm-10">
-													<input type="text" class="form-control shadow-sm"
-														id="admin-account"">
-												</div>
-											</div>
-											<div class="form-group row">
-												<label for="admin-account" class="col-sm-2 col-form-label">Course
-													id</label>
-												<div class="col-sm-10">
-													<input type="text" class="form-control shadow-sm"
-														id="admin-account"">
-												</div>
-											</div>
-											<div class="form-group row">
-												<label for="expected-start-date"
-													class="col-sm-2 col-form-label">Expected Start Date</label>
-												<div class="col-sm-10">
-													<input type="date" class="form-control shadow-sm"
-														id="expected-start-date" name="expectedStartDate">
-												</div>
-											</div>
-											<div class="form-group row">
-												<label for="expected-end-date"
-													class="col-sm-2 col-form-label">Expected End Date</label>
-												<div class="col-sm-10">
-													<input type="date" class="form-control shadow-sm"
-														id="expected-end-date" name="expectedEndDate">
-												</div>
-											</div>
-											<div class="form-group row">
-												<label for="actual-start-date"
-													class="col-sm-2 col-form-label">Actual Start Date</label>
-												<div class="col-sm-10">
-													<input type="date" class="form-control shadow-sm"
-														id="actual-start-date" name="actualStartDate">
-												</div>
-											</div>
-											<div class="form-group row">
-												<label for="actual-end-date" class="col-sm-2 col-form-label">Actual
-													Start Date</label>
-												<div class="col-sm-10">
-													<input type="date" class="form-control shadow-sm"
-														id="actual-end-date" name="actualEndDate">
-												</div>
-											</div>
+									<div class="form-group row">
+										<label for="admin-account" class="col-sm-2 col-form-label">ClassAdmin</label>
+										<div class="col-sm-10">
+											<input type="text" class="form-control shadow-sm"
+												value="${class1.getAdminAccount() }" id="admin-account" name="adminAccount"
+												readonly>
+										</div>
+									</div>
+									<div class="form-group row">
+										<label for="admin-account" class="col-sm-2 col-form-label">Course</label>
+										<div class="col-sm-10">
+											<select class="custom-select" id="inputGroupSelect01" name = "courseId">
+												<option>${class1.getCourse().getCourseName() }</option>
+												<c:forEach items="${listCourse }" var="course1">
+													<option value="${course1.courseId }">
+														${course1.courseName }</option>
+												</c:forEach>
+											</select>
+										</div>
+									</div>
+									<div class="form-group row">
+										<label for="expected-start-date"
+											class="col-sm-2 col-form-label">Expected Start Date</label>
+										<div class="col-sm-10">
+											<input type="text" class="form-control shadow-sm"
+												id="expected-start-date" name ="expectedStartDate"
+												value="${class1.expectedStartDate.getDate()}/${class1.expectedStartDate.getMonth() +
+                                    				1}/${class1.expectedStartDate.getYear() + 1900}"
+												name="expectedStartDate">
+										</div>
+									</div>
+									<div class="form-group row">
+										<label for="expected-end-date" class="col-sm-2 col-form-label">Expected
+											End Date</label>
+										<div class="col-sm-10">
+											<input type="text" class="form-control shadow-sm"
+												id="expected-end-date" name ="expectedEndDate"
+												value="${class1.expectedEndDate.getDate()}/${class1.expectedEndDate.getMonth() +
+                                    				1}/${class1.expectedEndDate.getYear() + 1900}"
+												name="expectedEndDate">
+										</div>
+									</div>
+									<div class="form-group row">
+										<label for="actual-start-date" class="col-sm-2 col-form-label">Actual
+											Start Date</label>
+										<div class="col-sm-10">
+											<input type="text" class="form-control shadow-sm"
+												id="actual-start-date" name ="actualStartDate"
+												value="${class1.actualStartDate.getDate()}/${class1.actualStartDate.getMonth() +
+                                    				1}/${class1.actualStartDate.getYear() + 1900}"
+												name="actualStartDate">
+										</div>
+									</div>
+									<div class="form-group row">
+										<label for="actual-end-date" class="col-sm-2 col-form-label">Actual
+											Start Date</label>
+										<div class="col-sm-10">
+											<input type="text" class="form-control shadow-sm"
+												id="actual-end-date" name ="actualEndDate"
+												value="${class1.actualEndDate.getDate()}/${class1.actualEndDate.getMonth() +
+                                    				1}/${class1.actualEndDate.getYear() + 1900}"
+												name="actualEndDate">
 										</div>
 									</div>
 									<!-------------------------------- Testing-------------------------------------- -->
@@ -182,7 +176,7 @@
 									<div class="form-group row">
 										<div class="col-sm-4">
 											<button type="submit" class="btn btn-info shadow-sm">Save
-												edit class</button>
+												edit</button>
 										</div>
 									</div>
 								</form>

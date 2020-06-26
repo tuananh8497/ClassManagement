@@ -1,6 +1,7 @@
 package cmw.models;
 
 import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -19,7 +20,7 @@ public class Position {
   @Column
   private String positionName;
   
-  @OneToMany(mappedBy = "position")
+  @OneToMany(mappedBy = "position",cascade = CascadeType.ALL)
   private Set<Person> persons;
 
   /**

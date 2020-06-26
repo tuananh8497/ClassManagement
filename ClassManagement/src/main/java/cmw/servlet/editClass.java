@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import cmw.dao.ClassDAO;
 import cmw.dao.ClassDAOImpl;
+import cmw.dao.CourseDAO;
+import cmw.dao.CourseDAOImpl;
 import cmw.models.Class;
 import cmw.models.Course;
 import cmw.utils.DateUtils;
@@ -52,7 +54,8 @@ public class editClass extends HttpServlet {
   protected void doPost(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
     try {
-      register(request, response);
+      editClassInfo(request, response);
+      request.getRequestDispatcher("/showClass").forward(request, response);
     } catch (IOException e) {
       e.printStackTrace();
     } catch (ServletException e) {
@@ -65,46 +68,62 @@ public class editClass extends HttpServlet {
   protected void getClassInfo(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
     ClassDAO classDao = new ClassDAOImpl();
+    CourseDAO courseDAO = new CourseDAOImpl();
     int classId = Integer.parseInt(request.getParameter("classId"));
     try {
       Class class1 = classDao.getClass(classId);
       request.setAttribute("class1", class1);
+      List<Course> listCourse = courseDAO.getAllCourse();
+      request.setAttribute("listCourse", listCourse);
       // request.getRequestDispatcher("/class/editClass.jsp").forward(request, response);
       request.getRequestDispatcher("/class/profile.jsp").forward(request, response);
     } catch (Exception e) {
       e.printStackTrace();
     }
-
   }
 
-  private void register(HttpServletRequest request, HttpServletResponse response)
+  private void editClassInfo(HttpServletRequest request, HttpServletResponse response)
       throws IOException, ServletException, ParseException {
     ClassDAO classDAO = new ClassDAOImpl();
+    CourseDAO courseDAO = new CourseDAOImpl();
     Class clazz = new Class();
+    Course course = new Course();
 
-    // int classId = Integer.parseInt(request.getParameter("classCode"));
+    String classCode = request.getParameter("classCode");
     String adminAccount = request.getParameter("adminAccount");
     String expectStartDate = request.getParameter("expectedStartDate");
     String expectEndDate = request.getParameter("expectedEndDate");
     String actStartDate = request.getParameter("expectedEndDate");
     String actEndDate = request.getParameter("expectedEndDate");
-
-    Date expectedStartDate = DateUtils.formatDate(expectStartDate);
+    int courseId = Integer.parseInt(request.getParameter("courseId"));
+    
+    System.out.println(classCode);
+    System.out.println(adminAccount);
     System.out.println(expectStartDate);
+    System.out.println(expectEndDate);
+    System.out.println(actStartDate);
+    System.out.println(actEndDate);
+    System.out.println(courseId);
+    
+    Date expectedStartDate = DateUtils.formatDate(expectStartDate);
     Date expectedEndDate = DateUtils.formatDate(expectEndDate);
     Date actualStartDate = DateUtils.formatDate(actStartDate);
     Date actualEndDate = DateUtils.formatDate(actEndDate);
 
+    course = courseDAO.getCourse(courseId);
+    System.out.println(course);
+
+    clazz.setClassCode(classCode);
     clazz.setAdminAccount(adminAccount);
     clazz.setExpectedStartDate(expectedStartDate);
     clazz.setExpectedEndDate(expectedEndDate);
     clazz.setActualStartDate(actualStartDate);
     clazz.setactualEndDate(actualEndDate);
+    clazz.setCourse(course);
     System.out.println(clazz);
 
     classDAO.updateClass(clazz);;
 
-    RequestDispatcher dispatcher = request.getRequestDispatcher("/class/showClasses.jsp");
-    dispatcher.forward(request, response);
+
   }
 }

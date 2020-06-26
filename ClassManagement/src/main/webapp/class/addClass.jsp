@@ -49,12 +49,11 @@
 					</div>
 				</div>
 				<div class="form-group row">
-					<label for="class-name" class="col-sm-2 col-form-label">Course
-						Id</label>
+					<label for="class-name" class="col-sm-2 col-form-label">Course Name</label>
 					<div class="col-sm-10">
 						<select class="custom-select" id="inputGroupSelect01" name="courseId">
 							<c:forEach items="${listCourse }" var="course1">
-								<option value="${course1.courseId }">${course1.courseId } - ${course1.courseName } </option>
+								<option value="${course1.courseId }"> ${course1.courseName } </option>
 							</c:forEach>
 						</select>
 					</div>

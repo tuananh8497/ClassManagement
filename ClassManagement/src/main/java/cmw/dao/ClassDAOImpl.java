@@ -40,7 +40,7 @@ public class ClassDAOImpl implements ClassDAO {
       Session session = HibernateUtils.getSessionFactory().openSession();
       System.out.println(session);
       transaction = session.beginTransaction();
-      session.saveOrUpdate(classes);
+      session.update(classes);
       transaction.commit();
     } catch (Exception e) {
       if (transaction != null) {

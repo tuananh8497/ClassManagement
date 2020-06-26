@@ -13,7 +13,7 @@ public class Subject {
   @Column
   private String subjectName;
   
-  @OneToMany(mappedBy = "subject")
+  @OneToMany(mappedBy = "subject",cascade = CascadeType.ALL)
   private Set<Timetable> timetables;
   
   /**

@@ -2,7 +2,7 @@ package cmw.models;
 
 import java.util.Date;
 import java.util.Set;
-
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -45,7 +45,7 @@ public class Person {
 	@ManyToOne
 	@JoinColumn(name = "classId", insertable = false, updatable = false) // check when run
 	private Class clazz;
-	@OneToMany(mappedBy = "person")
+	@OneToMany(mappedBy = "person",cascade = CascadeType.ALL)
 	private Set<Point> points;
 
 	/**

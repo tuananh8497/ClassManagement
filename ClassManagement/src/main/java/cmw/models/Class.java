@@ -29,10 +29,10 @@ public class Class {
   @Column
   private boolean status;
 
-  @OneToMany(mappedBy = "clazz")
+  @OneToMany(mappedBy = "clazz",cascade = CascadeType.ALL)
   private Set<Class_Mentor> class_mentor;
 
-  @OneToMany(mappedBy = "clazz")
+  @OneToMany(mappedBy = "clazz",cascade = CascadeType.ALL)
   private Set<Person> persons;
 
 

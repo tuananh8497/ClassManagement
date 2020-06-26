@@ -60,8 +60,6 @@ public class addClass extends HttpServlet {
     try {
       create(request, response);
        request.getRequestDispatcher("/showClass").forward(request, response);
-
-
     } catch (IOException e) {
       e.printStackTrace();
     } catch (ServletException e) {
@@ -85,12 +83,10 @@ public class addClass extends HttpServlet {
     course = courseDAO.getCourse(courseId);
     Date expectedStartDate = DateUtils.formatDate(expectStartDate);
 
-    System.out.println(classCode + "\t" + courseId + "\t" + expectStartDate);
-
     clazz.setClassCode(classCode);
     clazz.setCourse(course);
     clazz.setExpectedStartDate(expectedStartDate);
 
-    classDAO.updateClass(clazz);
+    classDAO.saveClass(clazz);
   }
 }
