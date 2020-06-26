@@ -51,17 +51,13 @@
 							<div class="input-group-prepend">
 								<label class="input-group-text" for="inputGroupSelect01">Options</label>
 							</div>
-
-							<%-- <select class="custom-select" id="inputGroupSelect01">
+							<select class="custom-select" id="inputGroupSelect01">
 								<option></option>
 								<c:forEach items="${listClass }" var="class1">
-									<option value="${class1.classCode }">${class1.classCode }</option>
+									<option value="${class1.classId }">${class1.classId } - ${class1.classCode }</option>
 								</c:forEach>
-							</select> --%>
-							<div class="col-sm-10">
-								<input type="number" class="form-control shadow-sm"
-									id="admin-account" name="adminAccount" value="${class1.adminAccount }">
-							</div>
+							</select>
+							
 						</div>
 					</div>
 				</div>
@@ -80,6 +76,13 @@
 							<div class="col-sm-10">
 								<input type="text" class="form-control shadow-sm"
 									id="admin-account" value="${class1.adminAccount }">
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="admin-account" class="col-sm-2 col-form-label">Course id</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control shadow-sm"
+									id="admin-account" value="${class1.courseId }">
 							</div>
 						</div>
 						<div class="form-group row">

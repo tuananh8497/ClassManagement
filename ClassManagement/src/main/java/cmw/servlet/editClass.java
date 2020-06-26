@@ -68,7 +68,7 @@ public class editClass extends HttpServlet {
     ClassDAO classDAO = new ClassDAOImpl();
     Class clazz = new Class();
 
-//    int classCode = Integer.parseInt(request.getParameter("classCode"));
+    // int classId = Integer.parseInt(request.getParameter("classCode"));
     String adminAccount = request.getParameter("adminAccount");
     String expectStartDate = request.getParameter("expectedStartDate");
     String expectEndDate = request.getParameter("expectedEndDate");
@@ -90,7 +90,7 @@ public class editClass extends HttpServlet {
 
     classDAO.updateClass(clazz);;
 
-    RequestDispatcher dispatcher = request.getRequestDispatcher("showClass.jsp");
+    RequestDispatcher dispatcher = request.getRequestDispatcher("/class/showClasses.jsp");
     dispatcher.forward(request, response);
   }
 }
