@@ -87,6 +87,24 @@ public class Class {
     this.persons = persons;
   }
 
+  
+  
+  /**
+   * @param classCode
+   * @param course
+   * @param expectedStartDate
+   * @param status
+   */
+  public Class(String classCode, Course course, Date expectedStartDate) {
+    super();
+    this.classCode = classCode;
+    this.course = course;
+    this.expectedStartDate = expectedStartDate;
+    this.status = false;
+  }
+
+
+
   public int getClassId() {
     return classId;
   }
