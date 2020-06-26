@@ -37,7 +37,6 @@ public class showClass extends HttpServlet {
 			// get data from DB
 			List<Class> listClass = classDao.getAllClass();
 			// chuyen den view
-			System.out.println(listClass);
 			request.setAttribute("listClass", listClass);
 			request.getRequestDispatcher("/class/showClasses.jsp").forward(request, response);
 		} catch (Exception e) {

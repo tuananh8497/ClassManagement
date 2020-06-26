@@ -29,7 +29,7 @@
         <!-- Page Content  -->
         <div id="content">
             <div class="container-fluid">
-                <h1 class="text-center">HN02_CPL_Java03</h1>
+                <h1 class="text-center">${class1.getClassCode() }</h1>
                 <div class="line"></div>
                 <div class="row my-2">
                     <div class="col-lg-12 order-lg-2">
@@ -46,34 +46,40 @@
                                 <div id="chartContainer" style="height: 370px; width: 100%;" class="graph shadow-sm"></div>
                                     <div>
                                         <h3 class="text-center">List of students</h3>
+                                         <h3 class="text-center">  AdminClass: ${class1.getAdminAccount() }</h3>
                                         <button type="button" class="btn btn-info"><a href="<%= request.getContextPath()%>/addStudent">Add Student</a></button>
                                     </div>
                                     <div class="tbl">
                                         <table class="table table-striped shadow-sm text-center">
                                             <thead>
                                             <tr>
-                                                <th scope="col">#</th>
-                                                <th scope="col">Account</th>
+                                               <th scope="col">Account</th>
                                                 <th scope="col">Name</th>
-                                                <th scope="col">Date</th>
-                                                <th scope="col">Class account</th>
-                                                <th scope= "col">Average</th>
+                                                <th scope="col">BirthDate</th>
+                                                <th scope="col">Address</th>
+                                                <th scope="col">Phone</th>
+                                                <th scope= "col">Email</th>
+                                                <th scope= "col">Status</th>
                                                 <th scope="col">Profile</th>
                                             </tr>
                                             </thead>
+                                            <c:forEach items="${listPer }" var="listPer">
                                             <tbody>
                                             <tr>
-                                                <th scope="row">1</th>
-                                                <td>A1</td>
-                                                <td>a1</td>
-                                                <td>01.01.2020</td>
-                                                <td>HN_CPL_Java03</td>
-                                                <td>8.1</td>
+                                                <td>${listPer.getAccount() }</td>
+                                                <td>${listPer.getName() }</td>
+                                                <td>${listPer.birthDate.getDate()}/${listPer.birthDate.getMonth() +
+                                    				1}/${listPer.birthDate.getYear() + 1900}</td>
+                                                <td>${listPer.getAddress() }</td>
+                                                <td>${listPer.getPhone() }</td>
+                                                <td>${listPer.getEmail() }</td>
+                                                <td style="color: green">${(listPer.status==true)? "Active" : "Deactive" }</td>
                                                 <td>
                                                   <a href="<%= request.getContextPath()%>/profileStudent"><img src="/ClassManagement/icon/alien.svg" width="40px" height="40px"></a>
                                                 </td>
                                             </tr>
                                             </tbody>
+                                            </c:forEach>
                                         </table>
                                     </div>
                                     <p class="mt-5 mb-3 text-muted text-center">&copy; 14.06.2020</p>
