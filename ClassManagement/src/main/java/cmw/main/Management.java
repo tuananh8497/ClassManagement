@@ -37,11 +37,11 @@ public class Management {
     // Position pos = new Position("Manager");
     // pd.savePosition(pos);
     // Date d1 = DateUtils.formatDate("2020-07-30");
-//     Course course = new Course();
-//     course = courseDAO.getCourse(1);
-//     Class clazz = new Class("HN20_CPL_Java_05", course, d1);
-//     classDAO.saveClass(clazz);
-
+    // Course course = new Course();
+    // course = courseDAO.getCourse(1);
+    // Class clazz = new Class("HN20_CPL_Java_05", course, d1);
+    // classDAO.updateClass(clazz);
+    
     session.getTransaction().commit();
     HibernateUtils.shutdown();
 

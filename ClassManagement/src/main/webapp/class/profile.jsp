@@ -99,6 +99,7 @@
 							<div class="tab-pane" id="editClass">
 								<form class="form shadow-sm"
 									action="<%=request.getContextPath()%>/editClass" method="post">
+									<input type="hidden" name="idClass" value="${class1.getClassId() }">
 									<div class="form-group row">
 										<label for="admin-account" class="col-sm-2 col-form-label">Class
 											Code</label>
@@ -133,8 +134,7 @@
 										<div class="col-sm-10">
 											<input type="text" class="form-control shadow-sm"
 												id="expected-start-date" name ="expectedStartDate"
-												value="${class1.expectedStartDate.getDate()}/${class1.expectedStartDate.getMonth() +
-                                    				1}/${class1.expectedStartDate.getYear() + 1900}"
+												value="${class1.getExpectedStartDate() }"
 												name="expectedStartDate">
 										</div>
 									</div>
@@ -144,8 +144,7 @@
 										<div class="col-sm-10">
 											<input type="text" class="form-control shadow-sm"
 												id="expected-end-date" name ="expectedEndDate"
-												value="${class1.expectedEndDate.getDate()}/${class1.expectedEndDate.getMonth() +
-                                    				1}/${class1.expectedEndDate.getYear() + 1900}"
+												value="${class1.getExpectedEndDate() }"
 												name="expectedEndDate">
 										</div>
 									</div>
@@ -155,8 +154,7 @@
 										<div class="col-sm-10">
 											<input type="text" class="form-control shadow-sm"
 												id="actual-start-date" name ="actualStartDate"
-												value="${class1.actualStartDate.getDate()}/${class1.actualStartDate.getMonth() +
-                                    				1}/${class1.actualStartDate.getYear() + 1900}"
+												value="${class1.actualStartDate }"
 												name="actualStartDate">
 										</div>
 									</div>
@@ -166,8 +164,7 @@
 										<div class="col-sm-10">
 											<input type="text" class="form-control shadow-sm"
 												id="actual-end-date" name ="actualEndDate"
-												value="${class1.actualEndDate.getDate()}/${class1.actualEndDate.getMonth() +
-                                    				1}/${class1.actualEndDate.getYear() + 1900}"
+												value="${class1.actualEndDate}"
 												name="actualEndDate">
 										</div>
 									</div>

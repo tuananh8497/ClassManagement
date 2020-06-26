@@ -3,6 +3,7 @@ package cmw.servlet;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
@@ -89,6 +90,7 @@ public class editClass extends HttpServlet {
     Class clazz = new Class();
     Course course = new Course();
 
+    int classId = Integer.parseInt(request.getParameter("idClass"));
     String classCode = request.getParameter("classCode");
     String adminAccount = request.getParameter("adminAccount");
     String expectStartDate = request.getParameter("expectedStartDate");
@@ -97,22 +99,14 @@ public class editClass extends HttpServlet {
     String actEndDate = request.getParameter("expectedEndDate");
     int courseId = Integer.parseInt(request.getParameter("courseId"));
     
-    System.out.println(classCode);
-    System.out.println(adminAccount);
-    System.out.println(expectStartDate);
-    System.out.println(expectEndDate);
-    System.out.println(actStartDate);
-    System.out.println(actEndDate);
-    System.out.println(courseId);
     
-    Date expectedStartDate = DateUtils.formatDate(expectStartDate);
-    Date expectedEndDate = DateUtils.formatDate(expectEndDate);
-    Date actualStartDate = DateUtils.formatDate(actStartDate);
-    Date actualEndDate = DateUtils.formatDate(actEndDate);
-
+    LocalDate expectedStartDate = LocalDate.parse(expectStartDate);
+    LocalDate expectedEndDate = LocalDate.parse(expectEndDate);
+    LocalDate actualStartDate = LocalDate.parse(actStartDate);
+    LocalDate actualEndDate = LocalDate.parse(actEndDate);
     course = courseDAO.getCourse(courseId);
-    System.out.println(course);
-
+    
+    clazz.setClassId(classId);
     clazz.setClassCode(classCode);
     clazz.setAdminAccount(adminAccount);
     clazz.setExpectedStartDate(expectedStartDate);
@@ -120,8 +114,6 @@ public class editClass extends HttpServlet {
     clazz.setActualStartDate(actualStartDate);
     clazz.setactualEndDate(actualEndDate);
     clazz.setCourse(course);
-    System.out.println(clazz);
-
     classDAO.updateClass(clazz);;
 
 

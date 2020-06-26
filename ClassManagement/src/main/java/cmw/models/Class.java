@@ -1,5 +1,6 @@
 package cmw.models;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Set;
 import javax.persistence.*;
@@ -19,13 +20,15 @@ public class Class {
   @JoinColumn(name = "courseId", nullable = false) // check when run
   private Course course;
   @Column
-  private Date expectedStartDate;
+  private LocalDate expectedStartDate;
   @Column
-  private Date expectedEndDate;
+  private LocalDate expectedEndDate;
   @Column
-  private Date actualStartDate;
+  private LocalDate actualStartDate;
   @Column
-  private Date actualEndDate;
+  private LocalDate actualEndDate;
+  
+  
   @Column
   private boolean status;
 
@@ -70,8 +73,8 @@ public class Class {
    * @param class_mentor
    * @param persons
    */
-  public Class(int classId, String classCode, String adminAccount, Course course, Date expectedStartDate,
-      Date expectedEndDate, Date actualStartDate, Date actualEndDate, boolean status,
+  public Class(int classId, String classCode, String adminAccount, Course course, LocalDate expectedStartDate,
+      LocalDate expectedEndDate, LocalDate actualStartDate, LocalDate actualEndDate, boolean status,
       Set<Class_Mentor> class_mentor, Set<Person> persons) {
     super();
     this.classId = classId;
@@ -95,7 +98,7 @@ public class Class {
    * @param expectedStartDate
    * @param status
    */
-  public Class(String classCode, Course course, Date expectedStartDate) {
+  public Class(String classCode, Course course, LocalDate expectedStartDate) {
     super();
     this.classCode = classCode;
     this.course = course;
@@ -129,11 +132,11 @@ public class Class {
 
 
 
-  public Date getActualEndDate() {
+  public LocalDate getActualEndDate() {
     return actualEndDate;
   }
 
-  public void setActualEndDate(Date actualEndDate) {
+  public void setActualEndDate(LocalDate actualEndDate) {
     this.actualEndDate = actualEndDate;
   }
 
@@ -169,35 +172,35 @@ public class Class {
     this.course = course;
   }
 
-  public Date getExpectedStartDate() {
+  public LocalDate getExpectedStartDate() {
     return expectedStartDate;
   }
 
-  public void setExpectedStartDate(Date expectedStartDate) {
+  public void setExpectedStartDate(LocalDate expectedStartDate) {
     this.expectedStartDate = expectedStartDate;
   }
 
-  public Date getExpectedEndDate() {
+  public LocalDate getExpectedEndDate() {
     return expectedEndDate;
   }
 
-  public void setExpectedEndDate(Date expectedEndDate) {
+  public void setExpectedEndDate(LocalDate expectedEndDate) {
     this.expectedEndDate = expectedEndDate;
   }
 
-  public Date getActualStartDate() {
+  public LocalDate getActualStartDate() {
     return actualStartDate;
   }
 
-  public void setActualStartDate(Date actualStartDate) {
+  public void setActualStartDate(LocalDate actualStartDate) {
     this.actualStartDate = actualStartDate;
   }
 
-  public Date getactualEndDate() {
+  public LocalDate getactualEndDate() {
     return actualEndDate;
   }
 
-  public void setactualEndDate(Date actualEndDate) {
+  public void setactualEndDate(LocalDate actualEndDate) {
     this.actualEndDate = actualEndDate;
   }
 

@@ -48,15 +48,12 @@
 							<div class="card-body">
 								<ul class="list-unstyled mt-3 mb-4">
 									<li>AdminClass: ${class1.getAdminAccount() }</li>
-									<li>StartDate: ${class1.actualStartDate.getDate()}/${class1.actualStartDate.getMonth() +
-                                    1}/${class1.actualStartDate.getYear() + 1900}</li>
-									<li>EndDate: ${class1.actualEndDate.getDate()}/${class1.actualEndDate.getMonth() +
-                                    1}/${class1.actualEndDate.getYear() + 1900}</li>
+									<li>StartDate: ${class1.actualStartDate}</li>
+									<li>EndDate: ${class1.actualEndDate}</li>
 									<li style="color: green">Status: ${(class1.status==true)? "Active" : "Finished" }</li>
 								</ul>
 								<button type="button" class="btn btn-lg btn-block btn-info">
-									<a
-										href="<%= request.getContextPath()%>/profileClass?classId=<c:out value="${class1.getClassId()}"/>">Class
+									<a href="<%= request.getContextPath()%>/profileClass?classId=<c:out value="${class1.getClassId()}"/>">Class
 										profile</a>
 								</button>
 							</div>

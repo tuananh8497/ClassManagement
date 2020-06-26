@@ -2,6 +2,7 @@ package cmw.servlet;
 
 import java.io.IOException;
 import java.text.ParseException;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
@@ -81,7 +82,7 @@ public class addClass extends HttpServlet {
     String expectStartDate = request.getParameter("expectedStartDate");
     int courseId = Integer.parseInt(request.getParameter("courseId"));
     course = courseDAO.getCourse(courseId);
-    Date expectedStartDate = DateUtils.formatDate(expectStartDate);
+    LocalDate expectedStartDate = LocalDate.parse(expectStartDate);
 
     clazz.setClassCode(classCode);
     clazz.setCourse(course);

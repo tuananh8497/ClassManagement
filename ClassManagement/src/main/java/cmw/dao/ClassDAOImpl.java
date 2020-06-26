@@ -36,8 +36,8 @@ public class ClassDAOImpl implements ClassDAO {
   @Override
   public void updateClass(Class classes) {
     Transaction transaction = null;
-    try {
-      Session session = HibernateUtils.getSessionFactory().openSession();
+    try (Session session = HibernateUtils.getSessionFactory().openSession()){
+      
       System.out.println(session);
       transaction = session.beginTransaction();
       session.update(classes);
