@@ -85,7 +85,7 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <h6>Info</h6>
-                                        <p> Name: Nguyen Trong Tung<br>
+                                        <p> Name: ${student.name }<br>
                                             Gender: Male<br>
                                             Age: 23<br>
                                             Email:

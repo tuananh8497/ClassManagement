@@ -110,11 +110,7 @@ public class Person {
 
   @Override
   public String toString() {
-    return "Person [personId=" + personId + ", account=" + account + ", name=" + name
-        + ", bankAccount=" + bankAccount + ", email=" + email + ", phone=" + phone + ", citizenId="
-        + citizenId + ", address=" + address + ", birthDate=" + birthDate + ", education="
-        + education + ", status=" + status + ", position=" + position + ", clazz=" + clazz
-        + ", points=" + points + "]";
+    return "Person [personId=" + personId + ", account=" + account + "]";
   }
 
   public int getPersonId() {
