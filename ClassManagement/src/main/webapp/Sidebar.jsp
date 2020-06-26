@@ -48,7 +48,7 @@
                             <a href="<%= request.getContextPath()%>/showStudent">Show students</a>
                         </li>
                         <li>
-                            <a href="<%= request.getContextPath()%>/addStudent">Add student</a>
+                            <a href="<%= request.getContextPath()%>/createStudent">Create student</a>
                         </li>
                         <li>
                             <a href="<%= request.getContextPath()%>/editStudent">Edit student</a>
