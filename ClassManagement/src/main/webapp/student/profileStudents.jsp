@@ -70,25 +70,33 @@
                     <div class="col-lg-8 order-lg-2">
                         <ul class="nav nav-tabs">
                             <li class="nav-item">
-                                <a href="" data-target="#profile" data-toggle="tab" class="nav-link">Profile</a>
+                                <a href="" data-target="#profile" data-toggle="tab" class="nav-link active">Profile</a>
                             </li>
                             <li class="nav-item">
-                                <a href="" data-target="#mark" data-toggle="tab" class="nav-link active">Mark</a>
+                                <a href="" data-target="#mark" data-toggle="tab" class="nav-link ">Mark</a>
                             </li>
                             <li class="nav-item">
                                 <a href="" data-target="#edit" data-toggle="tab" class="nav-link">Edit student</a>
                             </li>
                         </ul>
                         <div class="tab-content py-4">
-                            <div class="tab-pane" id="profile">
+                            <div class="tab-pane active" id="profile">
                                 <h5 class="mb-3">User Profile</h5>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <h6>Info</h6>
-                                        <p> Name: ${student.name }<br>
-                                            Gender: Male<br>
-                                            Age: 23<br>
-                                            Email:
+                                        <p> 
+                                        	<strong>Account:</strong> ${student.account}<br>
+                                        	<strong>Name:</strong> ${student.name}<br>
+                                            <strong>Address:</strong> ${student.address}<br>
+                                            <strong>Birth of date:</strong> ${student.birthDate}<br>
+                                            <strong>Email:</strong> ${student.email}<br>
+                                            <strong>Phone:</strong> ${student.phone}<br>
+                                            <strong>Class:</strong> ${student.clazz.classCode}<br>
+                                            <strong>Status:</strong> ${student.status}<br>
+                                            <strong>Education:</strong> ${student.education}<br>
+                                            <strong>Citizen ID:</strong> ${student.citizenId}<br>
+                                            <strong>Bank Account:</strong> ${student.bankAccount}<br>
                                         </p>
                                         <h6>Hobbies</h6>
                                         <p>
@@ -127,7 +135,7 @@
                                 </div>
                                 <!--/row-->
                             </div>
-                            <div class="tab-pane active" id="mark">
+                            <div class="tab-pane" id="mark">
                                 <div id="chartContainer" style="height: 370px; width: 100%;" class="graph shadow-sm"></div>
                                 <table class="table table-striped text-center">
                                     <thead>

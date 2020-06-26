@@ -18,6 +18,16 @@
 		src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"></script>
     <title>Class management project</title>
 
+    <script>
+        function myFunction(mess) {
+            if(mess == 'Done') {
+                alert("Done!");
+            }
+            else {
+                alert("Save ngu");
+            }
+        }
+    </script>
 
 </head>
 
@@ -31,7 +41,7 @@
                 <h4 class="text-center">Form add a student</h4>
                 <hr>
             </div>
-            <form role="form">
+            <form role="form" method="post" action="<%= request.getContextPath()%>/createStudent">
                 <div class="form-group row">
                     <label class="col-lg-3 col-form-label form-control-label border-bottom">Account</label>
                     <div class="col-lg-9">
@@ -56,12 +66,7 @@
                         <input class="form-control" type="date" name="dateOfBirth">
                     </div>
                 </div>
-                <div class="form-group row">
-                    <label class="col-lg-3 col-form-label form-control-label border-bottom">Class</label>
-                    <div class="col-lg-9">
-                        <input class="form-control" type="text" placeholder="name of class . . ." name="class">
-                    </div>
-                </div>
+                
                 <div class="form-group row">
                     <label class="col-lg-3 col-form-label form-control-label border-bottom">Email</label>
                     <div class="col-lg-9">
@@ -99,7 +104,7 @@
                 <div class="form-group row">
                     <label class="col-lg-3 col-form-label form-control-label"></label>
                     <div class="col-lg-9">
-                        <button type="submit" class="btn btn-info">Save</button>
+                        <button type="submit" class="btn btn-info" onclick="myFunction(${mess})">Save</button>
                         <button type="button" class="btn btn-secondary"><a href="/student/addStudent.html">Cancel</a></button>
                     </div>
                 </div>
