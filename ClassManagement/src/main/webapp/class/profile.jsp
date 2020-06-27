@@ -120,11 +120,21 @@
 										<label for="admin-account" class="col-sm-2 col-form-label">Course</label>
 										<div class="col-sm-10">
 											<select class="custom-select" id="inputGroupSelect01" name = "courseId">
-												<option>${class1.getCourse().getCourseName() }</option>
+												<option value = "${class1.getCourse().getCourseId() }" >${class1.getCourse().getCourseName() }</option>
 												<c:forEach items="${listCourse }" var="course1">
 													<option value="${course1.courseId }">
 														${course1.courseName }</option>
 												</c:forEach>
+											</select>
+										</div>
+									</div>
+									<div class="form-group row">
+										<label for="admin-account" class="col-sm-2 col-form-label">Status</label>
+										<div class="col-sm-10">
+											<select class="custom-select" id="inputGroupSelect01" name = "status">
+												<option>${class1.isStatus()}</option>
+												<option>true</option>
+												<option>false</option>
 											</select>
 										</div>
 									</div>

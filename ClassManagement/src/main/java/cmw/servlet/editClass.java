@@ -98,24 +98,44 @@ public class editClass extends HttpServlet {
     String actStartDate = request.getParameter("expectedEndDate");
     String actEndDate = request.getParameter("expectedEndDate");
     int courseId = Integer.parseInt(request.getParameter("courseId"));
+    String status = request.getParameter("status");
+
+    System.out.println(expectStartDate);
+    System.out.println(expectEndDate);
+    System.out.println(actStartDate);
+    System.out.println(actEndDate);
+    System.out.println(status);
+  
     
-    
-    LocalDate expectedStartDate = LocalDate.parse(expectStartDate);
-    LocalDate expectedEndDate = LocalDate.parse(expectEndDate);
-    LocalDate actualStartDate = LocalDate.parse(actStartDate);
-    LocalDate actualEndDate = LocalDate.parse(actEndDate);
     course = courseDAO.getCourse(courseId);
-    
     clazz.setClassId(classId);
     clazz.setClassCode(classCode);
     clazz.setAdminAccount(adminAccount);
-    clazz.setExpectedStartDate(expectedStartDate);
-    clazz.setExpectedEndDate(expectedEndDate);
-    clazz.setActualStartDate(actualStartDate);
-    clazz.setactualEndDate(actualEndDate);
     clazz.setCourse(course);
-    classDAO.updateClass(clazz);;
+    clazz.setStatus(Boolean.parseBoolean(status));
 
+    // if (expectStartDate != null) {
+    // LocalDate expectedStartDate = LocalDate.parse(expectStartDate);
+    // clazz.setExpectedStartDate(expectedStartDate);
+    // System.out.println(expectedStartDate);
+    // }
+    // if (expectEndDate != null) {
+    // LocalDate expectedEndDate = LocalDate.parse(expectEndDate);
+    // clazz.setExpectedEndDate(expectedEndDate);
+    // System.out.println(expectedEndDate);
+    // }
+    // if (actStartDate != null) {
+    // LocalDate actualStartDate = LocalDate.parse(actStartDate);
+    // clazz.setActualStartDate(actualStartDate);
+    // System.out.println(actualStartDate);
+    // }
+    // if (actEndDate != null) {
+    // LocalDate actualEndDate = LocalDate.parse(actEndDate);
+    // clazz.setactualEndDate(actualEndDate);
+    // System.out.println(actualEndDate);
+    // }
+
+    classDAO.updateClass(clazz);;
 
   }
 }

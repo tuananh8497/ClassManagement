@@ -48,9 +48,10 @@
 							<div class="card-body">
 								<ul class="list-unstyled mt-3 mb-4">
 									<li>AdminClass: ${class1.getAdminAccount() }</li>
+									<li>Course: ${class1.getCourse().getCourseName() }</li>
 									<li>StartDate: ${class1.actualStartDate}</li>
 									<li>EndDate: ${class1.actualEndDate}</li>
-									<li style="color: green">Status: ${(class1.status==true)? "Active" : "Finished" }</li>
+									<li style="color: green">Status: ${(class1.status==true)? "Active" : "Inactive" }</li>
 								</ul>
 								<button type="button" class="btn btn-lg btn-block btn-info">
 									<a href="<%= request.getContextPath()%>/profileClass?classId=<c:out value="${class1.getClassId()}"/>">Class

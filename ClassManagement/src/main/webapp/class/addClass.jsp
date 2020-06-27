@@ -49,6 +49,13 @@
 					</div>
 				</div>
 				<div class="form-group row">
+					<label for="class-account" class="col-sm-2 col-form-label">Admin Account</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control shadow-sm " readonly
+							id="class-account" name="classAdmin" value = "QuyLV2">
+					</div>
+				</div>
+				<div class="form-group row">
 					<label for="class-name" class="col-sm-2 col-form-label">Course Name</label>
 					<div class="col-sm-10">
 						<select class="custom-select" id="inputGroupSelect01" name="courseId">
@@ -59,11 +66,17 @@
 					</div>
 				</div>
 				<div class="form-group row">
-					<label for="class-name" class="col-sm-2 col-form-label">Expected
-						Start Date</label>
+					<label for="class-name" class="col-sm-2 col-form-label">Expected Start Date</label>
 					<div class="col-sm-10">
-						<input type="date" class="form-control shadow-sm" id="class-name" name="expectedStartDate"
+						<input type="date" class="form-control shadow-sm" id="expected-start-date" name="expectedStartDate"
 							placeholder="Choose expected start date . . .">
+					</div>
+				</div>
+				<div class="form-group row">
+					<label for="class-name" class="col-sm-2 col-form-label">Expected End Date</label>
+					<div class="col-sm-10">
+						<input type="date" class="form-control shadow-sm" id="expected-end-date" name="expectedEndDate"
+							placeholder="Choose expected end date . . .">
 					</div>
 				</div>
 				<div class="form-group row">

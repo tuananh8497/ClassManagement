@@ -75,7 +75,7 @@
 								Account</label>
 							<div class="col-sm-10">
 								<input type="text" class="form-control shadow-sm"
-									id="admin-account" value="${class1.adminAccount }">
+									id="admin-account" value="${class1.adminAccount }" readonly>
 							</div>
 						</div>
 						<div class="form-group row">

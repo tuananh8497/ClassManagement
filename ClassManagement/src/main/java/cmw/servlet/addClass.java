@@ -79,15 +79,20 @@ public class addClass extends HttpServlet {
     CourseDAO courseDAO = new CourseDAOImpl();
 
     String classCode = request.getParameter("classCode");
+    String adminAccount = request.getParameter("classAdmin");
     String expectStartDate = request.getParameter("expectedStartDate");
+    String expectEndDate = request.getParameter("expectedEndDate");
     int courseId = Integer.parseInt(request.getParameter("courseId"));
     course = courseDAO.getCourse(courseId);
     LocalDate expectedStartDate = LocalDate.parse(expectStartDate);
-
+    LocalDate expectedEndDate = LocalDate.parse(expectEndDate);
+    
     clazz.setClassCode(classCode);
+    clazz.setAdminAccount(adminAccount);
     clazz.setCourse(course);
     clazz.setExpectedStartDate(expectedStartDate);
-
+    clazz.setExpectedEndDate(expectedEndDate);
+    
     classDAO.saveClass(clazz);
   }
 }
