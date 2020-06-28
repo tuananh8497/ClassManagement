@@ -33,6 +33,9 @@
             <div class="box">
                 <h2>Welcome to list of Mentors</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            	<button type="button" class="btn btn-info">
+					<a href="<%=request.getContextPath()%>/addMentor">Add Mentor</a>
+				</button>
             </div>
             <div class="row text-center">
             	<c:forEach items="${listMentor }" var="mentor">
@@ -45,7 +48,7 @@
                         </h4>
                         <div class="mb-1 text-muted">${mentor.mentorAccount }</div>
                         <p class="card-text mb-auto">Contact: + ${mentor.email }</p>
-                        <a href="<%= request.getContextPath()%>/profile-mentor?account=<c:out value='${mentor.mentorAccount }' />" class="btn btn-info mt-1">Go to profile</a>
+                        <a href="<%= request.getContextPath()%>/profile-mentor?id=<c:out value='${mentor.mentorId }' />" class="btn btn-info mt-1">Go to profile</a>
                       </div>
                       <img src="/ClassManagement/icon/user.svg" width="100px" class="mr-3">
                     </div>

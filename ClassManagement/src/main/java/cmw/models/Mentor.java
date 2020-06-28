@@ -1,7 +1,10 @@
 package cmw.models;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -31,13 +34,13 @@ public class Mentor {
   @Column
   private String address;
   @Column
-  private Date birthDate;
+  private LocalDate birthDate;
   @Column
   private String education;
   @Column
   private boolean status;
   
-  @OneToMany(mappedBy = "mentor")
+  @OneToMany(mappedBy = "mentor",cascade = CascadeType.ALL)
   private Set<Class_Mentor> cm;
   
   @Override
@@ -45,7 +48,7 @@ public class Mentor {
     return "Mentor [mentorId=" + mentorId + ", mentorAccount=" + mentorAccount + ", name=" + name
         + ", bankAccount=" + bankAccount + ", email=" + email + ", phone=" + phone + ", citizenId="
         + citizenId + ", address=" + address + ", birthDate=" + birthDate + ", education="
-        + education + ", status=" + status + ", cm=" + cm + "]";
+        + education + ", status=" + status + "]";
   }
 
   /**
@@ -63,7 +66,7 @@ public class Mentor {
    * @param cm
    */
   public Mentor(int mentorId, String mentorAccount, String name, String bankAccount, String email,
-      String phone, String citizenId, String address, Date birthDate, String education,
+      String phone, String citizenId, String address, LocalDate birthDate, String education,
       boolean status, Set<Class_Mentor> cm) {
     super();
     this.mentorId = mentorId;
@@ -133,10 +136,10 @@ public class Mentor {
   public void setAddress(String address) {
     this.address = address;
   }
-  public Date getBirthDate() {
+  public LocalDate getBirthDate() {
     return birthDate;
   }
-  public void setBirthDate(Date birthDate) {
+  public void setBirthDate(LocalDate birthDate) {
     this.birthDate = birthDate;
   }
   public String getEducation() {

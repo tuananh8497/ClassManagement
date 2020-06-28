@@ -35,11 +35,11 @@
                     <div class="col-4 text-center">
                         <img src="/ClassManagement/icon/user.svg" class="mx-auto img-fluid mb-3" alt="avatar" width="150px" height="150px">
                         
-                        <h6>Lam Thi Huong</h6>
+                        <h6>${mentor.name }</h6>
                         <div class="pt-2">
-                            <a href="https://www.facebook.com/"><img src="/icon/facebook.svg" class="mx-1" width="25em" height="25em"></a>
-                            <a href="https://www.instagram.com/"><img src="/icon/instagram-sketched.svg" class="mx-1" width="25em" height="25em"></a>
-                            <a href="https://www.pinterest.com/"><img src="/icon/pinterest.svg" class="mx-1" width="25em" height="25em"></a>
+                            <a href="https://www.facebook.com/"><img src="/ClassManagement/icon/facebook.svg" class="mx-1" width="25em" height="25em"></a>
+                            <a href="https://www.instagram.com/"><img src="/ClassManagement/icon/instagram-sketched.svg" class="mx-1" width="25em" height="25em"></a>
+                            <a href="https://www.pinterest.com/"><img src="/ClassManagement/icon/pinterest.svg" class="mx-1" width="25em" height="25em"></a>
                         </div>
                     </div>
                     <div class="col-8">
@@ -51,7 +51,7 @@
                                 <a href="" data-target="#classes" data-toggle="tab" class="nav-link ">Classes</a>
                             </li>
                             <li class="nav-item">
-                                <a href="" data-target="#contact" data-toggle="tab" class="nav-link">Contact</a>
+                                <a href="" data-target="#edit" data-toggle="tab" class="nav-link">Edit info</a>
                             </li>
                         </ul>
                         <div class="tab-content py-4">
@@ -65,23 +65,31 @@
                                                 <tbody>
                                                     <tr>
                                                         <th>Name:</th>
-                                                        <td>Lam Thi Huong</td>
+                                                        <td>${mentor.name }</td>
                                                     </tr>
                                                     <tr>   
-                                                        <th>Gender:</th>
-                                                        <td>Female</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Age:</th>
-                                                        <td>?</td>
+                                                        <th>Account:</th>
+                                                        <td>${mentor.mentorAccount }</td>
                                                     </tr>
                                                     <tr>
                                                         <th>Email:</th>
-                                                        <td>email@ttt</td>
+                                                        <td>${mentor.email }</td>
                                                     </tr>
                                                     <tr>
-                                                        <th>Relationship:</th>
-                                                        <td>?</td>
+                                                        <th>Phone:</th>
+                                                        <td>${mentor.phone }</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Address:</th>
+                                                        <td>${mentor.address }</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Education:</th>
+                                                        <td>${mentor.education }</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Status:</th>
+                                                        <td>${mentor.status }</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -97,39 +105,99 @@
                                 <table class="table table-striped text-center">
                                     <thead>
                                       <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">Subject</th>
-                                        <th scope="col">Mark</th>
-                                        <th scope="col">Notes</th>
+                                        <th scope="col">Class Code</th>
+                                        <th scope="col">adminAccount</th>
+                                        <th scope="col">course</th>
+                                        <th scope="col">Status</th>
                                       </tr>
                                     </thead>
                                     <tbody>
+                                    <c:forEach items="${classMentor }" var="classMentor">
                                       <tr>
-                                        <th scope="row">1</th>
-                                        <td>Java core</td>
-                                        <td>7</td>
-                                        <td>Good</td>
+                                        <th >${classMentor.clazz.classCode }</th>
+                                        <td>${classMentor.clazz.adminAccount }</td>
+                                        <td>${classMentor.clazz.course.courseName }</td>
+                                        <td>${(classMentor.clazz.status == true)? "Active" : "Inactive" }</td>
                                       </tr>
-                                      <tr>
-                                        <th scope="row">2</th>
-                                        <td>JDBC</td>
-                                        <td>7</td>
-                                        <td>Moderate</td>
-                                      </tr>
-                                      <tr>
-                                        <th scope="row">3</th>
-                                        <td>Frontend</td>
-                                        <td>7</td>
-                                        <td>Good</td>
-                                      </tr>
+                                      </c:forEach>
                                     </tbody>
                                   </table>
                             </div>
-                            <div class="tab-pane" id="contact">
-                                <div>
-                                    <h4 class="text-center">Contact me at ...</h4>
-                                    <hr>
-                                </div>
+                            <div class="tab-pane" id="edit">
+                                <form action="<%=request.getContextPath()%>/editMentor" method="post">
+                                	<input type="hidden" name="mentorId" value="${mentor.mentorId }">
+					                <div class="form-group row">
+					                    <label class="col-lg-3 col-form-label form-control-label border-bottom">Account</label>
+					                    <div class="col-lg-9">
+					                        <input class="form-control" type="text" value="${mentor.mentorAccount }" name="account">
+					                    </div>
+					                </div>
+					                <div class="form-group row">
+					                    <label class="col-lg-3 col-form-label form-control-label border-bottom">Name</label>
+					                    <div class="col-lg-9">
+					                        <input class="form-control" type="text" value="${mentor.name }" name="name">
+					                    </div>
+					                </div>
+					                <div class="form-group row">
+					                    <label class="col-lg-3 col-form-label form-control-label border-bottom">Bank account</label>
+					                    <div class="col-lg-9">
+					                        <input class="form-control" type="text" value="${mentor.bankAccount }" name="bankAccount">
+					                    </div>
+					                </div>
+					                <div class="form-group row">
+					                    <label class="col-lg-3 col-form-label form-control-label border-bottom">Email</label>
+					                    <div class="col-lg-9">
+					                        <input class="form-control" type="email" value="${mentor.email }" name="email">
+					                    </div>
+					                </div>
+					                <div class="form-group row">
+					                    <label class="col-lg-3 col-form-label form-control-label border-bottom">Phone</label>
+					                    <div class="col-lg-9">
+					                        <input class="form-control" type="text" value="${mentor.phone }" name="phone">
+					                    </div>
+					                </div>
+					                <div class="form-group row">
+					                    <label class="col-lg-3 col-form-label form-control-label border-bottom">Citizen ID</label>
+					                    <div class="col-lg-9">
+					                        <input class="form-control" type="text"  value="${mentor.citizenId }" name="citizenId">
+					                    </div>
+					                </div>
+					                <div class="form-group row">
+					                    <label class="col-lg-3 col-form-label form-control-label border-bottom">Address</label>
+					                    <div class="col-lg-9">
+					                        <input class="form-control" type="text" value="${mentor.address }" name="address">
+					                    </div>
+					                </div>
+					                <div class="form-group row">
+					                    <label class="col-lg-3 col-form-label form-control-label border-bottom">Birth date</label>
+					                    <div class="col-lg-9">
+					                        <input class="form-control" type="text" value="${mentor.birthDate }" name="birthDate">
+					                    </div>
+					                </div>
+					                <div class="form-group row">
+					                    <label class="col-lg-3 col-form-label form-control-label">Education</label>
+					                    <div class="col-lg-9">
+					                        <input class="form-control" type="text" value="${mentor.education }" name="education">
+					                    </div>
+					                </div>
+					                <div class="form-group row">
+					                    <label class="col-lg-3 col-form-label form-control-label">Status</label>
+					                    <div class="col-lg-9">
+					                        <select class="custom-select" name = "status">
+												<option>${mentor.status }</option>
+												<option>true</option>
+												<option>false</option>
+											</select>
+					                    </div>
+					                </div>
+					                <div class="form-group row">
+					                    <label class="col-lg-3 col-form-label form-control-label"></label>
+					                    <div class="col-lg-9">
+					                        <button type="submit" class="btn btn-info">Save and changes</button>
+					                        <!--  <button type="button" class="btn btn-secondary"><a href="/student/editStudent.html">Cancel</a></button> -->
+					                    </div>
+					                </div>
+					            </form>
                             </div>
                         </div>
                     </div>

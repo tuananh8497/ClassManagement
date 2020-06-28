@@ -225,10 +225,6 @@ public class Class {
     return "Class [classId=" + classId + ", classCode=" + classCode + ", adminAccount="
         + adminAccount + ", course=" + course + ", expectedStartDate=" + expectedStartDate
         + ", expectedEndDate=" + expectedEndDate + ", actualStartDate=" + actualStartDate
-        + ", actualEndDate=" + actualEndDate + ", status=" + status + ", class_mentor="
-        + class_mentor + ", persons=" + persons + "]";
+        + ", actualEndDate=" + actualEndDate + ", status=" + status + "]";
   }
-
-
-
 }
