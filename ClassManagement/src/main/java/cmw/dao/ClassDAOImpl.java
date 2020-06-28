@@ -116,4 +116,21 @@ public class ClassDAOImpl implements ClassDAO {
     }
     return listOfClasses;
   }
+
+@Override
+public List<Class> getClass(String classCode) {
+	Transaction transaction = null;
+    List<Class> clazz = null;
+    try (Session session = HibernateUtils.getSessionFactory().openSession()) {
+      transaction = session.beginTransaction();
+      clazz = session.createQuery("from Class where classCode = '" + classCode + "'").getResultList();
+      transaction.commit();
+    } catch (Exception e) {
+      if (transaction != null) {
+        transaction.rollback();
+      }
+      e.printStackTrace();
+    }
+    return clazz;
+}
 }

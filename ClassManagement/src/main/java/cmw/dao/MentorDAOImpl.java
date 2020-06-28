@@ -109,7 +109,18 @@ public class MentorDAOImpl implements MentorDAO{
 
 @Override
 public Mentor getMentor(int id) {
-	// TODO Auto-generated method stub
-	return null;
+	Transaction transaction = null;
+    Mentor mentor= null;
+    try (Session session = HibernateUtils.getSessionFactory().openSession()) {
+        transaction = session.beginTransaction();
+        mentor = session.get(Mentor.class, id);
+        transaction.commit();
+    } catch (Exception e) {
+        if (transaction != null) {
+            transaction.rollback();
+        }
+        e.printStackTrace();
+    }
+    return mentor;
 }
 }

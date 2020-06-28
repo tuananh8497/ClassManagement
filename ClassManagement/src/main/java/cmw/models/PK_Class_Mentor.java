@@ -9,10 +9,19 @@ public class PK_Class_Mentor implements Serializable{
   private int classId;
   private int mentorId;
   
-  public int getClassId() {
-    
+  public PK_Class_Mentor(int classId, int mentorId) {
+	super();
+	this.classId = classId;
+	this.mentorId = mentorId;
+  }
+  
+  public PK_Class_Mentor() {
+	super();
+  }
+  public int getClassId() { 
     return classId;
   }
+
   public void setClassId(int classId) {
     this.classId = classId;
   }

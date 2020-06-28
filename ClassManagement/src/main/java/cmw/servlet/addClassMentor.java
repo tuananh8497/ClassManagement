@@ -1,0 +1,90 @@
+package cmw.servlet;
+
+import java.io.IOException;
+import java.util.List;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import cmw.dao.ClassDAO;
+import cmw.dao.ClassDAOImpl;
+import cmw.dao.ClassMentorDAO;
+import cmw.dao.ClassMentorDAOImpl;
+import cmw.models.Class_Mentor;
+import cmw.models.PK_Class_Mentor;
+import cmw.models.Class;
+
+/**
+ * Servlet implementation class addClassMentor
+ */
+@WebServlet("/addClassMentor")
+public class addClassMentor extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public addClassMentor() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.sendRedirect("/ClassManagement/mentor/profile.jsp");
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		try {
+			ClassMentorDAO classMentorDAO = new ClassMentorDAOImpl();
+			ClassDAO classDAO = new ClassDAOImpl();
+	
+			String classCode = request.getParameter("classCode");
+			List<Class> clazz = classDAO.getClass(classCode);
+			System.out.println(clazz);
+			int classId = clazz.get(0).getClassId();
+			int mentorId = Integer.parseInt(request.getParameter("mentorId"));
+			
+//			List<PK_Class_Mentor> pkClassMentor = classMentorDAO.getClassMentor(mentorId);
+//			List<Integer> clazzId1= null;
+//			for(PK_Class_Mentor i : pkClassMentor) {
+//				int classMentorId = i.getClassId();
+//				clazzId1.add(classMentorId);
+//			}
+//			
+//			System.out.println(clazzId1);
+//			boolean status = true;
+//			for(Integer i : clazzId1) {
+//				if(classId == i) {
+//					status = false;
+//				}
+//			}
+			
+//			if(status = true) {
+				PK_Class_Mentor classMentor = new PK_Class_Mentor(classId, mentorId);
+				System.out.println(classMentor);
+				classMentorDAO.saveClassMentor(classMentor);
+				request.setAttribute("message", "Add Success!!!");
+				request.getRequestDispatcher("/showMentor").forward(request, response);;
+//			}
+//			else {
+//				request.setAttribute("message", "Add Faill!!!");
+//				request.getRequestDispatcher("/showMentor").forward(request, response);;
+//			}
+			
+		} 
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+
+}
