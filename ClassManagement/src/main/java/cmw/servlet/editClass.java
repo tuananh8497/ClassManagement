@@ -95,8 +95,8 @@ public class editClass extends HttpServlet {
     String adminAccount = request.getParameter("adminAccount");
     String expectStartDate = request.getParameter("expectedStartDate");
     String expectEndDate = request.getParameter("expectedEndDate");
-    String actStartDate = request.getParameter("expectedEndDate");
-    String actEndDate = request.getParameter("expectedEndDate");
+    String actStartDate = request.getParameter("actualStartDate");
+    String actEndDate = request.getParameter("actualEndDate");
     int courseId = Integer.parseInt(request.getParameter("courseId"));
     String status = request.getParameter("status");
 
@@ -114,26 +114,26 @@ public class editClass extends HttpServlet {
     clazz.setCourse(course);
     clazz.setStatus(Boolean.parseBoolean(status));
 
-    // if (expectStartDate != null) {
-    // LocalDate expectedStartDate = LocalDate.parse(expectStartDate);
-    // clazz.setExpectedStartDate(expectedStartDate);
-    // System.out.println(expectedStartDate);
-    // }
-    // if (expectEndDate != null) {
-    // LocalDate expectedEndDate = LocalDate.parse(expectEndDate);
-    // clazz.setExpectedEndDate(expectedEndDate);
-    // System.out.println(expectedEndDate);
-    // }
-    // if (actStartDate != null) {
-    // LocalDate actualStartDate = LocalDate.parse(actStartDate);
-    // clazz.setActualStartDate(actualStartDate);
-    // System.out.println(actualStartDate);
-    // }
-    // if (actEndDate != null) {
-    // LocalDate actualEndDate = LocalDate.parse(actEndDate);
-    // clazz.setactualEndDate(actualEndDate);
-    // System.out.println(actualEndDate);
-    // }
+     if (expectStartDate != null) {
+     LocalDate expectedStartDate = LocalDate.parse(expectStartDate);
+     clazz.setExpectedStartDate(expectedStartDate);
+     System.out.println(expectedStartDate);
+     }
+     if (expectEndDate != null) {
+     LocalDate expectedEndDate = LocalDate.parse(expectEndDate);
+     clazz.setExpectedEndDate(expectedEndDate);
+     System.out.println(expectedEndDate);
+     }
+     if (actStartDate != null) {
+     LocalDate actualStartDate = LocalDate.parse(actStartDate);
+     clazz.setActualStartDate(actualStartDate);
+     System.out.println(actualStartDate);
+     }
+     if (actEndDate != null) {
+     LocalDate actualEndDate = LocalDate.parse(actEndDate);
+     clazz.setactualEndDate(actualEndDate);
+     System.out.println(actualEndDate);
+     }
 
     classDAO.updateClass(clazz);;
 

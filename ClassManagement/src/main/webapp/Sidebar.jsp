@@ -31,8 +31,7 @@
 					<ul class="collapse list-unstyled border-bottom" id="class">
 						<li><a href="<%=request.getContextPath()%>/showClass">Show
 								classes</a></li>
-						<li><a href="<%=request.getContextPath()%>/addClass">Add
-								class</a></li>
+						<li><a href="<%=request.getContextPath()%>/addClass">Create Class</a></li>
 					</ul></li>
 				<li><a href="#student" data-toggle="collapse"
 					aria-expanded="false" class="dropdown-toggle border-bottom">Students</a>
