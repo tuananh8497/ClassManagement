@@ -57,7 +57,7 @@ public class editMentor extends HttpServlet {
 		System.out.println(mentor);
 		try {
 			mentorDAO.updateMentor(mentor);
-			request.setAttribute("message", "Add Successss!!!!!");
+			request.setAttribute("message", "Edit Successss!!!!!");
 			request.getRequestDispatcher("/showMentor").forward(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();

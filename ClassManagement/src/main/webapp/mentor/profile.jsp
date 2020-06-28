@@ -102,6 +102,20 @@
                                 <!--/row-->
                             </div>
                             <div class="tab-pane" id="classes">
+                            	<form action="<%=request.getContextPath()%>/addClassMentor" method="post">
+                                   	<div class="input-group mb-3">
+									  <div class="input-group-prepend ">
+									    <label class="input-group-text" for="classCode">Add class</label>
+									  </div>
+									  <select class="custom-select col-4" id="classCode" name="classCode">
+									  	<c:forEach items="${clazz }" var="clazz">
+									  		<option >${clazz.classCode }</option>
+									  	</c:forEach>	
+									  </select>
+									  <button type="submit" class="btn btn-info">Save</button>
+									  <input type="hidden" name="mentorId" value="${mentor.mentorId }">
+									</div>
+                                   </form>
                                 <table class="table table-striped text-center">
                                     <thead>
                                       <tr>

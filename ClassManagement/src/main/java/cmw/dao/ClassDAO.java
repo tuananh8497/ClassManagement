@@ -10,4 +10,5 @@ public interface ClassDAO {
   public void deleteClass(int id);
   public Class getClass(int id);
   public List<Class> getAllClass();
+  public List<Class> getClass(String classCode);
 }

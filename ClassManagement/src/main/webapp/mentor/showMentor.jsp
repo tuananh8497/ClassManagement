@@ -20,7 +20,13 @@
 		src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"></script>
 
     <title>Mentor management project</title>
-
+	<script>
+		window.setTimeout(function() {
+    		$(".alert").fadeTo(500, 0).slideUp(500, function(){
+        		$(this).remove(); 
+    		});
+		}, 2000);
+	</script>
 </head>
 
 <body>
@@ -37,6 +43,10 @@
 					<a href="<%=request.getContextPath()%>/addMentor">Add Mentor</a>
 				</button>
             </div>
+            <div class="alert alert-success" role="alert">
+			  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			  ${message }
+			</div>
             <div class="row text-center">
             	<c:forEach items="${listMentor }" var="mentor">
                 <div class="col-md-6">
@@ -49,6 +59,8 @@
                         <div class="mb-1 text-muted">${mentor.mentorAccount }</div>
                         <p class="card-text mb-auto">Contact: + ${mentor.email }</p>
                         <a href="<%= request.getContextPath()%>/profile-mentor?id=<c:out value='${mentor.mentorId }' />" class="btn btn-info mt-1">Go to profile</a>
+                        <a href="<%= request.getContextPath()%>/deleteMentor?id=<c:out value='${mentor.mentorId }' />" class="btn btn-secondary mt-1">Delete</a>
+                        
                       </div>
                       <img src="/ClassManagement/icon/user.svg" width="100px" class="mr-3">
                     </div>
