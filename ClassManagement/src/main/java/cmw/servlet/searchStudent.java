@@ -37,29 +37,32 @@ public class searchStudent extends HttpServlet {
 			throws ServletException, IOException {
 		PersonDAO personDAO = new PersonDAOImpl();
 		try {
+			studentServices services = new studentServices();
 			// get data from DB
 			List<Person> listPerson = personDAO.getAllPerson();
+			List<Person> listStudent = services.showStudents(listPerson);
+			System.out.println("listStudent: " + listStudent);
 
 			// Lấy dữ liệu đầu vào của search
 			int searchBy = Integer.parseInt(request.getParameter("searchBy"));
 			String searchString = request.getParameter("searchString");
 
-			studentServices services = new studentServices();
+			
 			List<Person> listStudentReturn = null;
 			switch (searchBy) {
 			case 1:
-				listStudentReturn = services.searchByAccount(searchString, listPerson);
-				request.setAttribute("listPerson", listStudentReturn);
+				listStudentReturn = services.searchByAccount(searchString, listStudent);
+				request.setAttribute("listStudent", listStudentReturn);
 				request.getRequestDispatcher("/student/showStudents.jsp").forward(request, response);
 				break;
 			case 2:
-				listStudentReturn = services.searchByName(searchString, listPerson);
-				request.setAttribute("listPerson", listStudentReturn);
+				listStudentReturn = services.searchByName(searchString, listStudent);
+				request.setAttribute("listStudent", listStudentReturn);
 				request.getRequestDispatcher("/student/showStudents.jsp").forward(request, response);
 				break;
 			case 3:
-				listStudentReturn = services.searchByClass(searchString, listPerson);
-				request.setAttribute("listPerson", listStudentReturn);
+				listStudentReturn = services.searchByClass(searchString, listStudent);
+				request.setAttribute("listStudent", listStudentReturn);
 				request.getRequestDispatcher("/student/showStudents.jsp").forward(request, response);
 				System.out.println("Da chay het searchby class");
 				break;

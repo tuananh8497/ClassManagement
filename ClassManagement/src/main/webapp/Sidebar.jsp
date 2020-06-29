@@ -40,8 +40,7 @@
 								students</a></li>
 						<li><a href="<%=request.getContextPath()%>/createStudent">Create
 								student</a></li>
-						<li><a href="<%=request.getContextPath()%>/editStudent">Edit
-								student</a></li>
+						
 					</ul></li>
 				<li><a href="#mentor" data-toggle="collapse"
 					aria-expanded="false" class="dropdown-toggle border-bottom">Mentors</a>

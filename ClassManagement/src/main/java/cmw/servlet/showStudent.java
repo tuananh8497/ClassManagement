@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import cmw.dao.PersonDAO;
 import cmw.dao.PersonDAOImpl;
 import cmw.models.Person;
+import cmw.services.studentServices;
 
 /**
  * Servlet implementation class showStudent
@@ -38,9 +39,11 @@ public class showStudent extends HttpServlet {
 		try {
 			// get data from DB
 			List<Person> listPerson = personDAO.getAllPerson();
+			studentServices services = new studentServices();
+			List<Person> listStudent = services.showStudents(listPerson);
 			// chuyen den view
-			System.out.println(listPerson);
-			request.setAttribute("listPerson", listPerson);
+			System.out.println(listStudent);
+			request.setAttribute("listStudent", listStudent);
 			request.getRequestDispatcher("/student/showStudents.jsp").forward(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();
