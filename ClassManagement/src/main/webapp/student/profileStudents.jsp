@@ -298,7 +298,7 @@
 										<label class="col-lg-3 col-form-label form-control-label"></label>
 										<div class="col-lg-9">
 
-											<button type="button" class="btn btn-info mr-2">
+											<button type="submit" class="btn btn-info mr-2">
 												<i class="fas fa-save"></i> Save
 											</button>
 										</div>
