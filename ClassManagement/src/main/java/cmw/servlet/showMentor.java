@@ -40,6 +40,7 @@ public class showMentor extends HttpServlet {
 
 			List<Mentor> listMentor = mentorDao.getAllMentor();
 			request.setAttribute("listMentor", listMentor);
+			request.setAttribute("message", "Welcome!!!");
 			request.getRequestDispatcher("/mentor/showMentor.jsp").forward(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();

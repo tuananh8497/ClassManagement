@@ -6,7 +6,7 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class PK_Class_Mentor implements Serializable{  
   
-  private int classId;
+private int classId;
   private int mentorId;
   
   public PK_Class_Mentor(int classId, int mentorId) {
@@ -32,8 +32,10 @@ public class PK_Class_Mentor implements Serializable{
     this.mentorId = mentorId;
   }
 
-  
-  
+  @Override
+ 	public String toString() {
+ 		return "PK_Class_Mentor [classId=" + classId + ", mentorId=" + mentorId + "]";
+ 	}
   
   
 }

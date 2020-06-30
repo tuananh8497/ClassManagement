@@ -13,7 +13,10 @@ import cmw.dao.ClassDAO;
 import cmw.dao.ClassDAOImpl;
 import cmw.dao.ClassMentorDAO;
 import cmw.dao.ClassMentorDAOImpl;
+import cmw.dao.MentorDAO;
+import cmw.dao.MentorDAOImpl;
 import cmw.models.Class_Mentor;
+import cmw.models.Mentor;
 import cmw.models.PK_Class_Mentor;
 import cmw.models.Class;
 
@@ -46,14 +49,16 @@ public class addClassMentor extends HttpServlet {
 		try {
 			ClassMentorDAO classMentorDAO = new ClassMentorDAOImpl();
 			ClassDAO classDAO = new ClassDAOImpl();
+			MentorDAO mentorDAO = new MentorDAOImpl();
 	
 			String classCode = request.getParameter("classCode");
 			List<Class> clazz = classDAO.getClass(classCode);
 			System.out.println(clazz);
 			int classId = clazz.get(0).getClassId();
 			int mentorId = Integer.parseInt(request.getParameter("mentorId"));
-			
+//			Mentor mentor = mentorDAO.getMentor(mentorId);
 //			List<PK_Class_Mentor> pkClassMentor = classMentorDAO.getClassMentor(mentorId);
+//			System.out.println(pkClassMentor);
 //			List<Integer> clazzId1= null;
 //			for(PK_Class_Mentor i : pkClassMentor) {
 //				int classMentorId = i.getClassId();
@@ -67,11 +72,14 @@ public class addClassMentor extends HttpServlet {
 //					status = false;
 //				}
 //			}
-			
+//			
 //			if(status = true) {
-				PK_Class_Mentor classMentor = new PK_Class_Mentor(classId, mentorId);
-				System.out.println(classMentor);
-				classMentorDAO.saveClassMentor(classMentor);
+//				PK_Class_Mentor pkClassMentor1 = new PK_Class_Mentor(classId, mentorId);
+//				Class_Mentor classMentor = new Class_Mentor(clazz.get(0), mentor);
+//				System.out.println(pkClassMentor1);
+//				System.out.println(classMentor);
+				classMentorDAO.saveClassMentor(classId, mentorId);
+//				classMentorDAO.saveClassMentor(classMentor);
 				request.setAttribute("message", "Add Success!!!");
 				request.getRequestDispatcher("/showMentor").forward(request, response);;
 //			}

@@ -18,7 +18,11 @@
 	src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"></script>
 
 <title>Add mentor</title>
-
+<script>
+		window.setTimeout(function() {
+			$(".alert").alert('close')
+		}, 2000);
+	</script>
 </head>
 
 <body>

@@ -5,6 +5,8 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import cmw.models.Class_Mentor;
+import cmw.models.Mentor;
 import cmw.models.PK_Class_Mentor;
 import cmw.utils.HibernateUtils;
 
@@ -96,6 +98,43 @@ public class ClassMentorDAOImpl implements ClassMentorDAO {
 
 	@Override
 	public PK_Class_Mentor getClassMentor(String account) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void saveClassMentor(int classId, int mentorId) {
+		Transaction transaction = null;
+	    try (Session session = HibernateUtils.getSessionFactory().openSession()) {
+	        transaction = session.beginTransaction();
+	        String hql = "INSERT INTO class_mentor(classId, mentorId) SELECT classId, mentorId FROM class, mentor WHERE classId =" + classId + " AND mentorId =" + mentorId;
+	        session.createQuery(hql).executeUpdate();
+	        transaction.commit();
+	    } catch (Exception e) {
+	        if (transaction != null) {
+	            transaction.rollback();
+	        }
+	        e.printStackTrace();
+	    }
+	}
+
+	@Override
+	public void updateClassMentor(Class_Mentor classMentor) {
+		Transaction transaction = null;
+	    try (Session session = HibernateUtils.getSessionFactory().openSession()) {
+	        transaction = session.beginTransaction();
+	        session.update(classMentor);
+	        transaction.commit();
+	    } catch (Exception e) {
+	        if (transaction != null) {
+	            transaction.rollback();
+	        }
+	        e.printStackTrace();
+	    }
+	}
+
+	@Override
+	public List<PK_Class_Mentor> getClassMentor(Mentor mentor) {
 		// TODO Auto-generated method stub
 		return null;
 	}

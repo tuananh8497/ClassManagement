@@ -60,7 +60,7 @@
                                 
                                 <div class="container">
                                     <div class="row">
-                                        <div class="col-lg-6">
+                                        <div class="">
                                             <table class="table table-borderless">
                                                 <tbody>
                                                     <tr>
@@ -89,13 +89,10 @@
                                                     </tr>
                                                     <tr>
                                                         <th>Status:</th>
-                                                        <td>${mentor.status }</td>
+                                                        <td>${(mentor.status == true )? 'Active' : 'Inactive' }</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
-                                        </div>
-                                        <div class="col-6">
-                                            One of three columns
                                         </div>
                                     </div>
                                 </div>

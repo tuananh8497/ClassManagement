@@ -68,9 +68,11 @@ public class addMentor extends HttpServlet {
 		try {
 			mentorDAO.saveMentor(mentor);
 			request.setAttribute("message", "Add Successss!!!!!");
-			request.getRequestDispatcher("/showMentor").forward(request, response);
+			request.getRequestDispatcher("/addMentor").forward(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();
+//			request.setAttribute("message", "Add Fail!!!!! This mentor already exist!");
+//			request.getRequestDispatcher("/addMentor").forward(request, response);
 		}
 	}
 

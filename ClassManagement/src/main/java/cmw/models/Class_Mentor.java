@@ -10,24 +10,19 @@ public class Class_Mentor {
   private PK_Class_Mentor pk;
   
   @ManyToOne
-  @JoinColumn(name = "classId",insertable =false , updatable=false) // check when run
+  @JoinColumn(name = "classId",insertable = false , updatable= false) // check when run
   private Class clazz;
   
  
   @ManyToOne
-  @JoinColumn(name = "mentorId", insertable = false , updatable =false) // check when run
+  @JoinColumn(name = "mentorId", insertable = false , updatable = false) // check when run
   private Mentor mentor;
-  /**
-   * @param clazz
-   * @param mentor
-   */
-  public Class_Mentor(Class clazz, Mentor mentor) {
-    super();
-    this.clazz = clazz;
-    this.mentor = mentor;
-  }
-  
-  /**
+ 
+  public Class_Mentor(PK_Class_Mentor pk) {
+	super();
+	this.pk = pk;
+}
+/**
    * 
    */
   public Class_Mentor() {
@@ -50,6 +45,4 @@ public class Class_Mentor {
   public void setMentor(Mentor mentor) {
     this.mentor = mentor;
   }
-  
-  
 }
