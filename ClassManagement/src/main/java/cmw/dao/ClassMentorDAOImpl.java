@@ -100,21 +100,4 @@ public class ClassMentorDAOImpl implements ClassMentorDAO {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	@Override
-	public void saveClassMentor(int classId, int mentorId) {
-		Transaction transaction = null;
-	    try (Session session = HibernateUtils.getSessionFactory().openSession()) {
-	        transaction = session.beginTransaction();
-	        String hql = "INSERT INTO class_mentor(classId, mentorId) SELECT classId, mentorId FROM class, mentor WHERE classId =" + classId + " AND mentorId =" + mentorId;
-	        session.createQuery(hql).executeUpdate();
-	        transaction.commit();
-	    } catch (Exception e) {
-	        if (transaction != null) {
-	            transaction.rollback();
-	        }
-	        e.printStackTrace();
-	    }
-	}
-
 }

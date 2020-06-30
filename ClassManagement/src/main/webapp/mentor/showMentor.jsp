@@ -44,7 +44,7 @@
             </div>
             <div class="alert alert-info" role="alert">
 			  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			  ${message }
+			  Welcome.. ${message }
 			</div>
 			<form action="<%=request.getContextPath()%>/addClassMentor" method="post">
                       <div class="input-group mb-3">

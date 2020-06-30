@@ -74,11 +74,11 @@ public class addClassMentor extends HttpServlet {
 //			}
 //			
 //			if(status = true) {
-//				PK_Class_Mentor pkClassMentor1 = new PK_Class_Mentor(classId, mentorId);
-//				Class_Mentor classMentor = new Class_Mentor(clazz.get(0), mentor);
+				PK_Class_Mentor pkClassMentor1 = new PK_Class_Mentor(classId, mentorId);
+				Class_Mentor classMentor = new Class_Mentor(pkClassMentor1);
 //				System.out.println(pkClassMentor1);
 //				System.out.println(classMentor);
-				classMentorDAO.saveClassMentor(classId, mentorId);
+				classMentorDAO.saveClassMentor(classMentor);
 //				classMentorDAO.saveClassMentor(classMentor);
 				request.setAttribute("message", "Add Success!!!");
 				request.getRequestDispatcher("/showMentor").forward(request, response);;
