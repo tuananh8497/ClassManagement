@@ -142,17 +142,17 @@
 										<label for="expected-start-date"
 											class="col-sm-2 col-form-label">Expected Start Date</label>
 										<div class="col-sm-10">
-											<input type="text" class="form-control shadow-sm"
+											<input type="date" class="form-control shadow-sm"
 												id="expected-start-date" name ="expectedStartDate"
 												value="${class1.getExpectedStartDate() }"
-												name="expectedStartDate">
+												>
 										</div>
 									</div>
 									<div class="form-group row">
 										<label for="expected-end-date" class="col-sm-2 col-form-label">Expected
 											End Date</label>
 										<div class="col-sm-10">
-											<input type="text" class="form-control shadow-sm"
+											<input type="date" class="form-control shadow-sm"
 												id="expected-end-date" name ="expectedEndDate"
 												value="${class1.getExpectedEndDate() }"
 												name="expectedEndDate">
@@ -162,7 +162,7 @@
 										<label for="actual-start-date" class="col-sm-2 col-form-label">Actual
 											Start Date</label>
 										<div class="col-sm-10">
-											<input type="text" class="form-control shadow-sm"
+											<input type="date" class="form-control shadow-sm"
 												id="actual-start-date" name ="actualStartDate"
 												value="${class1.actualStartDate }"
 												name="actualStartDate">
@@ -172,7 +172,7 @@
 										<label for="actual-end-date" class="col-sm-2 col-form-label">Actual
 											Start Date</label>
 										<div class="col-sm-10">
-											<input type="text" class="form-control shadow-sm"
+											<input type="date" class="form-control shadow-sm"
 												id="actual-end-date" name ="actualEndDate"
 												value="${class1.actualEndDate}"
 												name="actualEndDate">

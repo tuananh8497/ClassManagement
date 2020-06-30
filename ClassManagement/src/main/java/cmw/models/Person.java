@@ -1,7 +1,9 @@
 package cmw.models;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Set;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -34,7 +36,7 @@ public class Person {
 	@Column
 	private String address;
 	@Column
-	private Date birthDate;
+	private LocalDate birthDate;
 	@Column
 	private String education;
 	@Column
@@ -43,7 +45,7 @@ public class Person {
 	@JoinColumn(name = "positionId", nullable = false) // check when run
 	private Position position;
 	@ManyToOne
-	@JoinColumn(name = "classId", insertable = false, updatable = false) // check when run
+	@JoinColumn(name = "classId") // check when run
 	private Class clazz;
 	@OneToMany(mappedBy = "person",cascade = CascadeType.ALL)
 	private Set<Point> points;
@@ -87,7 +89,7 @@ public class Person {
 	 * @param points
 	 */
 	public Person(int personId, String account, String name, String bankAccount, String email, String phone,
-			String citizenId, String address, Date birthDate, String education, boolean status, Position position,
+			String citizenId, String address, LocalDate birthDate, String education, boolean status, Position position,
 			Class clazz, Set<Point> points) {
 		super();
 		this.personId = personId;
@@ -106,9 +108,26 @@ public class Person {
 		this.points = points;
 	}
 	
+	public Person(String account, String name, String bankAccount, String email, String phone,
+			String citizenId, String address, LocalDate birthDate, String education, boolean status, Position position,
+			Class clazz) {
+		this.account = account;
+		this.name = name;
+		this.bankAccount = bankAccount;
+		this.email = email;
+		this.phone = phone;
+		this.citizenId = citizenId;
+		this.address = address;
+		this.birthDate = birthDate;
+		this.education = education;
+		this.status = status;
+		this.position = position;
+		this.clazz = clazz;
+	}
+	
 	
 	public Person(String account, String name, String bankAccount, String email, String phone, String citizenId,
-			String address, Date birthDate, String education, boolean status, Position position) {
+			String address, LocalDate birthDate, String education, boolean status, Position position) {
 		super();
 		this.account = account;
 		this.name = name;
@@ -192,11 +211,11 @@ public class Person {
 		this.address = address;
 	}
 
-	public Date getBirthDate() {
+	public LocalDate getBirthDate() {
 		return birthDate;
 	}
 
-	public void setBirthDate(Date birthDate) {
+	public void setBirthDate(LocalDate birthDate) {
 		this.birthDate = birthDate;
 	}
 
@@ -208,7 +227,7 @@ public class Person {
 		this.education = education;
 	}
 
-	public boolean isStatus() {
+	public boolean getStatus() {
 		return status;
 	}
 
