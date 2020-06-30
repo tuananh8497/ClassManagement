@@ -5,13 +5,14 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import cmw.models.Class_Mentor;
 import cmw.models.PK_Class_Mentor;
 import cmw.utils.HibernateUtils;
 
 public class ClassMentorDAOImpl implements ClassMentorDAO {
 
 	@Override
-	public void saveClassMentor(PK_Class_Mentor classMentor) {
+	public void saveClassMentor(Class_Mentor classMentor) {
 		Transaction transaction = null;
 	    try (Session session = HibernateUtils.getSessionFactory().openSession()) {
 	        transaction = session.beginTransaction();
@@ -27,7 +28,7 @@ public class ClassMentorDAOImpl implements ClassMentorDAO {
 	}
 
 	@Override
-	public void updateClassMentor(PK_Class_Mentor classMentor) {
+	public void updateClassMentor(Class_Mentor classMentor) {
 		Transaction transaction = null;
 	    try (Session session = HibernateUtils.getSessionFactory().openSession()) {
 	        transaction = session.beginTransaction();
