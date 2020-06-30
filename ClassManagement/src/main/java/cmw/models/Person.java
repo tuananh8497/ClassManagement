@@ -142,16 +142,23 @@ public class Person {
 		this.position = position;
 	}
 
-	@Override
-	public String toString() {
-		return "Person [personId=" + personId + ", account=" + account + "]";
-	}
-
+//	@Override
+//	public String toString() {
+//		return "Person [personId=" + personId + ", account=" + account + "]";
+//	}
+	
+	
 	public int getPersonId() {
 		return personId;
 	}
 
-	public void setPersonId(int personId) {
+	@Override
+  public String toString() {
+    return "Person [personId=" + personId + ", account=" + account + ", name=" + name
+        + ", position=" + position + ", clazz=" + clazz + "]";
+  }
+
+  public void setPersonId(int personId) {
 		this.personId = personId;
 	}
 

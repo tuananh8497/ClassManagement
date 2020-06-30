@@ -16,9 +16,17 @@ import cmw.dao.CourseDAO;
 import cmw.dao.CourseDAOImpl;
 import cmw.dao.PersonDAO;
 import cmw.dao.PersonDAOImpl;
+import cmw.dao.SubjectDAO;
+import cmw.dao.SubjectDAOImpl;
+import cmw.dao.TimetableDAO;
+import cmw.dao.TimetableDAOImpl;
 import cmw.models.Class;
 import cmw.models.Course;
 import cmw.models.Person;
+import cmw.models.Subject;
+import cmw.models.Timetable;
+import cmw.services.DateProcess;
+import cmw.services.studentServices;
 
 /**
  * Servlet implementation class profileClass
@@ -44,25 +52,59 @@ public class profileClass extends HttpServlet {
     PersonDAO personDAO = new PersonDAOImpl();
     ClassDAO classDao = new ClassDAOImpl();
     CourseDAO courseDAO = new CourseDAOImpl();
+    SubjectDAO subjectDAO = new SubjectDAOImpl();
+    TimetableDAO timetableDAO = new TimetableDAOImpl();
 
-    //System.out.println(classId);
+    // get courseId by classId
+    Class clazz = classDao.getClass(classId);
+    int courseId = clazz.getCourse().getCourseId();
+
     try {
       // get data from DB
-      List<Person> listPer = new ArrayList<Person>();
+      List<Person> listPer1 = new ArrayList<Person>();
+      List<Person> listPer2 = new ArrayList<Person>();
       List<Person> persons = personDAO.getAllPerson();
+
       List<Course> listCourse = courseDAO.getAllCourse();
+      List<Subject> listSubject = subjectDAO.getAllSubject();
+      List<Timetable> timetable = timetableDAO.getAllTimetable();
+      List<Timetable> timetableReturn = new ArrayList<>();
+    
+      // get students from specific CLASS ID
       for (Person person : persons) {
         if (classId == person.getClazz().getClassId()
             && person.getPosition().getPositionId() == 1) {
-          listPer.add(person);
-         // System.out.println(listPer);
+          listPer1.add(person);
         }
       }
-      // chuyen den view
+
+      // get all students
+      for (Person student : persons) {
+        if (student.getPosition().getPositionId() == 1) {
+          listPer2.add(student);
+        }
+      }
+      int sum = 0;
+      // RETURN TIMETABLE BY COURSE ID
+      for (Timetable tkb : timetable) {
+        if (tkb.getCourse().getCourseId() == courseId) {
+          timetableReturn.add(tkb);
+          sum += tkb.getDuration();
+        }
+      }
+
+
+      studentServices services = new studentServices();
+      List<Person> listStudent = services.showStudents(listPer2);
+
       Class class1 = classDao.getClass(classId);
       request.setAttribute("class1", class1);
-      request.setAttribute("listPer", listPer);
+      request.setAttribute("listPer", listPer1);
       request.setAttribute("listCourse", listCourse);
+      request.setAttribute("listSubject", listSubject);
+      request.setAttribute("listStudent", listStudent);
+      request.setAttribute("timetable", timetableReturn);
+      request.setAttribute("sum", sum);
       request.getRequestDispatcher("/class/profile.jsp").forward(request, response);
     } catch (Exception e) {
       e.printStackTrace();
@@ -74,8 +116,6 @@ public class profileClass extends HttpServlet {
    */
   protected void doPost(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
-    // TODO Auto-generated method stub
     doGet(request, response);
   }
-
 }
