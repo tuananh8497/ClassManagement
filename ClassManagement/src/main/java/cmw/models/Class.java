@@ -17,7 +17,7 @@ public class Class {
   @Column
   private String adminAccount;
   @ManyToOne
-  @JoinColumn(name = "courseId", nullable = false) // check when run
+  @JoinColumn(name = "courseId") // check when run
   private Course course;
   @Column
   private LocalDate expectedStartDate;

@@ -51,7 +51,7 @@ public class LoginFilter implements Filter {
 
 			chain.doFilter(request, response); return; }
 
-		if (session.getAttribute("username") == null && !requestURI.endsWith("login.jsp")) {
+		if (session.getAttribute("username") == null && !requestURI.endsWith("login.jsp") && !requestURI.endsWith("login")) {
 			res.sendRedirect("login.jsp");
 		} else {
 			// pass the request along the filter chain

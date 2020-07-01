@@ -9,12 +9,9 @@
 
     <title>Class management project</title>
 
-    <!-- Bootstrap CSS CDN -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" >   
-    <!-- Our Custom CSS -->
-    <link rel="stylesheet" href="/ClassManagement/css/style.css">
 
-    <!-- Font Awesome JS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" >   
+    <link rel="stylesheet" href="/ClassManagement/css/style.css">
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" ></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" ></script>
 </head>

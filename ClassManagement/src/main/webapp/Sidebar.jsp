@@ -4,14 +4,14 @@
 <html>
 
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Bootstrap CSS CDN -->
+
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-<!-- Our Custom CSS -->
+
 <link rel="stylesheet" href="/ClassManagement/css/style.css">
-<!-- Font Awesome JS -->
+
 <script defer
 	src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"></script>
 <script defer

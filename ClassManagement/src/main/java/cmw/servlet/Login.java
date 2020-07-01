@@ -55,10 +55,12 @@ public class Login extends HttpServlet {
 			
 			// Băm password thành hashPassword
 			String hashPassword = services.hashString(password);
-
+			System.out.println(username);
+			System.out.println(password);
+			System.out.println(hashPassword);
 			// Lấy danh sách toàn bộ User từ DB
 			List<User> listUser = userDAO.getAllUser();
-			
+			System.out.println(listUser);
 			// Lấy ra currentUser có username trùng với tên đăng nhập hiện tại
 			User currentUser = null; 
 			for(User user : listUser) {
