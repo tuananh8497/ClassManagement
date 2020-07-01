@@ -3,9 +3,11 @@ package cmw.servlet;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
-
+import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -100,6 +102,7 @@ public class profileClass extends HttpServlet {
       LocalDate endDate;
       
       HashMap<Long, LocalDate> startDateMap = new HashMap<Long, LocalDate>();
+   
       HashMap<Long, LocalDate> endDateMap = new HashMap<Long, LocalDate>();
 
       
@@ -135,6 +138,8 @@ public class profileClass extends HttpServlet {
       request.setAttribute("startDateMap", startDateMap);
       request.setAttribute("endDateMap", endDateMap);
       request.setAttribute("sum", sum);
+
+      
       request.getRequestDispatcher("/class/profile.jsp").forward(request, response);
     } catch (Exception e) {
       e.printStackTrace();
