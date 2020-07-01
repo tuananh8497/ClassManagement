@@ -1,7 +1,9 @@
 package cmw.servlet;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -54,6 +56,7 @@ public class profileClass extends HttpServlet {
     CourseDAO courseDAO = new CourseDAOImpl();
     SubjectDAO subjectDAO = new SubjectDAOImpl();
     TimetableDAO timetableDAO = new TimetableDAOImpl();
+    DateProcess dp = new DateProcess();
 
     // get courseId by classId
     Class clazz = classDao.getClass(classId);
@@ -92,8 +95,33 @@ public class profileClass extends HttpServlet {
           sum += tkb.getDuration();
         }
       }
+      LocalDate firstStartDate = clazz.getExpectedStartDate();
+      LocalDate startDate;
+      LocalDate endDate;
+      
+      HashMap<Long, LocalDate> startDateMap = new HashMap<Long, LocalDate>();
+      HashMap<Long, LocalDate> endDateMap = new HashMap<Long, LocalDate>();
 
-
+      
+      
+      for (int i = 0; i < timetableReturn.size(); i++) {
+        int currentDuration = timetableReturn.get(i).getDuration();
+        if (i == 0) {
+          startDate = firstStartDate;
+          endDate = dp.addDaysSkippingWeekends(startDate, currentDuration);
+          System.out.println("#" + i + " - "+ timetableReturn.get(i).getSubject().getSubjectName() + "- START: " + startDate + " - END: "
+              + endDate);
+          startDateMap.put((long) i, startDate);
+          endDateMap.put((long) i, endDate);
+        } else {
+          startDate =  endDateMap.get((long)i-1);
+          endDate = dp.addDaysSkippingWeekends(startDate, currentDuration);
+          System.out.println("#" + i + " - "+ timetableReturn.get(i).getSubject().getSubjectName() + "- START: " + startDate + " - END: "
+              + endDate);
+          startDateMap.put((long) i, startDate);
+          endDateMap.put((long) i, endDate);
+        }
+      }
       studentServices services = new studentServices();
       List<Person> listStudent = services.showStudents(listPer2);
 
@@ -104,6 +132,8 @@ public class profileClass extends HttpServlet {
       request.setAttribute("listSubject", listSubject);
       request.setAttribute("listStudent", listStudent);
       request.setAttribute("timetable", timetableReturn);
+      request.setAttribute("startDateMap", startDateMap);
+      request.setAttribute("endDateMap", endDateMap);
       request.setAttribute("sum", sum);
       request.getRequestDispatcher("/class/profile.jsp").forward(request, response);
     } catch (Exception e) {

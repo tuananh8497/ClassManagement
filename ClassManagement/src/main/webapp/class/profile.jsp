@@ -3,6 +3,8 @@
 <%@ page import="java.util.List"%>
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="cmw.models.Person"%>
+<%@ page import="java.time.LocalDate"%>
+<%@ page import="java.util.HashMap"%>
 
 <!DOCTYPE html>
 <html>
@@ -108,28 +110,42 @@
 						</div>
 						<!-- ------------------Timetable------------------------------------ -->
 						<div class="tab-pane" id="timetable">
-						<div>
-							<h1 >Course: ${class1.getCourse().getCourseName() } - Duration: ${sum }(days)</h1>
-						</div>
+							<div>
+								<h1>Course: ${class1.getCourse().getCourseName() } -
+									Duration: ${sum }(days)</h1>
+							</div>
 							<div class="tbl">
 								<table class="table table-striped shadow-sm text-center">
 									<thead>
 										<tr>
 											<!-- <th scope="col">Course</th>
 											<th scope="col">Course Duration</th> -->
+											<th scope="col">#</th>
 											<th scope="col">Subject Name</th>
 											<th scope="col">Priority</th>
 											<th scope="col">Duration</th>
+											<th scope="col">Start Date</th>
+											<th scope="col">End Date</th>
 										</tr>
 									</thead>
+									<%
+									  long a = 0;
+									%>
 									<c:forEach items="${timetable }" var="tkb">
+									
 										<tbody>
 											<tr>
 												<%-- <td>${tkb.getCourse().getCourseId() } - ${tkb.getCourse().getCourseName() } </td> --%>
 												<%-- <td>${tkb.getCourse().getDuration() }</td> --%>
-												<td>${tkb.getSubject().getSubjectId() } - ${tkb.getSubject().getSubjectName() }</td>
+												<td><%=a++%></td>
+												<td>${tkb.getSubject().getSubjectName() }</td>
 												<td>${tkb.getPriority() }</td>
 												<td>${tkb.getDuration() }</td>
+												<td>${startDateMap.get() }</td>
+												<td>${endDateMap }</td>
+												<%-- <c:forEach items="${startDateMap }" var="startDate">
+													<td>${startDate.get(${tkb.getSubject().getSubjectId() }) }</td>
+												</c:forEach>			 --%>
 											</tr>
 										</tbody>
 									</c:forEach>
