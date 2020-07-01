@@ -17,12 +17,12 @@ import javax.servlet.http.HttpSession;
  */
 public class LoginFilter implements Filter {
 
-    /**
-     * Default constructor. 
-     */
-    public LoginFilter() {
-        // TODO Auto-generated constructor stub
-    }
+	/**
+	 * Default constructor.
+	 */
+	public LoginFilter() {
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see Filter#destroy()
@@ -34,16 +34,24 @@ public class LoginFilter implements Filter {
 	/**
 	 * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
 	 */
-	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+			throws IOException, ServletException {
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse res = (HttpServletResponse) response;
-		
+
 		HttpSession session = req.getSession();
-		
+
 		// Lấy về RequestURI
 		String requestURI = req.getRequestURI();
-		
-		if(session.getAttribute("username") == null && !requestURI.endsWith("login.jsp") && !requestURI.endsWith("login")) {
+
+
+		if(requestURI.endsWith(".js") || requestURI.endsWith(".css") ||
+				requestURI.endsWith(".png") ||
+				requestURI.endsWith(".jpg")) {
+
+			chain.doFilter(request, response); return; }
+
+		if (session.getAttribute("username") == null && !requestURI.endsWith("login.jsp")) {
 			res.sendRedirect("login.jsp");
 		} else {
 			// pass the request along the filter chain
