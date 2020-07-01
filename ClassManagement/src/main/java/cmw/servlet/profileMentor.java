@@ -46,6 +46,7 @@ public class profileMentor extends HttpServlet {
 		List<PK_Class_Mentor> classMentor = classMentorDAO.getClassMentor(mentorId);
 		List<Class> clazz = classDAO.getAllClass();
 		
+		
 		request.setAttribute("mentor", mentor);
 		request.setAttribute("classMentor", classMentor);
 		request.setAttribute("clazz", clazz);
