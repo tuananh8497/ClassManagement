@@ -151,7 +151,7 @@ ul ul a {
 }
 
 .loginForm{
-    background-image: url(./image/background.jpg);
+    background-image: url(/ClassManagement/image/background.jpg);
     height: 100%;
     width: 100%;
     background-position: center;
