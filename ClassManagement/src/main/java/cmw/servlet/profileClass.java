@@ -127,7 +127,7 @@ public class profileClass extends HttpServlet {
       }
       studentServices services = new studentServices();
       List<Person> listStudent = services.showStudents(listPer2);
-
+      LocalDate returnEndDate = dp.addDaysSkippingWeekends(firstStartDate, sum);
       Class class1 = classDao.getClass(classId);
       request.setAttribute("class1", class1);
       request.setAttribute("listPer", listPer1);
@@ -137,6 +137,7 @@ public class profileClass extends HttpServlet {
       request.setAttribute("timetable", timetableReturn);
       request.setAttribute("startDateMap", startDateMap);
       request.setAttribute("endDateMap", endDateMap);
+      request.setAttribute("returnEndDate", returnEndDate);
       request.setAttribute("sum", sum);
 
       

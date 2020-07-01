@@ -113,7 +113,8 @@
 						<div class="tab-pane" id="timetable">
 							<div>
 								<h1>Course: ${class1.getCourse().getCourseName() } -
-									Duration: ${sum }(days)</h1>
+									Duration: ${sum } (days)</h1>
+								<h3>Start Date: ${class1.getExpectedStartDate() } - End Date: ${returnEndDate } </h3>
 							</div>
 							<div class="tbl">
 								<table class="table table-striped shadow-sm text-center">
@@ -123,21 +124,20 @@
 											<th scope="col">Course Duration</th> -->
 											<th scope="col">#</th>
 											<th scope="col">Subject Name</th>
-											<th scope="col">Priority</th>
+											<!-- <th scope="col">Priority</th> -->
 											<th scope="col">Duration</th>
 											<th scope="col">Start Date</th>
 											<th scope="col">End Date</th>
 										</tr>
 									</thead>
 									<c:forEach items="${timetable }" var="tkb"  varStatus="loop" >
-									
 										<tbody>
 											<tr>
 												<%-- <td>${tkb.getCourse().getCourseId() } - ${tkb.getCourse().getCourseName() } </td> --%>
 												<%-- <td>${tkb.getCourse().getDuration() }</td> --%>
 												<td>${loop.index }</td>
 												<td>${tkb.getSubject().getSubjectName()}</td>
-												<td>${tkb.getPriority() }</td>
+												<%-- <td>${tkb.getPriority() }</td> --%>
 												<td>${tkb.getDuration() }</td>
 												<td>${startDateMap.get(Long.valueOf(loop.index))}</td>
 												<td>${endDateMap.get(Long.valueOf(loop.index))}</td>
