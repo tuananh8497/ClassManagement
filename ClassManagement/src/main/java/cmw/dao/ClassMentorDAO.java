@@ -13,4 +13,5 @@ public interface ClassMentorDAO {
 	public List<PK_Class_Mentor> getClassMentor(int id);
 	public List<PK_Class_Mentor> getAllClassMentor();
 	PK_Class_Mentor getClassMentor(String account);
+	public void saveClassMentor(int classId, int mentorId);
 }
