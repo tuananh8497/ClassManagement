@@ -6,7 +6,7 @@ body, html {
 body {
     margin: 0;
     padding: 0;
-    background-image: url("image/LoginBackground.jpg");
+    background-image: url("/ClassManagement/image/LoginBackground.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
