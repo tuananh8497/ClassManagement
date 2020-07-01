@@ -1,8 +1,5 @@
 package cmw.main;
 
-import java.util.Date;
-import java.util.List;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
@@ -16,10 +13,8 @@ import cmw.dao.PositionDAO;
 import cmw.dao.PositionDAOImpl;
 import cmw.dao.SubjectDAO;
 import cmw.dao.SubjectDAOImpl;
-import cmw.models.Class;
-import cmw.models.Course;
-import cmw.models.Position;
-import cmw.utils.DateUtils;
+import cmw.dao.UserDAO;
+import cmw.dao.UserDAOImpl;
 import cmw.utils.HibernateUtils;
 
 public class Management {
@@ -30,6 +25,7 @@ public class Management {
     PersonDAO personDao = new PersonDAOImpl();
     ClassDAO classDAO = new ClassDAOImpl();
     CourseDAO courseDAO = new CourseDAOImpl();
+    UserDAO userDAO = new UserDAOImpl();
     SessionFactory sessionFactory = HibernateUtils.getSessionFactory();
     Session session = sessionFactory.openSession();
     session.beginTransaction();

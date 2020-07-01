@@ -19,5 +19,6 @@
 		<mapping class="cmw.models.Subject" />
 		<mapping class="cmw.models.Class_Mentor" />
 		<mapping class="cmw.models.Class" />
+		<mapping class="cmw.models.User" />
 	</session-factory>
 </hibernate-configuration>

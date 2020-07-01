@@ -91,6 +91,7 @@
 							<th scope="col">Account</th>
 							<th scope="col">Name</th>
 							<th scope="col">Date of birth</th>
+							<th scope="col">Phone</th>
 							<th scope="col">Email</th>
 							<th scope="col">Class</th>
 							<th scope="col">Status</th>
@@ -108,15 +109,20 @@
 								<td>${student.name }</td>
 								<td class="text-right">
 									${DateUtils.date2String(student.birthDate)}</td>
+								<td>${student.phone }</td>
 								<td>${student.email }</td>
 								<td>${student.clazz.classCode }</td>
 								<td class="text-center" style="color: green">${(student.status==true)? "active" : "inactive" }</td>
-								<td class="text-center"><a class="mr-sm-3 text-primary"
-									href="<%= request.getContextPath()%>/profileStudent?id=<c:out value='${student.personId}' />">
+								<td class="text-center">
+									<a class="mr-sm-3 text-primary" data-toggle="tooltip" title="Show Profile"
+										href="<%= request.getContextPath()%>/profileStudent?id=<c:out value='${student.personId}' />">
 										<i class="fas fa-id-card"></i>
-								</a> <a
-									href="<%= request.getContextPath() %>/deleteStudent?id=<c:out value='${student.personId}' />"
-									class="text-danger"><i class="fa fa-trash"></i></a></td>
+									</a> 
+									<a data-toggle="tooltip" title="Delete"
+										href="<%= request.getContextPath() %>/deleteStudent?id=<c:out value='${student.personId}' />"
+										class="text-danger"><i class="fa fa-trash"></i>
+									</a>
+								</td>
 							</tr>
 						</c:forEach>
 
@@ -131,6 +137,12 @@
 		src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 	<script
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+	
+	<script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
 </body>
 
 </html>
