@@ -47,7 +47,7 @@
 					<ul class="collapse list-unstyled border-bottom" id="tkb">
 						<li><a href="<%=request.getContextPath()%>/showTimetable">Show Timetable</a></li>
 						<li><a href="<%=request.getContextPath()%>/createTimetable">Create Timetable</a></li>
-						<li><a href="<%=request.getContextPath()%>/createCourseSubject">Create Course/Timetable</a></li>
+						<li><a href="<%=request.getContextPath()%>/createCourseSubject">Create Course/Subject</a></li>
 					</ul></li>
 				<li><a href="#mentor" data-toggle="collapse"
 					aria-expanded="false" class="dropdown-toggle border-bottom">Mentors</a>

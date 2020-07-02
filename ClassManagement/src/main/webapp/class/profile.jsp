@@ -114,7 +114,8 @@
 							<div>
 								<h1>Course: ${class1.getCourse().getCourseName() } -
 									Duration: ${sum } (days)</h1>
-								<h3>Start Date: ${class1.getExpectedStartDate() } - End Date: ${returnEndDate } </h3>
+								<h3>Start Date: ${class1.getExpectedStartDate() } - End
+									Date: ${returnEndDate }</h3>
 							</div>
 							<div class="tbl">
 								<table class="table table-striped shadow-sm text-center">
@@ -130,7 +131,7 @@
 											<th scope="col">End Date</th>
 										</tr>
 									</thead>
-									<c:forEach items="${timetable }" var="tkb"  varStatus="loop" >
+									<c:forEach items="${timetable }" var="tkb" varStatus="loop">
 										<tbody>
 											<tr>
 												<%-- <td>${tkb.getCourse().getCourseId() } - ${tkb.getCourse().getCourseName() } </td> --%>
@@ -312,7 +313,7 @@
 										/* List<Person> listStudent = new ArrayList(); */
 										%>
 										<c:forEach items="${listStudent }" var="student">
-											<%-- 	<input type="hidden" name="studentId"
+											<%-- <input type="hidden" name="studentId"
 												value="${student.personId }"> --%>
 											<input type="hidden" name="classCode"
 												value="${class1.getClassCode()}">
@@ -324,13 +325,11 @@
 												<td>${student.email }</td>
 												<td>${student.clazz.classCode }</td>
 												<td class="text-center" style="color: green">${(student.status==true)? "active" : "inactive" }</td>
-												<td class="text-center">
-													<%-- <a class="mr-sm-3 text-primary"
+												<td class="text-center"><%-- <a class="mr-sm-3 text-primary"
 													href="<%= request.getContextPath()%>/profileStudent?id=<c:out value='${student.personId}' />">
-														<i class="fas fa-id-card"></i>
-												</a>  --%> <%-- <a href="<%= request.getContextPath() %>/deleteStudent?id=<c:out value='${student.personId}' />"
+														<i class="fas fa-id-card"></i></a>  --%> <%-- <a href="<%= request.getContextPath() %>/deleteStudent?id=<c:out value='${student.personId}' />"
 													class="text-danger"><i class="fa fa-trash"></i></a>  --%> <input
-													type="checkbox" class="form-check-input" name="checkBox">
+													type="checkbox" class="form-check-input" name="checkBoxStudentId" value="${student.personId }">
 												</td>
 											</tr>
 										</c:forEach>

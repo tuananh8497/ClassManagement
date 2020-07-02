@@ -180,7 +180,7 @@ public class addStudent extends HttpServlet {
 
     PersonDAO personDAO = new PersonDAOImpl();
     ClassDAO classDAO = new ClassDAOImpl();
-    int studentId = Integer.parseInt(request.getParameter("studentId"));
+    int studentId = Integer.parseInt(request.getParameter("checkBoxStudentId"));
     Person student = personDAO.getPerson(studentId);
     String classCode = request.getParameter("classCode");
 
