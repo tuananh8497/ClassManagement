@@ -77,9 +77,9 @@
 									${class1.getCourse().getCourseName() }</h3>
 							</div>
 							<div class="tbl">
-								<table class="table table-striped shadow-sm text-center">
-									<thead>
-										<tr>
+								<table class="table table-striped table-bordered mt-3 shadow-sm">
+									<thead class="thead-dark" >
+										<tr class="text-center">
 											<th scope="col">Account</th>
 											<th scope="col">Name</th>
 											<th scope="col">BirthDate</th>
@@ -92,7 +92,7 @@
 									</thead>
 									<c:forEach items="${listPer }" var="listPer">
 										<tbody>
-											<tr>
+											<tr class="text-center">
 												<td>${listPer.getAccount() }</td>
 												<td>${listPer.getName() }</td>
 												<td>${listPer.birthDate }</td>
@@ -120,14 +120,11 @@
 									Date: ${returnEndDate }</h3>
 							</div>
 							<div class="tbl">
-								<table class="table table-striped shadow-sm text-center">
-									<thead>
-										<tr>
-											<!-- <th scope="col">Course</th>
-											<th scope="col">Course Duration</th> -->
+								<table class="table table-striped table-bordered mt-3 shadow-sm">
+									<thead class="thead-dark">
+										<tr class="text-center">
 											<th scope="col">#</th>
 											<th scope="col">Subject Name</th>
-											<!-- <th scope="col">Priority</th> -->
 											<th scope="col">Duration</th>
 											<th scope="col">Start Date</th>
 											<th scope="col">End Date</th>
@@ -135,12 +132,9 @@
 									</thead>
 									<c:forEach items="${timetable }" var="tkb" varStatus="loop">
 										<tbody>
-											<tr>
-												<%-- <td>${tkb.getCourse().getCourseId() } - ${tkb.getCourse().getCourseName() } </td> --%>
-												<%-- <td>${tkb.getCourse().getDuration() }</td> --%>
+											<tr class="text-center">
 												<td>${loop.index }</td>
 												<td>${tkb.getSubject().getSubjectName()}</td>
-												<%-- <td>${tkb.getPriority() }</td> --%>
 												<td>${tkb.getDuration() }</td>
 												<td>${startDateMap.get(Long.valueOf(loop.index))}</td>
 												<td>${endDateMap.get(Long.valueOf(loop.index))}</td>
@@ -311,12 +305,10 @@
 									</thead>
 									<tbody>
 										<%
-											int i = 1;
-											/* List<Person> listStudent = new ArrayList(); */
+										  int i = 1;
+										/* List<Person> listStudent = new ArrayList(); */
 										%>
 										<c:forEach items="${listStudent }" var="student">
-											<%-- <input type="hidden" name="studentId"
-												value="${student.personId }"> --%>
 											<input type="hidden" name="classCode"
 												value="${class1.getClassCode()}">
 											<tr>
@@ -327,12 +319,9 @@
 												<td>${student.email }</td>
 												<td>${student.clazz.classCode }</td>
 												<td class="text-center" style="color: green">${(student.status==true)? "active" : "inactive" }</td>
-												<td class="text-center"><%-- <a class="mr-sm-3 text-primary"
-													href="<%= request.getContextPath()%>/profileStudent?id=<c:out value='${student.personId}' />">
-														<i class="fas fa-id-card"></i></a>  --%> <%-- <a href="<%= request.getContextPath() %>/deleteStudent?id=<c:out value='${student.personId}' />"
-													class="text-danger"><i class="fa fa-trash"></i></a>  --%> <input
-													type="checkbox" class="form-check-input" name="checkBoxStudentId" value="${student.personId }">
-												</td>
+												<td class="text-center"><input type="checkbox"
+													class="form-check-input" name="checkBoxStudentId"
+													value="${student.personId }"></td>
 											</tr>
 										</c:forEach>
 									</tbody>
@@ -343,7 +332,7 @@
 						<!-- ------------------Transcript---------------------------------- -->
 						<div class="tab-pane" id="transcript">
 							<table class="table table-striped table-bordered mt-3 shadow-sm">
-								<thead class="thead-dark">
+								<thead class="thead-dark" class="text-center">
 									<tr class="text-center">
 										<th scope="col">#</th>
 										<th scope="col">Account</th>
@@ -354,15 +343,15 @@
 								</thead>
 								<tbody>
 									<%
-										int j = 1;
+									  int j = 1;
 									%>
 									<c:forEach items="${listStringPoint }" var="stringPoint">
-										<tr>
-											<td class="text-right"><%=j++%></td>
+										<tr class="text-center">
+											<td class="class="text-center""><%=j++%></td>
 											<td>${stringPoint.account }</td>
 											<td>${stringPoint.studentName }</td>
 											<td>${stringPoint.subjectName }</td>
-											<td class="text-center">${stringPoint.point }</td>
+											<td class="class="text-center"">${stringPoint.point }</td>
 
 										</tr>
 									</c:forEach>
