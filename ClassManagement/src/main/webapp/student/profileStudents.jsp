@@ -1,3 +1,5 @@
+<%@page import="java.util.ArrayList"%>
+<%@ page import="java.util.List"%>
 <%@ page import="cmw.utils.DateUtils"%>
 <%@ page language="java"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -18,7 +20,7 @@
 <script defer
 	src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"></script>
 
-<title>Class management project</title>
+<title>Class management - Profile</title>
 
 
 
@@ -140,34 +142,28 @@
 							<div class="tab-pane" id="mark">
 								<div id="chartContainer" style="height: 370px; width: 100%;"
 									class="graph shadow-sm"></div>
-								<table class="table table-striped text-center">
-									<thead>
-										<tr>
+								<table class="table table-striped table-bordered mt-3 shadow-sm">
+									<thead class="thead-dark">
+										<tr class="text-center">
 											<th scope="col">#</th>
+											<th scope="col">Class</th>
 											<th scope="col">Subject</th>
 											<th scope="col">Mark</th>
-											<th scope="col">Notes</th>
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
-											<th scope="row">1</th>
-											<td>Java core</td>
-											<td>7</td>
-											<td>Good</td>
-										</tr>
-										<tr>
-											<th scope="row">2</th>
-											<td>JDBC</td>
-											<td>7</td>
-											<td>Moderate</td>
-										</tr>
-										<tr>
-											<th scope="row">3</th>
-											<td>Frontend</td>
-											<td>7</td>
-											<td>Good</td>
-										</tr>
+										<%
+											int i = 1;
+										%>
+										<c:forEach items="${listStringPoint }" var="stringPoint">
+											<tr>
+												<td class="text-right"><%=i++%></td>
+												<td>${stringPoint.classCode }</td>
+												<td>${stringPoint.subjectName }</td>
+												<td class="text-center">${stringPoint.point }</td>
+												
+											</tr>
+										</c:forEach>
 									</tbody>
 								</table>
 							</div>

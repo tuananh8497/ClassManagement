@@ -62,6 +62,8 @@
 							data-toggle="tab" class="nav-link ">Edit Class</a></li>
 						<li class="nav-item"><a href="" data-target="#addStudents"
 							data-toggle="tab" class="nav-link ">Add student</a></li>
+						<li class="nav-item"><a href="" data-target="#transcript"
+							data-toggle="tab" class="nav-link ">Transcript</a></li>
 					</ul>
 					<!-- -----------------------LIST----------------------------- ------------>
 					<div class="tab-content py-4">
@@ -114,7 +116,8 @@
 							<div>
 								<h1>Course: ${class1.getCourse().getCourseName() } -
 									Duration: ${sum } (days)</h1>
-								<h3>Start Date: ${class1.getExpectedStartDate() } - End Date: ${returnEndDate } </h3>
+								<h3>Start Date: ${class1.getExpectedStartDate() } - End
+									Date: ${returnEndDate }</h3>
 							</div>
 							<div class="tbl">
 								<table class="table table-striped shadow-sm text-center">
@@ -130,7 +133,7 @@
 											<th scope="col">End Date</th>
 										</tr>
 									</thead>
-									<c:forEach items="${timetable }" var="tkb"  varStatus="loop" >
+									<c:forEach items="${timetable }" var="tkb" varStatus="loop">
 										<tbody>
 											<tr>
 												<%-- <td>${tkb.getCourse().getCourseId() } - ${tkb.getCourse().getCourseName() } </td> --%>
@@ -308,8 +311,8 @@
 									</thead>
 									<tbody>
 										<%
-										  int i = 1;
-										/* List<Person> listStudent = new ArrayList(); */
+											int i = 1;
+											/* List<Person> listStudent = new ArrayList(); */
 										%>
 										<c:forEach items="${listStudent }" var="student">
 											<%-- 	<input type="hidden" name="studentId"
@@ -337,6 +340,36 @@
 									</tbody>
 								</table>
 							</form>
+						</div>
+
+						<!-- ------------------Transcript---------------------------------- -->
+						<div class="tab-pane" id="transcript">
+							<table class="table table-striped table-bordered mt-3 shadow-sm">
+								<thead class="thead-dark">
+									<tr class="text-center">
+										<th scope="col">#</th>
+										<th scope="col">Account</th>
+										<th scope="col">Name</th>
+										<th scope="col">Subject</th>
+										<th scope="col">Mark</th>
+									</tr>
+								</thead>
+								<tbody>
+									<%
+										int j = 1;
+									%>
+									<c:forEach items="${listStringPoint }" var="stringPoint">
+										<tr>
+											<td class="text-right"><%=j++%></td>
+											<td>${stringPoint.account }</td>
+											<td>${stringPoint.studentName }</td>
+											<td>${stringPoint.subjectName }</td>
+											<td class="text-center">${stringPoint.point }</td>
+
+										</tr>
+									</c:forEach>
+								</tbody>
+							</table>
 						</div>
 					</div>
 				</div>

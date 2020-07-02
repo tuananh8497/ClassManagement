@@ -33,11 +33,11 @@
 				<h2 class="text-center">List of student</h2>
 
 				<div class="row mt-5">
-					<div class="col-10 no-padding">
+					<div class="col-9 no-padding">
 						<form method="get"
 							action="<%=request.getContextPath()%>/search-student">
 							<div class="form-row">
-								<div class="form-group input-group col-3">
+								<div class="form-group input-group col-4">
 									<div class="input-group-prepend">
 										<label class="input-group-text" for="inputGroupSelect01">Search
 											by</label>
@@ -73,7 +73,7 @@
 						</form>
 					</div>
 
-					<div class="col-2">
+					<div class="col-3">
 						<a href="<%=request.getContextPath()%>/createStudent"
 							id="addNewContact" class="btn btn-success float-right"> 
 							<i class="fas fa-user-plus"></i>
@@ -90,8 +90,7 @@
 							<th scope="col">#</th>
 							<th scope="col">Account</th>
 							<th scope="col">Name</th>
-							<th scope="col">Date of birth</th>
-							<th scope="col">Phone</th>
+							<th scope="col">DoB</th>
 							<th scope="col">Email</th>
 							<th scope="col">Class</th>
 							<th scope="col">Status</th>
@@ -109,7 +108,6 @@
 								<td>${student.name }</td>
 								<td class="text-right">
 									${DateUtils.date2String(student.birthDate)}</td>
-								<td>${student.phone }</td>
 								<td>${student.email }</td>
 								<td>${student.clazz.classCode }</td>
 								<td class="text-center" style="color: green">${(student.status==true)? "active" : "inactive" }</td>

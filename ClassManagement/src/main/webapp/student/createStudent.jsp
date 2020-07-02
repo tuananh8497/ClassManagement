@@ -35,12 +35,12 @@
 	<div class="wrapper">
 		<jsp:include page="../Sidebar.jsp"></jsp:include>
 		<!-- Page Content  -->
-		<div id="content" class="container form">
+		<div id="content" class="container form ml-3">
 			<div class="m-4">
 				<h4 class="text-center">Form add a student</h4>
 				<hr>
 			</div>
-			<form role="form" method="post"
+			<form role="form" method="post" class="ml-2"
 				action="<%=request.getContextPath()%>/createStudent">
 				<div class="form-group row">
 					<label
