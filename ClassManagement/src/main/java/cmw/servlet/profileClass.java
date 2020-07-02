@@ -157,7 +157,7 @@ public class profileClass extends HttpServlet {
 			for (Point point : listPoint) {
 				if (point.getClassId() == classId) {
 					listPointClass.add(point);
-					System.out.println(point);
+					
 				}
 			}
 

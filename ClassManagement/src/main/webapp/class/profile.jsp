@@ -77,8 +77,8 @@
 									${class1.getCourse().getCourseName() }</h3>
 							</div>
 							<div class="tbl">
-								<table class="table table-striped shadow-sm text-center">
-									<thead>
+								<table class="table table-striped table-bordered mt-3 shadow-sm">
+									<thead class="thead-dark text-center">
 										<tr>
 											<th scope="col">Account</th>
 											<th scope="col">Name</th>
@@ -90,23 +90,25 @@
 											<th scope="col">Profile</th>
 										</tr>
 									</thead>
-									<c:forEach items="${listPer }" var="listPer">
-										<tbody>
+
+									<tbody>
+										<c:forEach items="${listPer }" var="listPer">
 											<tr>
 												<td>${listPer.getAccount() }</td>
 												<td>${listPer.getName() }</td>
-												<td>${listPer.birthDate }</td>
+												<td class="text-right">${listPer.birthDate }</td>
 												<td>${listPer.getAddress() }</td>
 												<td>${listPer.getPhone() }</td>
 												<td>${listPer.getEmail() }</td>
-												<td style="color: green">${(listPer.status==true)? "Active" : "Deactive" }</td>
-												<td><a
+												<td class="text-center" style="color: green">${(listPer.status==true)? "Active" : "Deactive" }</td>
+												<td class="text-center"><a
 													href="<%=request.getContextPath()%>/profileStudent"><img
 														src="/ClassManagement/icon/alien.svg" width="40px"
 														height="40px"></a></td>
 											</tr>
-										</tbody>
-									</c:forEach>
+										</c:forEach>
+									</tbody>
+
 								</table>
 							</div>
 							<p class="mt-5 mb-3 text-muted text-center">&copy; 14.06.2020</p>
