@@ -26,6 +26,34 @@ public class Class_Mentor {
 	super();
 	this.pk = pk;
   }
-  
+
+  @Override
+  public String toString() {
+	return "Class_Mentor [clazz=" + clazz + ", mentor=" + mentor + "]";
+  }
+
+  public PK_Class_Mentor getPk() {
+	return pk;
+  }
+
+  public void setPk(PK_Class_Mentor pk) {
+	this.pk = pk;
+  }
+
+  public Class getClazz() {
+	return clazz;
+  }
+
+  public void setClazz(Class clazz) {
+	this.clazz = clazz;
+  }
+
+  public Mentor getMentor() {
+	return mentor;
+  }
+
+  public void setMentor(Mentor mentor) {
+	this.mentor = mentor;
+  }
 }
 

@@ -29,7 +29,7 @@ public class Point implements Serializable{
    * @param personId
    * @param subjectId
    * @param classId
-   * @param point
+   * @param point 
    */
   public Point(Person person, int subjectId, int classId, int point) {
     super();

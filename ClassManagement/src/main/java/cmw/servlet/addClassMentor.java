@@ -56,38 +56,14 @@ public class addClassMentor extends HttpServlet {
 			System.out.println(clazz);
 			int classId = clazz.get(0).getClassId();
 			int mentorId = Integer.parseInt(request.getParameter("mentorId"));
-//			Mentor mentor = mentorDAO.getMentor(mentorId);
-//			List<PK_Class_Mentor> pkClassMentor = classMentorDAO.getClassMentor(mentorId);
-//			System.out.println(pkClassMentor);
-//			List<Integer> clazzId1= null;
-//			for(PK_Class_Mentor i : pkClassMentor) {
-//				int classMentorId = i.getClassId();
-//				clazzId1.add(classMentorId);
-//			}
-//			
-//			System.out.println(clazzId1);
-//			boolean status = true;
-//			for(Integer i : clazzId1) {
-//				if(classId == i) {
-//					status = false;
-//				}
-//			}
-//			
-//			if(status = true) {
-//				PK_Class_Mentor pkClassMentor1 = new PK_Class_Mentor(classId, mentorId);
-//				Class_Mentor classMentor = new Class_Mentor(clazz.get(0), mentor);
-//				System.out.println(pkClassMentor1);
-//				System.out.println(classMentor);
-				classMentorDAO.saveClassMentor(classId, mentorId);
-//				classMentorDAO.saveClassMentor(classMentor);
-				request.setAttribute("message", "Add Success!!!");
-				request.getRequestDispatcher("/showMentor").forward(request, response);;
-//			}
-//			else {
-//				request.setAttribute("message", "Add Faill!!!");
-//				request.getRequestDispatcher("/showMentor").forward(request, response);;
-//			}
 			
+			PK_Class_Mentor pkClassMentor1 = new PK_Class_Mentor(classId, mentorId);
+			Class_Mentor classMentor = new Class_Mentor(pkClassMentor1);
+//			System.out.println(pkClassMentor1);
+			System.out.println(classMentor);
+			classMentorDAO.saveClassMentor(classMentor);
+			request.setAttribute("message", "Add Success!!!");
+			request.getRequestDispatcher("/showMentor").forward(request, response);;			
 		} 
 		catch (Exception e) {
 			e.printStackTrace();

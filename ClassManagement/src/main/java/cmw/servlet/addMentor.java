@@ -41,7 +41,7 @@ public class addMentor extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		MentorDAO mentorDAO = new MentorDAOImpl();
-//		int mentorId = Integer.parseInt(request.getParameter("mentorId"));
+		
 		String account = request.getParameter("account");
 		String name = request.getParameter("name");
 		String bankAccount = request.getParameter("bankAccount");
@@ -68,11 +68,9 @@ public class addMentor extends HttpServlet {
 		try {
 			mentorDAO.saveMentor(mentor);
 			request.setAttribute("message", "Add Successss!!!!!");
-			request.getRequestDispatcher("/addMentor").forward(request, response);
+			request.getRequestDispatcher("/showMentor").forward(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();
-//			request.setAttribute("message", "Add Fail!!!!! This mentor already exist!");
-//			request.getRequestDispatcher("/addMentor").forward(request, response);
 		}
 	}
 

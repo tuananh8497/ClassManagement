@@ -102,7 +102,6 @@
 					                    <label class="col-lg-3 col-form-label form-control-label"></label>
 					                    <div class="col-lg-9">
 					                        <button type="submit" class="btn btn-info">Save and changes</button>
-					                        <!--  <button type="button" class="btn btn-secondary"><a href="/student/editStudent.html">Cancel</a></button> -->
 					                    </div>
 					                </div>
 					            </form>
