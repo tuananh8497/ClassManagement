@@ -200,12 +200,11 @@ public class addStudent extends HttpServlet {
         break;
       }
     }
-
-    
+    String url = "/profileClass?classId=" + Integer.toString(clazz.getClassId());
     student.setClazz(clazz);
     personDAO.updatePerson(student);
     System.out.println(clazz);
     System.out.println(student);
-    request.getRequestDispatcher("/home.jsp").forward(request, response);
+    request.getRequestDispatcher(url).forward(request, response);
   }
 }
