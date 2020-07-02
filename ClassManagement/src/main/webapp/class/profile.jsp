@@ -78,7 +78,7 @@
 							</div>
 							<div class="tbl">
 								<table class="table table-striped table-bordered mt-3 shadow-sm">
-									<thead class="thead-dark" >
+									<thead class="thead-dark">
 										<tr class="text-center">
 											<th scope="col">Account</th>
 											<th scope="col">Name</th>
@@ -90,21 +90,24 @@
 											<th scope="col">Profile</th>
 										</tr>
 									</thead>
-										<c:forEach items="${listPer }" var="listPer">
-											<tr>
-												<td>${listPer.getAccount() }</td>
-												<td>${listPer.getName() }</td>
-												<td class="text-right">${listPer.birthDate }</td>
-												<td>${listPer.getAddress() }</td>
-												<td>${listPer.getPhone() }</td>
-												<td>${listPer.getEmail() }</td>
-												<td class="text-center" style="color: green">${(listPer.status==true)? "Active" : "Deactive" }</td>
-												<td class="text-center"><a
-													href="<%=request.getContextPath()%>/profileStudent"><img
-														src="/ClassManagement/icon/alien.svg" width="40px"
-														height="40px"></a></td>
-											</tr>
-										</c:forEach>
+									<c:forEach items="${listPer }" var="listPer">
+										<tr>
+											<td>${listPer.getAccount() }</td>
+											<td>${listPer.getName() }</td>
+											<td class="text-right">${listPer.birthDate }</td>
+											<td>${listPer.getAddress() }</td>
+											<td>${listPer.getPhone() }</td>
+											<td>${listPer.getEmail() }</td>
+											<td class="text-center" style="color: green">${(listPer.status==true)? "Active" : "Inactive" }</td>
+											<td class="text-center"><a class="mr-sm-3 text-primary"
+												data-toggle="tooltip" title="Show Profile"
+												href="<%= request.getContextPath()%>/profileStudent?id=<c:out value='${listPer.personId}' />">
+													<i class="fas fa-id-card"></i>
+											</a> <a data-toggle="tooltip" title="Delete"
+												href="<%= request.getContextPath() %>/changeStatusStudent?id=<c:out value='${listPer.personId}' />"
+												class="text-success"> <i class="fas fa-window-close"></i> </a></td>
+										</tr>
+									</c:forEach>
 									</tbody>
 
 								</table>
