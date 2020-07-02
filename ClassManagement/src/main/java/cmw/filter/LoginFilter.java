@@ -44,14 +44,15 @@ public class LoginFilter implements Filter {
 		// Lấy về RequestURI
 		String requestURI = req.getRequestURI();
 
+		if (requestURI.endsWith(".js") || requestURI.endsWith(".css") || requestURI.endsWith(".png")
+				|| requestURI.endsWith(".jpg")) {
 
-		if(requestURI.endsWith(".js") || requestURI.endsWith(".css") ||
-				requestURI.endsWith(".png") ||
-				requestURI.endsWith(".jpg")) {
+			chain.doFilter(request, response);
+			return;
+		}
 
-			chain.doFilter(request, response); return; }
-
-		if (session.getAttribute("username") == null && !requestURI.endsWith("login.jsp") && !requestURI.endsWith("login")) {
+		if (session.getAttribute("username") == null && !requestURI.endsWith("login.jsp")
+				&& !requestURI.endsWith("login")) {
 			res.sendRedirect("login.jsp");
 		} else {
 			// pass the request along the filter chain
