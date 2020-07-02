@@ -98,11 +98,16 @@
 											<td>${listPer.getAddress() }</td>
 											<td>${listPer.getPhone() }</td>
 											<td>${listPer.getEmail() }</td>
-											<td class="text-center" style="color: green">${(listPer.status==true)? "Active" : "Deactive" }</td>
-											<td class="text-center"><a
-												href="<%=request.getContextPath()%>/profileStudent"><img
-													src="/ClassManagement/icon/alien.svg" width="40px"
-													height="40px"></a></td>
+											
+											<td class="text-center" style="color: green">${(listPer.status==true)? "Active" : "Inactive" }</td>
+											<td class="text-center"><a class="mr-sm-3 text-primary"
+												data-toggle="tooltip" title="Show Profile"
+												href="<%= request.getContextPath()%>/profileStudent?id=<c:out value='${listPer.personId}' />">
+													<i class="fas fa-id-card"></i>
+											</a> <a data-toggle="tooltip" title="Delete"
+												href="<%= request.getContextPath() %>/changeStatusStudent?id=<c:out value='${listPer.personId}' />"
+												class="text-success"> <i class="fas fa-window-close"></i>
+											</a></td>
 										</tr>
 									</c:forEach>
 									</tbody>
@@ -289,7 +294,7 @@
 							<form method="post"
 								action="<%=request.getContextPath()%>/addStudent">
 								<button type="submit" class="btn btn-info">Save changes</button>
-								
+
 								<table class="table table-striped table-bordered mt-3 shadow-sm">
 
 									<thead class="thead-dark">
@@ -348,11 +353,11 @@
 									%>
 									<c:forEach items="${listStringPoint }" var="stringPoint">
 										<tr class="text-center">
-											<td class="class="text-center""><%=j++%></td>
+											<td class="text-center"><%=j++%></td>
 											<td>${stringPoint.account }</td>
 											<td>${stringPoint.studentName }</td>
 											<td>${stringPoint.subjectName }</td>
-											<td class="class="text-center"">${stringPoint.point }</td>
+											<td class="text-center">${stringPoint.point }</td>
 
 										</tr>
 									</c:forEach>
