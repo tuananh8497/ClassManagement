@@ -13,12 +13,14 @@ At current stage, the project consists of:
 5. Data Access Object (DAO)
 6. CRUD for all table
 7. Connect SQL + Java with Front end
+8. Finished Log-in functio with Filter Login + Validation.
 
 Done but still need further touch:
 1. Show data (classes, mentors, students, profile of class/student/mentor)
 2. Create / Add / Update Entities
 
+
 Working on:
 1. Profile page
 2. Login with validation of account.
-3. Index page with improvement in data showcases
+3. Homepage, Contact, User-profile
