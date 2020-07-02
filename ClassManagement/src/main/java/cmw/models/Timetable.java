@@ -29,13 +29,7 @@ public class Timetable {
    * @param duration
    * @param priority
    */
-  public Timetable(Course course, Subject subject, int duration, int priority) {
-    super();
-    this.course = course;
-    this.subject = subject;
-    this.duration = duration;
-    this.priority = priority;
-  }
+
 
   /**
    * 
@@ -43,6 +37,21 @@ public class Timetable {
   public Timetable() {
     super();
   }
+
+  /**
+   * @param pk
+   * @param duration
+   * @param priority
+   */
+  public Timetable(PK_Timetable pk, int duration, int priority) {
+    super();
+    this.pk = pk;
+    this.duration = duration;
+    this.priority = priority;
+  }
+
+
+
 
   public Course getCourse() {
     return course;
@@ -60,6 +69,14 @@ public class Timetable {
     this.subject = subject;
   }
 
+  public PK_Timetable getPk() {
+    return pk;
+  }
+
+  public void setPk(PK_Timetable pk) {
+    this.pk = pk;
+  }
+
   public int getDuration() {
     return duration;
   }
@@ -75,7 +92,6 @@ public class Timetable {
   public void setPriority(int priority) {
     this.priority = priority;
   }
-
 
   @Override
   public String toString() {

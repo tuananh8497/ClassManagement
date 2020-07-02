@@ -129,6 +129,8 @@ public class profileClass extends HttpServlet {
       List<Person> listStudent = services.showStudents(listPer2);
       LocalDate returnEndDate = dp.addDaysSkippingWeekends(firstStartDate, sum);
       Class class1 = classDao.getClass(classId);
+      class1.setExpectedEndDate(returnEndDate); // save exepected EndDate
+      
       request.setAttribute("class1", class1);
       request.setAttribute("listPer", listPer1);
       request.setAttribute("listCourse", listCourse);
@@ -139,8 +141,8 @@ public class profileClass extends HttpServlet {
       request.setAttribute("endDateMap", endDateMap);
       request.setAttribute("returnEndDate", returnEndDate);
       request.setAttribute("sum", sum);
-
       
+      classDao.updateClass(class1);
       request.getRequestDispatcher("/class/profile.jsp").forward(request, response);
     } catch (Exception e) {
       e.printStackTrace();

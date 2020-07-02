@@ -36,7 +36,7 @@ public class TimetableDAOImpl implements TimetableDAO{
     Transaction transaction = null;
     try (Session session = HibernateUtils.getSessionFactory().openSession()) {
         transaction = session.beginTransaction();
-        session.update(timetable);
+        session.saveOrUpdate(timetable);
         transaction.commit();
     } catch (Exception e) {
         if (transaction != null) {

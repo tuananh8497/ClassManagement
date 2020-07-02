@@ -4,7 +4,7 @@
 <html>
 
 <head>
- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link rel="stylesheet"
@@ -31,7 +31,8 @@
 					<ul class="collapse list-unstyled border-bottom" id="class">
 						<li><a href="<%=request.getContextPath()%>/showClass">Show
 								classes</a></li>
-						<li><a href="<%=request.getContextPath()%>/addClass">Create Class</a></li>
+						<li><a href="<%=request.getContextPath()%>/addClass">Create
+								Class</a></li>
 					</ul></li>
 				<li><a href="#student" data-toggle="collapse"
 					aria-expanded="false" class="dropdown-toggle border-bottom">Students</a>
@@ -40,7 +41,13 @@
 								students</a></li>
 						<li><a href="<%=request.getContextPath()%>/createStudent">Create
 								student</a></li>
-						
+					</ul></li>
+				<li><a href="#tkb" data-toggle="collapse"
+					aria-expanded="false" class="dropdown-toggle border-bottom">Timetable</a>
+					<ul class="collapse list-unstyled border-bottom" id="tkb">
+						<li><a href="<%=request.getContextPath()%>/showTimetable">Show Timetable</a></li>
+						<li><a href="<%=request.getContextPath()%>/createTimetable">Create Timetable</a></li>
+						<li><a href="<%=request.getContextPath()%>/createCourseSubject">Create Course/Timetable</a></li>
 					</ul></li>
 				<li><a href="#mentor" data-toggle="collapse"
 					aria-expanded="false" class="dropdown-toggle border-bottom">Mentors</a>
