@@ -98,7 +98,7 @@
 											<td>${listPer.getAddress() }</td>
 											<td>${listPer.getPhone() }</td>
 											<td>${listPer.getEmail() }</td>
-											
+
 											<td class="text-center" style="color: green">${(listPer.status==true)? "Active" : "Inactive" }</td>
 											<td class="text-center"><a class="mr-sm-3 text-primary"
 												data-toggle="tooltip" title="Show Profile"
@@ -311,8 +311,8 @@
 									</thead>
 									<tbody>
 										<%
-										  int i = 1;
-										/* List<Person> listStudent = new ArrayList(); */
+											int i = 1;
+											/* List<Person> listStudent = new ArrayList(); */
 										%>
 										<c:forEach items="${listStudent }" var="student">
 											<input type="hidden" name="classCode"
@@ -340,24 +340,29 @@
 							<table class="table table-striped table-bordered mt-3 shadow-sm">
 								<thead class="thead-dark" class="text-center">
 									<tr class="text-center">
-										<th scope="col">#</th>
-										<th scope="col">Account</th>
-										<th scope="col">Name</th>
-										<th scope="col">Subject</th>
-										<th scope="col">Mark</th>
+										<th scope="col" rowspan="2" class="align-middle">#</th>
+										<th scope="col" rowspan="2" class="align-middle">Account</th>
+										<th scope="col" rowspan="2" class="align-middle">Name</th>
+										<th scope="col" colspan="${lengthOfListSubjectName }">Subject</th>
+									</tr>
+									<tr class="text-center">
+										<c:forEach items="${listSubjectName }" var="subjectName">
+											<th scope="col">${subjectName }</th>
+										</c:forEach>
 									</tr>
 								</thead>
 								<tbody>
 									<%
-									  int j = 1;
+										int j = 1;
 									%>
-									<c:forEach items="${listStringPoint }" var="stringPoint">
+									<c:forEach items="${listStringPoint2 }" var="stringPoint2">
 										<tr class="text-center">
 											<td class="text-center"><%=j++%></td>
-											<td>${stringPoint.account }</td>
-											<td>${stringPoint.studentName }</td>
-											<td>${stringPoint.subjectName }</td>
-											<td class="text-center">${stringPoint.point }</td>
+											<td>${stringPoint2.account }</td>
+											<td>${stringPoint2.name }</td>
+											<c:forEach items="${stringPoint2.listPoint }" var="mark">
+												<td>${mark }</td>
+											</c:forEach>
 
 										</tr>
 									</c:forEach>

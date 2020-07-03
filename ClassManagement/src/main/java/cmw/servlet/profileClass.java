@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -29,6 +30,7 @@ import cmw.models.Course;
 import cmw.models.Person;
 import cmw.models.Point;
 import cmw.models.StringPoint;
+import cmw.models.StringPoint2;
 import cmw.models.Subject;
 import cmw.models.Timetable;
 import cmw.services.DateProcess;
@@ -148,51 +150,70 @@ public class profileClass extends HttpServlet {
 			/**
 			 * Từ đây xuống cuối là xử lý vụ bảng điểm (transcript)
 			 */
-			// Lấy tất cả các point
+			// Khai báo tất tật các thứ cần dùng
 			PointDAO pointDAO = new PointDAOImpl();
+			PointServices pointServices = new PointServices();
+
+			// Lấy tất cả các point
 			List<Point> listPoint = pointDAO.getAllPoint();
 
 			// Lọc ra các point của class hiện tại
-			List<Point> listPointClass = new ArrayList<>();
+			List<Point> listPointOfClass = new ArrayList<>();
 			for (Point point : listPoint) {
 				if (point.getClassId() == classId) {
-					listPointClass.add(point);
-					
+					listPointOfClass.add(point);
+
 				}
 			}
 
-			// Sắp xếp các point theo thứ tự các person
-			PointServices pointServices = new PointServices();
-			pointServices.sortByStudentId(listPointClass);
+			// Lấy list subject name của class hiện tại
+			// Để hiển thị các cột subject cụ thể trong bảng điểm
+			List<String> listSubjectName = pointServices.getSubjectListByClassId(classId);
+			request.setAttribute("listSubjectName", listSubjectName);
 
-			// Lấy list student
-			List<Person> listStudent1 = personDAO.getAllPerson();
-
-			// Lấy listSubject
-			List<Subject> listSubject1 = subjectDAO.getAllSubject();
-
-			// Tạo list Stringpoint để hiển thị sang bảng
-			List<StringPoint> listStringPoint = new ArrayList<>();
-			for (Point point : listPointClass) {
-				// Tạo đối tượng StringPoint mới
-				StringPoint stringPoint = new StringPoint();
-				for (Person person : listStudent1) {
-					if (person.getPersonId() == point.getPerson().getPersonId()) {
-						stringPoint.setStudentName(person.getName());
-						stringPoint.setAccount(person.getAccount());
-						break;
-					}
+			// Lấy danh sách studentId trong lớp này
+			List<Integer> listStudentIdOfClass = new ArrayList<>();
+			for (Point point : listPointOfClass) {
+				if(!listStudentIdOfClass.contains(point.getPerson().getPersonId())) {
+					listStudentIdOfClass.add(point.getPerson().getPersonId());
 				}
-				for (Subject subject : listSubject1) {
-					if (subject.getSubjectId() == point.getSubjectId()) {
-						stringPoint.setSubjectName(subject.getSubjectName());
-						break;
-					}
-				}
-				stringPoint.setPoint(point.getPoint());
-				listStringPoint.add(stringPoint);
 			}
-			request.setAttribute("listStringPoint", listStringPoint);
+			
+
+			List<Integer> listSubjectIdOfThisClass = pointServices.getSubjectListIdByClassId(classId);
+			List<StringPoint2> listStringPoint2 = new ArrayList<>();
+			// Lấy điểm của từng student
+			for (int i = 0; i < listStudentIdOfClass.size(); i++) {
+				StringPoint2 stringPoint2 = new StringPoint2();
+
+				// Lấy account và name dạng string
+				Person person = personDAO.getPerson(listStudentIdOfClass.get(i));
+				stringPoint2.setAccount(person.getAccount());
+				stringPoint2.setName(person.getName());
+
+				// Lọc ra listPoint của student hiện tại
+				List<Point> listPointOfThisStudent = new ArrayList<>();
+				for (Point point : listPoint) {
+					if (listStudentIdOfClass.get(i) == point.getPerson().getPersonId()) {
+						listPointOfThisStudent.add(point);
+					}
+				}
+				
+				List<Integer> listMark = new ArrayList<>();
+				for(int subjectId : listSubjectIdOfThisClass) {
+					for(Point point : listPointOfThisStudent) {
+						if(point.getSubjectId() == subjectId) {
+							listMark.add(point.getPoint());
+							break;
+						}
+					}
+				}
+				stringPoint2.setListPoint(listMark);
+				listStringPoint2.add(stringPoint2);
+			}
+			request.setAttribute("listStringPoint2", listStringPoint2);
+
+			request.setAttribute("lengthOfListSubjectName", listSubjectName.size());
 
 			request.getRequestDispatcher("/class/profile.jsp").forward(request, response);
 		} catch (Exception e) {

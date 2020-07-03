@@ -4,6 +4,9 @@
  *	2 thg 7, 2020
  */
 
+/**
+ * Lớp này được tạo ra chỉ với mục đích hiển thị bảng điểm
+ */
 package cmw.models;
 
 public class StringPoint {

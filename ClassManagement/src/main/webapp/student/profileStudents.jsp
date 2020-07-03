@@ -160,7 +160,7 @@
 												<td class="text-right"><%=i++%></td>
 												<td>${stringPoint.classCode }</td>
 												<td>${stringPoint.subjectName }</td>
-												<td class="text-center">${stringPoint.point }</td>
+												<td class="text-center" contenteditable>${stringPoint.point }</td>
 												
 											</tr>
 										</c:forEach>
