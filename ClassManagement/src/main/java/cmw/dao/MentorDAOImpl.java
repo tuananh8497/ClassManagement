@@ -16,7 +16,7 @@ public class MentorDAOImpl implements MentorDAO{
     Transaction transaction = null;
     try (Session session = HibernateUtils.getSessionFactory().openSession()) {
         transaction = session.beginTransaction();
-        session.save(mentor);
+        session.saveOrUpdate(mentor);
         transaction.commit();
     } catch (Exception e) {
         if (transaction != null) {

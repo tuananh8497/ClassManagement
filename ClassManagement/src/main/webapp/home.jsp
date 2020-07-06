@@ -35,7 +35,7 @@
 			<!-- ------------------------------------TESTING--------------------------------------- -->
 			<div class="box" style="width: 864px;">
 				<div class="all-tasks">
-					<h2 class="task-list-title">My lists</h2>
+					<h2 class="task-list-title">TODO LIST</h2>
 					<ul class="task-list" data-lists></ul>
 
 					<form action="" data-new-list-form>

@@ -83,14 +83,15 @@ public class profileClass extends HttpServlet {
 
 			// get students from specific CLASS ID
 			for (Person person : persons) {
+			  if(person.getClazz() != null) {
 				if (classId == person.getClazz().getClassId() && person.getPosition().getPositionId() == 1) {
 					listPer1.add(person);
 				}
+			  }
 			}
-
 			// get all students
 			for (Person student : persons) {
-				if (student.getPosition().getPositionId() == 1) {
+				if (student.getPosition().getPositionId() == 1 && student.getClazz() == null ) {
 					listPer2.add(student);
 				}
 			}
