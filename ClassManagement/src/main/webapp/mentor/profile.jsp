@@ -38,7 +38,7 @@
                         <h6>${mentor.name }</h6>
                         <div class="pt-2">
                             <a href="https://www.facebook.com/"><img src="/ClassManagement/icon/facebook.svg" class="mx-1" width="25em" height="25em"></a>
-                            <a href="https://www.instagram.com/"><img src="/ClassManagement/icon/instagram-sketched.svg" class="mx-1" width="25em" height="25em"></a>
+                            <a href="https://www.instagram.com/"><img src="/ClassManagement/icon/instagram.svg" class="mx-1" width="25em" height="25em"></a>
                             <a href="https://www.pinterest.com/"><img src="/ClassManagement/icon/pinterest.svg" class="mx-1" width="25em" height="25em"></a>
                         </div>
                     </div>
