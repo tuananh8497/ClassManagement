@@ -13,10 +13,8 @@
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="/ClassManagement/css/style.css">
-<link rel="stylesheet" href="css/main.css" />
-<link
-	href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,700,900&display=swap"
-	rel="stylesheet" />
+<link rel="stylesheet" href="/ClassManagement/css/main.css" />
+
 <script defer
 	src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"></script>
 <script defer
@@ -24,22 +22,18 @@
 </head>
 
 <body>
-	<jsp:include page="header.jsp"></jsp:include>
-	<div class="wrapper">
-		<jsp:include page="Sidebar.jsp"></jsp:include>
+	<div>
+		<jsp:include page="header.jsp"></jsp:include>
+
+		<div class="wrapper">
+
+			<jsp:include page="Sidebar.jsp"></jsp:include>
+		</div>
 		<!-- Page Content  -->
-		<div id="content">
-			<div class="line"></div>
-			<div class="box">
-				<h2>Economic Calendar (TEST)</h2>
-				<iframe
-					src="https://sslecal2.forexprostools.com?columns=exc_flags,exc_currency,exc_importance,exc_actual,exc_forecast,exc_previous&features=datepicker,timezone&countries=25,34,32,6,37,72,71,22,17,51,39,14,33,10,35,43,60,38,36,110,11,26,9,12,4,5&calType=week&timeZone=31&lang=70"
-					width="800" height="800" frameborder="0" allowtransparency="true"
-					marginwidth="0" marginheight="0"></iframe>
-			</div>
+		<div id="content" style="padding-left: 380px;">
+
 			<!-- ------------------------------------TESTING--------------------------------------- -->
-			<div class="line"></div>
-			<div class="box">
+			<div class="box" style="width: 864px;">
 				<div class="all-tasks">
 					<h2 class="task-list-title">My lists</h2>
 					<ul class="task-list" data-lists></ul>
@@ -77,41 +71,17 @@
 					</div>
 				</div>
 			</div>
-			<div class="box">
-				<div id="line"></div>
-				<template id="task-template">
-					<div class="task">
-						<input type="checkbox" /> <label> <span
-							class="custom-checkbox"></span>
-						</label>
-					</div>
-				</template>
-			</div>
-		</div>
-		<!-- ------------------------------------TESTING--------------------------------------- -->
 
-		<div class="box">
-			<h2>Lorem Ipsum Dolor</h2>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-				do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-				enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-				ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-				reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-				pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-				culpa qui officia deserunt mollit anim id est laborum.</p>
+			<div id="line"></div>
+			<template id="task-template">
+			<div class="task">
+				<input type="checkbox" /> <label> <span
+					class="custom-checkbox"></span>
+				</label>
+			</div>
+			</template>
+
 		</div>
-		<div class="line"></div>
-		<div class="box">
-			<h2>Lorem Ipsum Dolor</h2>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-				do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-				enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-				ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-				reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-				pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-				culpa qui officia deserunt mollit anim id est laborum.</p>
-		</div>
-		<p class="mt-5 mb-3 text-muted text-center">&copy; 14.06.2020</p>
 	</div>
 	<script defer src="/ClassManagement/js/script.js"></script>
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
