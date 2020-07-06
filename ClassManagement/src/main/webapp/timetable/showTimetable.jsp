@@ -39,8 +39,8 @@
 					culpa qui officia deserunt mollit anim id est laborum.</p>
 			</div>
 			<div class="tbl">
-				<table class="table table-striped shadow-sm text-center">
-					<thead>
+				<table class="table table-striped table-bordered mt-3 shadow-sm">
+					<thead class="thead-dark" class="text-center">
 						<tr>
 							<!-- <th scope="col">Course</th>
 											<th scope="col">Course Duration</th> -->
@@ -53,11 +53,9 @@
 					<c:forEach items="${listTimetable }" var="timetable">
 						<tbody>
 							<tr>
-								<td>${timetable.getCourse().getCourseId() } -
-									${timetable.getCourse().getCourseName() }</td>
+								<td>${timetable.getCourse().getCourseName() }</td>
 								<%-- <td>${tkb.getCourse().getDuration() }</td> --%>
-								<td>${timetable.getSubject().getSubjectId()} - 
-									${timetable.getSubject().getSubjectName() }</td>
+								<td>${timetable.getSubject().getSubjectName() }</td>
 								<td>${timetable.getPriority() }</td>
 								<td>${timetable.getDuration() }</td>
 								<%-- <td>${startDateMap.get(Long.valueOf(loop.index))}</td>
